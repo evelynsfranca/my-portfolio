@@ -1,0 +1,98 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    border-radius: 1rem;
+    padding: 2rem;
+
+    height: 45%;
+    width: 45%;
+}
+
+.card:hover {
+    cursor: default;
+}
+
+.card:hover .cardIcon {
+    color: var(--primary-color);
+}
+
+.cardHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.cardIcon {
+    font-size: 1.5rem;
+    padding-bottom: .5rem;
+}
+
+.cardTitle {
+    font-size: 1.25rem;
+    padding-bottom: .5rem;
+}
+
+.cardDescription {
+    font-size: .875rem;
+    color: #8b8b8b;
+    font-weight: 300;
+}
+
+
+@media screen and (max-width: 900px) {
+    .card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 100%;
+        width: 100%;
+
+        position: absolute;
+        transition: left 1s;
+    }
+    
+    .cardHeader {
+        align-items: center;
+        width: 100%;
+    }
+
+    .cardIcon {
+        font-size: 2.5rem;
+    }
+    
+    .cardTitle {
+        font-size: 1.75rem;
+        padding: 1.5rem 0;
+    }
+
+    .cardDescription {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+    
+}
+
+@media screen and (max-width: 500px) {
+
+    .cardIcon {
+        font-size: 2rem;
+    }
+    
+    .cardTitle {
+        font-size: 1.5rem;
+        padding: 2rem 0;
+    }
+
+    .cardDescription {
+        text-align: center;
+        font-size: 1rem;
+    }
+    
+}
