@@ -1,6 +1,180 @@
 .section {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    min-height: 97vh;
+
+    height: 93vh;
+    width: 100%;
+}
+
+.section > div {
+    display: flex;
+    
+    overflow-x: hidden;
+    position: relative;
+    
+    height: 100%;
+    width: 100%;
+}
+
+.slideButton {
+    background: none;
+    border: 0;
+    font-size: 2rem;
+    outline: 0;
+    padding: 2rem;
+    z-index: 2;
+}
+
+.slideButton:hover {
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.banner {
+    text-align: center;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.bannerContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    width: 100vw;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute; 
+    transition: left 1s;
+    
+}
+
+.bannerContent:hover {
+    cursor: pointer;
+}
+
+.bannerContent::before {
+    content: "";
+    display: flex;
+    background-color: var(--background-secondary-color);
+    opacity: 0.75;
+    position: absolute;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.bannerContentActive {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    width: 100%;
+}
+
+.title {
+    font-size: 3rem;
+    z-index: 1;
+}
+
+.subTitle {
+    font-size: 2rem;
+    font-weight: 300;
+    z-index: 1;
+}
+
+.bannerButtons {
+    font-size: .75rem;
+    display: flex;
+    justify-content: space-between;
+
+
+    position: absolute;
+    bottom: 1rem;
+    left: calc(50% - 2%);
+
+    width: 4%;
+}
+
+.bannerButton {
+    background: 0;
+    border: 0;
+    border-radius: 100%;
+    font-size: .75rem;
+    outline: 0;
+}
+
+.bannerButton:hover {
+    cursor: pointer;
+}
+
+.bannerButtonActive {
+    color: var(--primary-color);
+}
+
+
+@media screen and (max-width: 1350px) {
+    .bannerButtons {
+        left: calc(50% - 2.5%);
+        width: 5%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .subTitle {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .bannerButtons {
+        left: calc(50% - 3.75%);
+        width: 7.5%;
+    }
+
+    .slideButton {
+        font-size: 1.75rem;
+    }
+
+    .title {
+        font-size: 2.25rem;
+    }
+    
+    .subTitle {
+        font-size: 1.45rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    
+    .bannerButtons {
+        left: calc(50% - 5%);
+        width: 10%;
+    }
+
+    .slideButton {
+        font-size: 1.5rem;
+    }
+
+    .title {
+        font-size: 2.25rem;
+        padding: 3rem 7rem;
+    }
+    
+    .subTitle {
+        font-size: 1.5rem;
+        padding: 2rem 7rem;
+    }
 }
