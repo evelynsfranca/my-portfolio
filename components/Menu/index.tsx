@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 export interface MenuProps {
   link: string;
@@ -31,9 +32,9 @@ export default function Menu() {
   return (
     <nav className={styles.nav}>
       <div className={styles.logo}>
-        <a className={styles.link} href="/">
+        <Link className={styles.link} href="/">
           Evelyn França
-        </a>
+        </Link>
       </div>
       <div 
         className={styles.menuButton + " " + setMenuStyle()} 
@@ -45,12 +46,12 @@ export default function Menu() {
       <ul className={styles.list + " " + setMenuStyle()}>
         {menuList.map((it, index) => (
           <li key={index} className={styles.listItem}>
-            <a
+            <Link
               className={styles.link + " " + setActiveStyle(it.link)}
               href={it.link}
             >
               {it.title}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
