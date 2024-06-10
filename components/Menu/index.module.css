@@ -1,0 +1,141 @@
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: var(--background-secondary-color);
+
+    height: 7vh;
+    padding: 0 2rem;
+
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.logo:hover {
+    background-color: var(--background-hover-color);
+    cursor: pointer;
+}
+
+.menuButton {
+    display: none;
+}
+
+.list {
+    display: flex;
+
+    list-style: none;
+
+    height: 100%;
+    width: 30%;
+}
+
+.listItem {
+    height: 100%;
+    width: 20%;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 0.875rem;
+    letter-spacing: 1px;
+
+    height: 100%;
+    width: 100%;
+}
+
+.link:hover {
+    background-color: var(--background-hover-color);
+    cursor: pointer;
+}
+
+.active {
+    background-color: var(--background-hover-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+@media screen and (max-width: 1350px) {
+    .list {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .list {
+        width: 55%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .nav {
+        padding: 0 1rem;
+    }
+
+    .list {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .list {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .menuButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 1.5rem;
+
+        height: 100%;
+        width: 10%;
+    }
+
+    .menuButton > svg {
+        height: 1.5rem;
+    }
+
+    .menuOpen {
+        display: flex;
+    }
+
+    .list {
+        display: none;
+    }
+
+    .list.menuOpen {
+        display: flex;
+        flex-direction: column;
+
+        background-color: var(--background-secondary-color);
+
+        height: calc(100vh - 10vh);
+        width: 100vw;
+
+        position: absolute;
+        top: 7vh;
+        left: 0;
+    }
+
+    .listItem {
+        height: 10%;
+        width: 100%;
+    }
+
+    .link {
+        font-size: 1.25rem;
+    }
+}
