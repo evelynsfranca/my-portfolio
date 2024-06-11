@@ -53,7 +53,7 @@
 }
 
 .section > .article > .content {
-    padding: 2rem 0;
+    margin: 2rem 0;
 
     font-size: 1rem;
     color: #8b8b8b;
@@ -83,6 +83,21 @@
 }
 
 
+@media screen and (max-width: 1200px) {
+
+    .section {
+        padding: 0 5rem;
+    }
+
+    .section > .article:first-child {    
+        width: 50%;
+    }
+
+    .section > .article > .content {   
+        margin: 1rem 0;
+    }
+}
+
 @media screen and (max-width: 1100px) {
 
     .section > .article > .content {    
@@ -95,13 +110,21 @@
 
     .section {    
         flex-direction: column;
-        height: 100vh;
-        padding: 5rem;
+        padding: 10rem;
+        height: auto;
     }
 
-    .section > .article {
-        height: 45%;
+    .section > .article,
+    .section > .article:first-child {
         width: 100%;
+    }
+
+    .section > .article > .header {
+        margin: 2rem 0;
+    }
+
+    .section > .article > .content {
+        margin: 0 0 2rem 0; /* Only Margin bottom */
     }
 
     .section > .article > .header,
@@ -113,24 +136,16 @@
 
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 800px) {
 
     .section {    
-        justify-content: space-between;
-        height: max-content;
-        width: 100%;
-        padding: 15vh 5vw;
+        padding: 10rem 5rem;
     }
+}
 
-    .section > .article {
-        width: 100%;
-    }
-    .section > .article:last-child {
-        padding-top: 5vh;
-    }
+@media screen and (max-width: 500px) {
 
-    .section > .article > .content {
-        padding: 2rem 0;
+    .section {    
+        padding: 10rem 3rem;
     }
-
 }

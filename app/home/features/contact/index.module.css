@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
 
-    background-color: #101010;
+    background-color: var(--background-hover-color);
     padding: 7vh 3vw;
 
     height: 90vh;

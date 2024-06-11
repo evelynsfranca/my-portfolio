@@ -1,16 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faChevronLeft,
-  faChevronRight,
-  faCircle,
+    faChevronLeft,
+    faChevronRight,
+    faCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
 export interface SlideProps {
-  title: string;
-  subtitle: string;
-  backgroundImage: string;
+    title: string;
+    subtitle: string;
+    backgroundImage: string;
 }
 
 export default function BannerSection() {
@@ -61,57 +61,63 @@ export default function BannerSection() {
         return styles.bannerButton + " " + active;
     }
 
-  return (
-    <section
-      className={styles.section}      
-    >
-      <div >
-        <button
-          className={styles.slideButton}
-          type="button"
-          onClick={() => handleSlide(slideIndex - 1)}
-        >
-          <FontAwesomeIcon icon={faChevronLeft} />
-        </button>
+    useEffect(() => {
 
-        <div className={styles.banner}>
-            {slides.map((it, i) => (
-                <div
-                    key={it.title}
-                    className={handleBannerContentStyle(i)}
-                    style={{
-                        left: handleLeft(i),
-                        backgroundImage: `url(${it.backgroundImage})`
-                    }}
-                >
-                    <h1 className={styles.title}>{it.title}</h1>
-                    <h2 className={styles.subTitle}>{it.subtitle}</h2>
-                </div>
-            ))}
-        </div>
+        setTimeout(() => {
+            handleSlide(slideIndex + 1)
+        }, 5000)
 
-        <div className={styles.bannerButtons}>
-            {slides.map((it, i) => (
+    }, [handleSlide, slideIndex])
+
+    return (
+        <section className={styles.section}>            
+            <div>
+
                 <button
-                    key={it.title}
-                    className={handleBannerButtonsStyle(i)}
-                    onClick={() => handleSlide(i)}
+                    className={styles.slideButton}
+                    type="button"
+                    onClick={() => handleSlide(slideIndex - 1)}
                 >
-                    <FontAwesomeIcon icon={faCircle} />
+                    <FontAwesomeIcon icon={faChevronLeft} />
                 </button>
-            ))}
-        </div>
 
-        <button
-            className={styles.slideButton}
-            type="button"
-            onClick={() => handleSlide(slideIndex + 1)}
-        >
-            <FontAwesomeIcon icon={faChevronRight} />
-        </button>
+                <div className={styles.banner}>
+                    {slides.map((it, i) => (
+                        <div
+                            key={it.title}
+                            className={handleBannerContentStyle(i)}
+                            style={{
+                                left: handleLeft(i),
+                                backgroundImage: `url(${it.backgroundImage})`
+                            }}
+                        >
+                            <h1 className={styles.title}>{it.title}</h1>
+                            <h2 className={styles.subTitle}>{it.subtitle}</h2>
+                        </div>
+                    ))}
+                </div>
 
-      </div>
+                <div className={styles.bannerButtons}>
+                    {slides.map((it, i) => (
+                        <button
+                            key={it.title}
+                            className={handleBannerButtonsStyle(i)}
+                            onClick={() => handleSlide(i)}
+                        >
+                            <FontAwesomeIcon icon={faCircle} />
+                        </button>
+                    ))}
+                </div>
 
-    </section>
-  );
+                <button
+                    className={styles.slideButton}
+                    type="button"
+                    onClick={() => handleSlide(slideIndex + 1)}
+                >
+                    <FontAwesomeIcon icon={faChevronRight} />
+                </button>
+
+            </div>
+        </section>
+    );
 }

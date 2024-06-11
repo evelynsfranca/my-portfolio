@@ -28,6 +28,7 @@ export default function Menu() {
 
   const setActiveStyle = (link: string): string => `${link === currentPage ? styles.active : ""}`;
   const setMenuStyle = (): string => `${menu ? styles.menuOpen : ""}`;
+  const setMenuButtonStyle = (): string => `${styles.menuButton + " " + setMenuStyle()}`;
   
   return (
     <nav className={styles.nav}>
@@ -36,16 +37,16 @@ export default function Menu() {
           Evelyn França
         </Link>
       </div>
-      <div 
-        className={styles.menuButton + " " + setMenuStyle()} 
+      <button 
+        className={setMenuButtonStyle()} 
         onClick={() => setMenu(!menu)}
       >
         <FontAwesomeIcon icon={!menu ? faBars : faXmark} />
-      </div>
+      </button>
 
       <ul className={styles.list + " " + setMenuStyle()}>
-        {menuList.map((it, index) => (
-          <li key={index} className={styles.listItem}>
+        {menuList.map((it) => (
+          <li key={it.title} className={styles.listItem}>
             <Link
               className={styles.link + " " + setActiveStyle(it.link)}
               href={it.link}

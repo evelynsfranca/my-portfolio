@@ -28,6 +28,9 @@
 
 .menuButton {
     display: none;
+    background: none;
+    border: 0;
+    outline: 0;
 }
 
 .list {
