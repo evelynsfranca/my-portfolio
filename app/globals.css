@@ -3,6 +3,8 @@
 :root {
   --font-default: "Poppins", sans-serif;
   --primary-color: #f845f2;
+  --secondary-color: #c600c0;
+  --secondary-color-hover: #90008b;
   --background-primary-color: #151515;
   --background-secondary-color: #000;
 }
