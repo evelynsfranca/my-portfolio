@@ -4,10 +4,13 @@
     justify-content: center;
 
     background-color: var(--background-secondary-color);
+    user-select: none;
 
     min-height: 6vh;
     padding: 0 2rem;
+
     width: 100%;
+
     position: relative;
 }
 
