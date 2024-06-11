@@ -18,23 +18,24 @@ export default function BannerSection() {
     const slides: SlideProps[] = [
         {
             title: "Desenvolvimento de Software 1",
-            subtitle: "Websites responsivos",
+            subtitle: "Desenvolvimento de websites e aplicativos",
             backgroundImage: "01-city.jpg",
         },
         {
             title: "Desenvolvimento de Software 2",
-            subtitle: "Websites responsivos",
+            subtitle: "Desenvolvimento de websites e aplicativos",
             backgroundImage: "02-office.jpg",
         },
         {
             title: "Desenvolvimento de Software 3",
-            subtitle: "Websites responsivos",
+            subtitle: "Desenvolvimento de websites e aplicativos",
             backgroundImage: "03-computer.jpg",
         }
     ];
 
     const [slideIndex, setSlideIndex] = useState<number>(0);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const handleSlide = (index: number) => {
         if (index < 0) {
             setSlideIndex(slides.length - 1);
@@ -62,12 +63,10 @@ export default function BannerSection() {
     }
 
     useEffect(() => {
-
-        setTimeout(() => {
-            handleSlide(slideIndex + 1)
-        }, 5000)
-
-    }, [handleSlide, slideIndex])
+        const timeoutId = setTimeout(() => handleSlide(slideIndex + 1), 7000);    
+        return () => clearTimeout(timeoutId);
+      }, [handleSlide, slideIndex]); // Empty dependency array ensures the effect runs only once
+    
 
     return (
         <section className={styles.section}>            
