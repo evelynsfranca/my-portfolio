@@ -14,7 +14,7 @@ export interface MenuProps {
 }
 
 export default function Menu() {
-  
+
   const currentPage = usePathname();
   const [menu, setMenu] = useState<boolean>(false);
 
@@ -29,7 +29,7 @@ export default function Menu() {
   const setActiveStyle = (link: string): string => `${link === currentPage ? styles.active : ""}`;
   const setMenuStyle = (): string => `${menu ? styles.menuOpen : ""}`;
   const setMenuButtonStyle = (): string => `${styles.menuButton + " " + setMenuStyle()}`;
-  
+
   return (
     <nav className={styles.nav}>
       <div className={styles.logo}>
@@ -37,8 +37,8 @@ export default function Menu() {
           Evelyn França
         </Link>
       </div>
-      <button 
-        className={setMenuButtonStyle()} 
+      <button
+        className={setMenuButtonStyle()}
         onClick={() => setMenu(!menu)}
       >
         <FontAwesomeIcon icon={!menu ? faBars : faXmark} />
