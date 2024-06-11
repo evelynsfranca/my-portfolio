@@ -33,6 +33,10 @@ body {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
   color: rgb(var(--foreground-rgb));
   background: var(--background-primary-color);
   height: 100vh;

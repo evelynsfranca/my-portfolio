@@ -28,7 +28,7 @@
 }
 
 .section > .article:first-child {
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-around;
 }
 
@@ -45,7 +45,7 @@
 .section > .article > .header {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
 
     font-size: 1.25rem;
 

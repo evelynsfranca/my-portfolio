@@ -9,7 +9,7 @@ import ContactSection from "./features/contact";
 export default function Home() {
   
   return (
-    <main className={styles.main}>
+    <main id="home" className={styles.main}>
       <BannerSection />
       <ServicesSection />
       <ProjectsSection />
