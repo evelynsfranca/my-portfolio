@@ -178,3 +178,20 @@
         padding: 2rem 7rem;
     }
 }
+
+@media screen and (max-width: 500px) {
+    
+    .bannerButtons {
+        left: calc(50% - 17.5%);
+        width: 35%;
+    }
+
+    .bannerButton {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+    
+    .slideButton {
+        font-size: 2.25rem;
+    }
+}

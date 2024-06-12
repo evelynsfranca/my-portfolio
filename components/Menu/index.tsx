@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import { usePathname } from "next/navigation";
 
@@ -29,6 +29,8 @@ export default function Menu() {
   const setActiveStyle = (link: string): string => `${link === currentPage ? styles.active : ""}`;
   const setMenuStyle = (): string => `${menu ? styles.menuOpen : ""}`;
   const setMenuButtonStyle = (): string => `${styles.menuButton + " " + setMenuStyle()}`;
+
+  useEffect(() => setMenu(false), [currentPage])
 
   return (
     <nav className={styles.nav}>
