@@ -1,0 +1,98 @@
+.table {
+  border-radius: 1rem;
+  width: 47%;
+}
+
+.table:first-child {
+  border: 2px solid cyan;
+}
+
+.table:last-child {
+  border: 2px solid var(--primary-color);
+}
+
+.table:first-child > .tableHead > tr > td > span {
+  border-bottom: 2px solid cyan;
+}
+
+.table:last-child > .tableHead > tr > td > span {
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.tableHead {
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.tableHead > tr > td {
+  font-size: 1.25rem;
+  padding: 1rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+.tableHead > tr > td > span {
+  padding: 0.5rem 1rem;
+}
+
+.tableBody {
+  padding: 1rem;
+}
+
+.tableBody > tr > td {
+  font-size: 1rem;
+}
+
+.tableBody > tr > td:first-child {
+  min-width: 225px;
+  text-wrap: nowrap;
+  padding: 0.5rem 2rem;
+  padding-right: 0;
+}
+
+.tableBody > tr > td:last-child {
+  width: 100%;
+  padding: 0.5rem 1rem;
+}
+
+.bar {
+  content: "";
+  display: flex;
+  height: 100%;
+  background: linear-gradient(100deg, cyan, var(--primary-color));
+  border-radius: 1rem;
+  color: var();
+  justify-content: center;
+  font-weight: 700;
+}
+
+
+@media screen and (max-width: 1200px) {
+
+  .table {
+    margin-bottom: 5rem;
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+
+  .table {
+    margin-bottom: 5rem;
+    width: 100%;
+  }
+
+  .tableBody > tr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tableBody > tr > td {
+    font-size: .875rem;
+  }
+
+  .tableBody > tr > td:first-child,
+  .tableBody > tr > td:last-child {
+    padding: .5rem;
+  }
+}
