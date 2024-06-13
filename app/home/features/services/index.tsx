@@ -3,15 +3,12 @@ import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import ServiceCard from "./components";
 import styles from "./index.module.css";
 import {
-    faChartSimple,
     faChevronLeft,
-    faChevronRight,
-    faComputer,
-    faDesktop,
-    faTerminal,
+    faChevronRight
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import { services } from "@/mocks/home/services";
 
 export interface ServiceProps {
     title: string;
@@ -20,32 +17,6 @@ export interface ServiceProps {
 }
 
 export default function ServicesSection() {
-    const services: ServiceProps[] = [
-        {
-            title: "Service 1",
-            description:
-                "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi aut nisi velit rem asperiores est labore laboriosam cupiditate? Quam repudiandae quibusdam dicta magni odio consequatur error beatae dolores non similique.",
-            icon: faComputer,
-        },
-        {
-            title: "Service 2",
-            description:
-                "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi aut nisi velit rem asperiores est labore laboriosam cupiditate? Quam repudiandae quibusdam dicta magni odio consequatur error beatae dolores non similique.",
-            icon: faDesktop,
-        },
-        {
-            title: "Service 3",
-            description:
-                "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi aut nisi velit rem asperiores est labore laboriosam cupiditate? Quam repudiandae quibusdam dicta magni odio consequatur error beatae dolores non similique.",
-            icon: faTerminal,
-        },
-        {
-            title: "Service 4",
-            description:
-                "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi aut nisi velit rem asperiores est labore laboriosam cupiditate? Quam repudiandae quibusdam dicta magni odio consequatur error beatae dolores non similique.",
-            icon: faChartSimple,
-        },
-    ];
 
     const [slideIndex, setSlideIndex] = useState<number>(0);
 

@@ -1,16 +1,11 @@
 "use client";
 
-import { faEnvelope, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import styles from "./index.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGithub,
-  faInstagram,
-  faLinkedin,
-  faWhatsapp,
-} from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { contacts } from "@/mocks/contacts";
 
 export default function Footer() {
   const currentPage = usePathname();
@@ -27,41 +22,16 @@ export default function Footer() {
         && currentPage != "/contact"
         && (
           <article className={styles.socialMedia}>
-            <Link
-              href="https://www.instagram.com/edsf_per"
-              target="_blank"
-              className={styles.socialMediaLink}
-            >
-              <FontAwesomeIcon icon={faInstagram} />
-            </Link>
-            <Link
-              href="https://www.linkedin.com/in/evelynsfranca/"
-              target="_blank"
-              className={styles.socialMediaLink}
-            >
-              <FontAwesomeIcon icon={faLinkedin} />
-            </Link>
-            <Link
-              href="https://github.com/evelynsfranca"
-              target="_blank"
-              className={styles.socialMediaLink}
-            >
-              <FontAwesomeIcon icon={faGithub} />
-            </Link>
-            <Link
-              href="https://wa.me/5541984017050/?&text&type=phone_number&app_absent=1"
-              target="_blank"
-              className={styles.socialMediaLink}
-            >
-              <FontAwesomeIcon icon={faWhatsapp} />
-            </Link>
-            <Link
-              href="mailto:francasevelyn@gmail.com"
-              target="_blank"
-              className={styles.socialMediaLink}
-            >
-              <FontAwesomeIcon icon={faEnvelope} />
-            </Link>
+            {contacts.map(it => (
+              <Link
+                key={it.link}
+                href={it.link}
+                target="_blank"
+                className={styles.socialMediaLink}
+              >
+                <FontAwesomeIcon icon={it.icon} />
+              </Link>
+            ))}
           </article>
         )}
     </footer>
