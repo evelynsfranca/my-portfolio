@@ -29,7 +29,7 @@ export default function SkillsTable(props: Readonly<SkillsTableProps>) {
             </td>
           </tr>
         ))}
-        <tr></tr>
+        <tr><td></td></tr>
       </tbody>
     </table>
   );

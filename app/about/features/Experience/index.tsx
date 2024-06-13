@@ -6,8 +6,8 @@ import secondImage from '@/public/graduate.jpg';
 export default function AboutExperience() {
   return (
     <article id="experience" className={styles.content}>
-      <header className={styles.contentHeader}>
-        <h2 className={styles.contentTitle}>Trajetória profissional</h2>
+      <header>
+        <h2>Trajetória profissional</h2>
       </header>
 
       <div className={styles.contentLine}>

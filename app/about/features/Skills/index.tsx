@@ -48,8 +48,8 @@ export default function AboutSkills() {
   
   return (
     <article id="skills" className={styles.content}>
-      <header className={styles.contentHeader}>
-        <h2 className={styles.contentTitle}>Habilidades</h2>
+      <header>
+        <h2>Habilidades</h2>
       </header>
       <div className={styles.contentTable}>
         <SkillsTable name="Soft skills" content={softSkills} />
