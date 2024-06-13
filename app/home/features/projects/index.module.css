@@ -57,7 +57,7 @@
     margin: 2rem 0;
 
     font-size: 1rem;
-    color: #8b8b8b;
+    color: var(--text-secondary-color);
     font-weight: 300;
     line-height: 2rem;
 
@@ -67,7 +67,7 @@
 
 .section > .article > .button {
     display: flex;
-    background: var(--secondary-color);
+    background: var(--primary-color-variant);
     border: 0;
     border-radius: .2rem;
     font-size: .875rem;
@@ -80,7 +80,7 @@
 
 .section > .article > .button:hover {
     cursor: pointer;
-    background-color: var(--secondary-color-hover);
+    background-color: var(--primary-color-hover);
 }
 
 

@@ -57,7 +57,7 @@
 
 .button {
     display: flex;
-    background: var(--secondary-color);
+    background: var(--primary-color-variant);
     border: 0;
     border-radius: .2rem;
     font-size: .875rem;
@@ -70,7 +70,7 @@
 
 .button:hover {
     cursor: pointer;
-    background-color: var(--secondary-color-hover);
+    background-color: var(--primary-color-hover);
 }
 
 @media screen and (max-width: 1300px) {

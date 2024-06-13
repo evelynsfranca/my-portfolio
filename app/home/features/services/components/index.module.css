@@ -40,7 +40,7 @@
 
 .cardDescription {
     font-size: .875rem;
-    color: #8b8b8b;
+    color: var(--text-secondary-color);
     font-weight: 300;
 }
 
