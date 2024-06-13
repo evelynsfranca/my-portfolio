@@ -2,19 +2,29 @@
 
 :root {
   --font-default: "Poppins", sans-serif;
+  
   --primary-color: #f845f2;
-  --secondary-color: #c600c0;
-  --secondary-color-hover: #90008b;
+  --primary-color-variant: #c600c0;
+  --primary-color-hover: #90008b;
+
+  --secondary-color: #00ffff;
+
   --background-primary-color: #151515;
-  --background-secondary-color: #000;
+  --background-secondary-color: #000000;
   --background-hover-color: #232323;
+
+  --text-primary-color: #ffffff;
+  --text-secondary-color: #8b8b8b;
+
+  --title-font-size: 2rem;
+  --text-font-size: 1.1rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --primary-color: #f845f2;
     --background-primary-color: #151515;
-    --background-secondary-color: #000;
+    --background-secondary-color: #000000;
     --background-hover-color: #101010;
   }
 }
