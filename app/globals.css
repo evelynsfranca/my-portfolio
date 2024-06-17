@@ -8,6 +8,8 @@
   --primary-color-hover: #90008b;
 
   --secondary-color: #00ffff;
+  --secondary-color-variant: #00b4b4;
+  --secondary-color-hover: #009c9c;
 
   --background-primary-color: #151515;
   --background-secondary-color: #000000;
@@ -17,6 +19,7 @@
   --text-secondary-color: #8b8b8b;
 
   --title-font-size: 2rem;
+  --subtitle-font-size: 1.25rem;
   --text-font-size: 1.1rem;
   --text-header-font-size: 1.25rem;
   --text-button-font-size: .875rem;
