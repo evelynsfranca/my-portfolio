@@ -5,9 +5,8 @@
     justify-content: space-around;
 
     border-radius: 1rem;
-    padding: 2rem;
 
-    height: 45%;
+    height: auto;
     width: 45%;
 }
 
@@ -34,13 +33,13 @@
 }
 
 .cardTitle {
-    font-size: 1.25rem;
+    font-size: var(--text-header-font-size);
     padding-bottom: .5rem;
 }
 
 .cardDescription {
-    font-size: .875rem;
     color: var(--text-secondary-color);
+    font-size: var(--text-description-font-size);
     font-weight: 300;
 }
 
@@ -51,11 +50,11 @@
         align-items: center;
         justify-content: center;
 
-        height: 100%;
-        width: 100%;
-
         position: absolute;
         transition: left 1s;
+
+        height: 100%;
+        width: 100%;
     }
     
     .cardHeader {
@@ -73,26 +72,17 @@
     }
 
     .cardDescription {
-        text-align: center;
         font-size: 1.2rem;
+        text-align: center;
     }
     
 }
 
 @media screen and (max-width: 500px) {
-
     .cardIcon {
-        font-size: 2rem;
+        font-size: 4rem;
     }
-    
-    .cardTitle {
-        font-size: 1.5rem;
-        padding: 2rem 0;
-    }
-
     .cardDescription {
-        text-align: center;
         font-size: 1rem;
     }
-    
 }

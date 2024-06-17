@@ -1,8 +1,7 @@
 .section {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 
     height: 93vh;
     width: 100%;
@@ -24,17 +23,20 @@
     font-size: 2rem;
     outline: 0;
     padding: 2rem;
+    transition: color .5s;
     z-index: 2;
 }
 
 .slideButton:hover {
-    cursor: pointer;
     color: var(--primary-color);
+    cursor: pointer;
 }
 
 .banner {
-    text-align: center;
     display: flex;
+
+    text-align: center;
+
     height: 100%;
     width: 100%;
 }
@@ -45,14 +47,13 @@
     align-items: center;
     justify-content: center;
 
-    height: 100%;
-    width: 100vw;
-
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute; 
-    transition: left 1s;
-    
+    transition: left 1s;    
+
+    height: 100%;
+    width: 100vw;
 }
 
 .bannerContent:hover {
@@ -60,12 +61,14 @@
 }
 
 .bannerContent::before {
-    content: "";
     display: flex;
+
     background-color: var(--background-secondary-color);
+    content: "";
     opacity: 0.75;
     position: absolute;
     z-index: 0;
+
     height: 100%;
     width: 100%;
 }
@@ -92,10 +95,10 @@
 }
 
 .bannerButtons {
-    font-size: .75rem;
     display: flex;
     justify-content: space-between;
 
+    font-size: .75rem;
 
     position: absolute;
     bottom: 1rem;
@@ -157,8 +160,7 @@
     }
 }
 
-@media screen and (max-width: 700px) {
-    
+@media screen and (max-width: 700px) {    
     .bannerButtons {
         left: calc(50% - 5%);
         width: 10%;
@@ -179,8 +181,7 @@
     }
 }
 
-@media screen and (max-width: 500px) {
-    
+@media screen and (max-width: 500px) {    
     .bannerButtons {
         left: calc(50% - 17.5%);
         width: 35%;
