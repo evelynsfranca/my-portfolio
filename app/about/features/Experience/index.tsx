@@ -15,7 +15,7 @@ export default function AboutExperience() {
           <Image src={firstImage} alt="" />
         </div>
         <div className={styles.text}>
-          <h3>2021</h3>
+          <h3>2024</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus doloremque alias sed nemo et architecto, fugit ducimus esse exercitationem ipsa pariatur? In velit doloribus illo dolorum impedit doloremque iusto nisi.
           </p>
@@ -27,7 +27,7 @@ export default function AboutExperience() {
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus doloremque alias sed nemo et architecto, fugit ducimus esse exercitationem ipsa pariatur? In velit doloribus illo dolorum impedit doloremque iusto nisi.
           </p>
-          <h3>2022</h3>
+          <h3>2023</h3>
         </div>
         <div className={styles.image}>
           <Image src={secondImage} alt="" />

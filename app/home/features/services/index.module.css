@@ -4,10 +4,9 @@
     align-items: center;
     justify-content: center;
 
-    padding: 7vh 3vw;
+    padding: 15vh 3vw;
     user-select: none;
 
-    height: 100vh;
     width: 100%;    
 }
 
@@ -45,9 +44,12 @@
 }
 
 @media screen and (max-width: 900px) {
+    .section {
+        height: 100vh;
+    }
+
     .section > .header {
         font-size: 1.5rem;
-        height: 30%;
     }
 
     .section > .content {
