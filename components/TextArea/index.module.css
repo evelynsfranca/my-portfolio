@@ -1,0 +1,50 @@
+.formLabel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formLabel > span {
+    margin-bottom: 0.75rem;
+}
+
+.formInput {
+    display: flex;
+
+    border: 0;
+    border-bottom: 2px solid var(--background-primary-color);
+    border-radius: 10px;
+    background-color: #202020;
+    color: #fff;
+    font-size: 1rem;
+    resize: none;
+    outline: 0;
+
+    margin-bottom: 1rem;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.5s;
+
+    width: 100%;
+}
+
+.formInput:focus {
+    border-bottom: 2px solid var(--primary-color-variant);
+    border-radius: 10px 10px 0 0;
+}
+
+.formInput::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: var(--background-hover-color);
+}
+
+.formInput::-webkit-scrollbar {
+    width: 12px;
+    background-color: var(--background-hover-color);
+}
+
+.formInput::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #555;
+}

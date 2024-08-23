@@ -1,0 +1,18 @@
+.button {
+    display: flex;
+
+    background: var(--primary-color-variant);
+    border: 0;
+    border-radius: 0.2rem;
+    font-size: var(--text-button-font-size);
+    font-weight: 700;
+    letter-spacing: 1.25px;
+    outline: 0;
+    padding: 0.75rem 2.5rem;
+    text-transform: uppercase;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: var(--primary-color-hover);
+}
