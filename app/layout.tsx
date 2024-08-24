@@ -7,8 +7,9 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Evelyn França",
-  description: "My portfolio",
+  title: {
+     default: "Evelyn França", template: "Evelyn França | %s"
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -17,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <Menu />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );

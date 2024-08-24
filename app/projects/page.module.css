@@ -34,8 +34,10 @@
 }
 
 .title {
+  border-bottom: 2px solid var(--primary-color);
   font-size: var(--title-font-size);
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
 }
 
 .subTitle {

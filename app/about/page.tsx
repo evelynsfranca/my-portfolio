@@ -5,7 +5,7 @@ import AboutExperience from "./features/Experience";
 import AboutSkills from "./features/Skills";
 
 export const metadata: Metadata = {
-  title: "Evelyn França | Sobre"
+  title: "Sobre"
 };
 
 export default function About() {

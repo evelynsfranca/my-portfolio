@@ -8,7 +8,6 @@
     padding: 0 3vw;
     user-select: none;
 
-    height: 87vh;
     width: 100%;
 }
 
@@ -18,15 +17,17 @@
     align-items: center;
     justify-content: center;
 
-    padding: 2rem 0;
+    padding: 5rem 0 3rem;
     text-align: center;
 
     width: 80%;
 }
 
 .title {
+    border-bottom: 2px solid var(--primary-color);
     font-size: var(--title-font-size);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
 }
 
 .subtitle {
@@ -41,6 +42,7 @@
     align-items: center;
     justify-content: space-around;
 
+    margin-bottom: 6.5vh;
     width: 80%;
 }
 
@@ -142,9 +144,11 @@
     .main > .content {
         flex-direction: column;
         width: 100%;
+        margin-bottom: 0;
     }
 
     .formBox {
+      padding-bottom: 6.5vh;
       width: 100%;
 
     }
