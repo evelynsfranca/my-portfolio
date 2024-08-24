@@ -9,6 +9,7 @@ import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Image from "next/image";
 import logo from '@/public/images/logo.svg';
+import logo2 from '@/public/images/logo2.svg';
 
 export interface MenuProps {
   link: string;
@@ -19,6 +20,7 @@ export default function Menu() {
 
   const currentPage = usePathname();
   const [menu, setMenu] = useState<boolean>(false);
+  const [logoSrc, setLogoSrc] = useState(logo);
 
   const menuList: MenuProps[] = [
     { link: "/", title: "Home" },
@@ -40,8 +42,10 @@ export default function Menu() {
         <Link className={styles.link} href="/">
           <Image
             alt="logo"
-            src={logo}
-            className={styles.svg}
+            src={logoSrc}
+            className={styles.logo}
+            onMouseEnter={() => setLogoSrc(logo2)}
+            onMouseLeave={() => setLogoSrc(logo)}
           />
         </Link>
       </div>

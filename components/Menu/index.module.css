@@ -19,11 +19,11 @@
 .logo {
     display: flex;
     align-items: center;
-    height: 100%;
+    height: max-content;
+    width: 10vw;
 }
 
 .logo:hover {
-    background-color: var(--background-hover-color);
     cursor: pointer;
 }
 
@@ -66,9 +66,10 @@
     cursor: pointer;
 }
 
-.svg {
-    height: max-content;
-    width: 12vw;
+
+.logo > .link:hover {
+    background: none;
+    cursor: pointer;
 }
 
 .active {
@@ -81,8 +82,8 @@
         width: 40%;
     }
 
-    .svg {
-        width: 18vw;
+    .logo {
+        width: 15vw;
     }
 }
 
@@ -91,8 +92,8 @@
         width: 55%;
     }
 
-    .svg {
-        width: 22vw;
+    .logo {
+        width: 20vw;
     }
 }
 
@@ -110,6 +111,10 @@
     .list {
         width: 75%;
     }
+
+    .logo {
+        width: 28vw;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -124,16 +129,12 @@
         width: 10%;
     }
 
-    .menuButton > svg {
-        height: 1.5rem;
-    }
-
     .menuOpen {
         display: flex;
     }
     
-    .svg {
-        width: 40vw;
+    .logo {
+        width: 30vw;
     }
 
     .list {
@@ -161,5 +162,11 @@
 
     .link {
         font-size: 1.25rem;
+    }
+}
+
+@media screen and (max-width: 500px) {    
+    .logo {
+        width: 42vw;
     }
 }
