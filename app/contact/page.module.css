@@ -2,12 +2,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
     background-color: var(--background-hover-color);
     padding: 0 3vw;
     user-select: none;
 
+    min-height: 87vh;
     width: 100%;
 }
 
@@ -42,7 +43,6 @@
     align-items: center;
     justify-content: space-around;
 
-    margin-bottom: 3.8vh;
     width: 80%;
 }
 

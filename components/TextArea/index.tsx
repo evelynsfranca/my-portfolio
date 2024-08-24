@@ -7,20 +7,21 @@ export interface TextAreaProps {
     label: string;
     handler: (e: any) => void;
     rows: number;
+    value: string | undefined;
 }
 
 export default function TextArea(props: TextAreaProps) {
 
-    const { name, label, rows, handler } = props;
+    const { name, label, handler, value } = props;
 
     return (
         <label className={styles.formLabel} htmlFor={name}>
             <span>{label}</span>
             <textarea
                 className={styles.formInput}
-                name={name}
-                rows={rows}
                 onChange={e => handler(e.target.value)}
+                name={name}
+                value={value}
             />
         </label>
     );
