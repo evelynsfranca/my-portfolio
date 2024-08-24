@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./index.module.css";
 import Image from "next/image";
-import projectImage from '@/public/01-city.jpg';
+import projectImage from '@/public/images/01-city.jpg';
 
 export default function ProjectsSection() {
     return (

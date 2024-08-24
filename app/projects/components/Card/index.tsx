@@ -1,7 +1,7 @@
 
 import styles from "./index.module.css";
 import Image from "next/image";
-import projectImage from '@/public/02-office.jpg';
+import projectImage from '@/public/images/02-office.jpg';
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";

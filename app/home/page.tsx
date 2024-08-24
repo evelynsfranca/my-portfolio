@@ -7,7 +7,7 @@ import ContactSection from "./features/contact";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Evelyn França | Home"
+  title: "Home"
 };
 
 export default function Home() {
