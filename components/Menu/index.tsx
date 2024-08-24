@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import Image from "next/image";
+import logo from '@/public/images/logo.svg';
 
 export interface MenuProps {
   link: string;
@@ -36,7 +38,11 @@ export default function Menu() {
     <nav className={styles.nav}>
       <div className={styles.logo}>
         <Link className={styles.link} href="/">
-          Evelyn França
+          <Image
+            alt="logo"
+            src={logo}
+            className={styles.svg}
+          />
         </Link>
       </div>
       <button
