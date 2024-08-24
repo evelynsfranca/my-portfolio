@@ -9,8 +9,10 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { services } from "@/mocks/home/services";
+import Link from "next/link";
 
 export interface ServiceProps {
+    id: number;
     title: string;
     description: string;
     icon: IconProp;
@@ -53,7 +55,8 @@ export default function ServicesSection() {
                 <div className={styles.item}>
                     {services.map((it, i) => (
                         <ServiceCard
-                            key={it.title}
+                            key={it.id}
+                            id={it.id}
                             title={it.title}
                             description={it.description}
                             icon={it.icon}
@@ -70,6 +73,8 @@ export default function ServicesSection() {
                     <FontAwesomeIcon icon={faChevronRight} />
                 </button>
             </div>
+            
+            <Link href={"/services"} className={styles.button}>Ver serviços</Link>
         </section>
     );
 }

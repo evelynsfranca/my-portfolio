@@ -22,7 +22,7 @@
 .cardHeader {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
 
     width: 100%;
@@ -42,8 +42,16 @@
     color: var(--text-secondary-color);
     font-size: var(--text-description-font-size);
     font-weight: 300;
+    text-align: center;
 }
 
+.link {
+    transition: all 0.5s;
+}
+
+.link:hover {
+    color: var(--primary-color);
+}
 
 @media screen and (max-width: 900px) {
     .card {
