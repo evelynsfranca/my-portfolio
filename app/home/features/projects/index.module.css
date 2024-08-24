@@ -51,6 +51,11 @@
     width: 100%;
 }
 
+.section > .article > .header > h2 {
+    border-bottom: 2px solid var(--primary-color);
+    padding: 0 2rem 1rem 0;
+}
+
 .section > .article > .content {
     color: var(--text-secondary-color);
     font-size: 1rem;
