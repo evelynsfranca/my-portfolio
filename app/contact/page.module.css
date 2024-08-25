@@ -183,6 +183,10 @@
 }
 
 @media screen and (max-width: 500px) {
+    .main {
+        margin-top: 7vh;
+    }
+
     .socialMediaBox {
         width: 100%;
     }
