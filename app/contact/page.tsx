@@ -77,7 +77,7 @@ export default function Contact() {
 
               <InputText
                 name="email"
-                label="E-mail"
+                label="Seu contato"
                 handler={e => handleEmail({ from: e })}
                 value={email?.from}
               />

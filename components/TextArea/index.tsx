@@ -15,13 +15,14 @@ export default function TextArea(props: TextAreaProps) {
     const { name, label, handler, value } = props;
 
     return (
-        <label className={styles.formLabel} htmlFor={name}>
+        <label className={styles.formLabel}>
             <span>{label}</span>
             <textarea
                 className={styles.formInput}
                 onChange={e => handler(e.target.value)}
                 name={name}
                 value={value}
+                autoComplete="off"
             />
         </label>
     );

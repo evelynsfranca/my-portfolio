@@ -14,7 +14,7 @@ export default function InputText(props: InputTextProps) {
     const { name, label, handler, value } = props;
 
     return (
-        <label className={styles.formLabel} htmlFor={name}>
+        <label className={styles.formLabel}>
             <span>{label}</span>
             <input
                 className={styles.formInput}
@@ -22,6 +22,7 @@ export default function InputText(props: InputTextProps) {
                 onChange={e => handler(e.target.value)}
                 name={name}
                 value={value || ''}
+                autoComplete="off"
             />
         </label>
     );
