@@ -102,6 +102,10 @@
         height: auto;
         padding: 10rem;
     }
+    
+    .section > .article > .header > h2 {
+        padding: 1rem 2rem;
+    }
 
     .section > .article {
         width: 100%;

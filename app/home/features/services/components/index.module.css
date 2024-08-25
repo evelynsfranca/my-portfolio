@@ -43,6 +43,14 @@
     font-size: var(--text-description-font-size);
     font-weight: 300;
     text-align: center;
+    height: 10vh;
+
+    display: -webkit-box;
+    max-width: 40vw;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .link {
@@ -78,11 +86,16 @@
     .cardTitle {
         font-size: 1.75rem;
         padding: 1.5rem 0;
+        text-align: center;
     }
 
     .cardDescription {
         font-size: 1.2rem;
         text-align: center;
+        max-width: none;
+        height: auto;
+        line-clamp: 5;
+        -webkit-line-clamp: 5;
     }
     
 }

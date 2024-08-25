@@ -23,7 +23,9 @@ export default function ServiceCard(props: Readonly<ServiceCardProps>) {
                     <div className={styles.cardIcon}><FontAwesomeIcon icon={props.icon} /></div>
                     <h3 className={styles.cardTitle}>{props.title}</h3>
                 </header>
-                <div className={styles.cardDescription}>{props.description}</div>
+                <div
+                    className={styles.cardDescription}
+                    dangerouslySetInnerHTML={{ __html: props.description }} />
             </Link>
         </article >
     );

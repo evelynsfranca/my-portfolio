@@ -112,6 +112,11 @@
         margin-top: 2rem;
     }
 
+    .section > .article > .header > h2 {
+        padding: 1rem 2rem;
+    }
+    
+
     .section > .article > .content {
         margin: 2rem 0;
     }
