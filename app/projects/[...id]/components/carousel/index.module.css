@@ -1,0 +1,116 @@
+.carouselBlock {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;    
+}
+
+.carouselCloseButton {
+    align-self: flex-end;
+    background: none;
+    border: 0;
+    font-size: 1.5rem;
+    outline: 0;
+    padding: 1rem;
+    transition: color .5s;
+    z-index: 2;
+}
+
+.carouselCloseButton:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+
+    height: 100%;
+    width: 100%;
+}
+
+.carouselScroll {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    overflow: auto;
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+    transition: all 2s;
+}
+
+.carouselScroll::-webkit-scrollbar {
+  height: 0;
+}
+
+.carouselImages {
+    display: flex;
+    flex-shrink: 0;
+    flex-basis: content;
+
+    border-bottom: 1px solid var(--primary-color);
+    padding: 2rem 0;
+    
+    height: 100%;
+    width: 100%;
+}
+
+.carouselImage {
+    flex: none;
+    border-radius: 1rem;
+    object-fit: fill;
+
+    min-height: 50vh;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+}
+
+.carouselButtons {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: .75rem;
+
+    position: absolute;
+    bottom: 1rem;
+    left: calc(50% - 2%);
+
+    width: 4%;
+}
+
+.carouselButton {
+    background: none;
+    border: 0;
+    font-size: 2rem;
+    outline: 0;
+    padding: 4rem 2rem;
+    transition: color .5s;
+    z-index: 2;
+}
+
+.carouselButton:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 1350px) {
+}
+
+@media screen and (max-width: 1000px) {
+}
+
+@media screen and (max-width: 900px) {
+}
+
+@media screen and (max-width: 700px) {    
+}
+
+@media screen and (max-width: 500px) {    
+}

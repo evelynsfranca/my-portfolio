@@ -7,12 +7,6 @@ export const metadata: Metadata = {
   title: "Projetos"
 };
 
-export interface Project {
-  id: number
-  name: string
-  description: string
-  link: string
-}
 
 export default function Projects() {
   return (
@@ -27,11 +21,8 @@ export default function Projects() {
         <article className={styles.content}>
           {projects.map(it => (
             <ProjectCard
-              key={it.id} 
-              id={it.id}
-              name={it.name}
-              description={it.description}
-              link={it.link}
+              key={it.id}
+              {...it}
             />
           ))}
         </article>

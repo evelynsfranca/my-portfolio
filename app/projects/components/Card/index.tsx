@@ -5,13 +5,9 @@ import projectImage from '@/public/images/02-office.jpg';
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { ProjectModel } from "@/models/ProjectModel";
 
-export interface ProjectCardProps {
-    id: number
-    name: string
-    description: string
-    link: string
-}
+export type ProjectCardProps = ProjectModel;
 
 export default function ProjectCard(props: Readonly<ProjectCardProps>) {
     return (
@@ -24,7 +20,7 @@ export default function ProjectCard(props: Readonly<ProjectCardProps>) {
             </div>
             <div className={styles.cardDescription}>{props.description}</div>
             <footer className={styles.cardFooter}>
-                <Link href={"/project/" + props.id} className={styles.cardButton}>Detalhes</Link>
+                <Link href={"/projects/" + props.id} className={styles.cardButton}>Detalhes</Link>
                 <Link href={props.link} className={styles.cardButton} target="_blank">
                     <span>Visitar</span>
                     <FontAwesomeIcon icon={faArrowUpRightFromSquare} /> 
