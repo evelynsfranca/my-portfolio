@@ -66,18 +66,20 @@ export default function ProjectGallery(props: ProjectGalleryProps) {
     }
 
     const handleGalleryButtons = () => {
-        if (itemsSize > galleryWidth) {
-            galleryScroll <= 0 ? setGalleryStart(true) : setGalleryStart(false); // Se for começo da galeria
-            galleryScroll >= (itemsSize - galleryWidth) ? setGalleryEnd(true) : setGalleryEnd(false); // Se for o fim da galeria
-        } else {
-            setGalleryStart(true);
-            setGalleryEnd(true);
-        }
+        galleryScroll <= 0
+        || (imageIndex != null && imageIndex == 0) 
+            ? setGalleryStart(true) 
+            : setGalleryStart(false); // Se for começo da galeria
+            
+        galleryScroll >= (itemsSize - galleryWidth)
+        || (imageIndex != null && imageIndex == images.length - 1)
+            ? setGalleryEnd(true)
+            : setGalleryEnd(false); // Se for o fim da galeria
     }
 
     useEffect(() => { // Atualiza a visualização dos botões de scroll da galeria
         handleGalleryButtons()
-    }, [galleryScroll, galleryWidth])
+    }, [galleryScroll, galleryWidth, imageIndex])
 
     useEffect(() => { // Atualizar scroll de galeria de forma automática
         handleGalleryScroll()

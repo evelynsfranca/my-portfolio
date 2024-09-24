@@ -30,19 +30,18 @@
 
 .galleryScroll::-webkit-scrollbar-thumb {
   background-color: var(--primary-color);
-  border-radius: 20px;
   border: 1px solid var(--background-hover-color);
+  border-radius: 20px;
 }
 
 .galleryMiniatures {
     display: flex;
-    flex-shrink: 0;
     flex-basis: content;
-    /* flex-grow: 1; */
+    flex-shrink: 0;
 
     border-bottom: 1px solid var(--primary-color);
-    padding: 2rem 0;
     overflow-x: auto;
+    padding: 2rem 0;
     
     width: 50vw;
 }
@@ -87,10 +86,16 @@
 }
 
 @media screen and (max-width: 900px) {
+    .galleryMiniatures {
+        width: 100vw;
+    }
 }
 
 @media screen and (max-width: 700px) {    
 }
 
-@media screen and (max-width: 500px) {    
+@media screen and (max-width: 500px) {   
+    .galleryButton {
+        padding: 4rem 1rem;
+    }
 }

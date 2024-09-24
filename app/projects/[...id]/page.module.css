@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
 
   background-color: var(--background-primary-color);
   cursor: default;
@@ -53,14 +52,34 @@
   margin-top: 3rem;
 }
 
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 2rem;
+  width: 50%;
+}
+
 @media screen and (max-width: 900px) {
   .section {
     width: 85%;
   }
+
+  .footer {
+    width: 75%;
+  }
 }
 
 @media screen and (max-width: 600px) {
+  .section {
+    width: 90%;
+  }
+
   .subTitle {
     font-size: 1.15rem;
+  }
+
+  .footer {
+    width: 100%;
   }
 }

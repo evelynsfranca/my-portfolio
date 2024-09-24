@@ -1,13 +1,13 @@
 "use client";
 
 import styles from "./page.module.css";
-import galleryStyle from "./gallery/page.module.css";
-import Link from "next/link";
 import { useParams } from "next/navigation";
 import { projects } from "@/mocks/projects/projects";
 import ProjectCarousel from "./components/carousel";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ProjectGallery from "./components/gallery";
+import ButtonLink from "@/components/Button/Link";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export default function Project() {
   const params = useParams<{ id: string }>();
@@ -52,8 +52,17 @@ export default function Project() {
         />
 
         <footer className={styles.footer}>
-          <Link href={project.repo}>Repositório</Link>
-          <Link href={project.link}>Visitar</Link>
+          <ButtonLink 
+            label="Repositório"
+            url={project.repo}
+            color="primary"
+            icon={faGithub}
+          />
+          <ButtonLink 
+            label="Visitar projeto"
+            url={project.link}
+            color="secondary"
+          />
         </footer>
       </section>
     </main>

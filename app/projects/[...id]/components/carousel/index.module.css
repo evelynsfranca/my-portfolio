@@ -53,7 +53,6 @@
     flex-basis: content;
 
     border-bottom: 1px solid var(--primary-color);
-    padding: 2rem 0;
     
     height: 100%;
     width: 100%;
@@ -112,5 +111,17 @@
 @media screen and (max-width: 700px) {    
 }
 
-@media screen and (max-width: 500px) {    
+@media screen and (max-width: 500px) {  
+    .carouselImage {    
+        min-height: 70vh;
+    }
+
+    .carouselCloseButton {
+        font-size: 1.25rem;
+    }
+
+    .carouselButton {
+        font-size: 1rem;
+        padding: 4rem 1rem;
+    }  
 }
