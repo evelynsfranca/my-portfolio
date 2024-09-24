@@ -6,11 +6,15 @@
   --primary-color: #f845f2;
   --primary-color-variant: #c600c0;
   --primary-color-hover: #90008b;
-  --primary-color-text-hover: #e888e4;
+  /* --primary-color-text-hover: #e888e4; */
+  --primary-color-text: #f845f2;
+  --primary-color-text-hover: #fa79f5;
 
   --secondary-color: #00ffff;
   --secondary-color-variant: #00b4b4;
   --secondary-color-hover: #009c9c;
+  --secondary-color-text: #00d1d1;
+  --secondary-color-text-hover: #00ffff;
 
   --background-primary-color: #151515;
   --background-secondary-color: #000000;
