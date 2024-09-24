@@ -1,7 +1,7 @@
 import styles from "./index.module.css";
 import Image from "next/image";
-import firstImage from '@/public/images/profile.jpeg';
-import secondImage from '@/public/images/graduate.jpg';
+import firstImage from '@/public/images/about/profile.jpeg';
+import secondImage from '@/public/images/about/graduate.jpg';
 
 export default function AboutExperience() {
   return (

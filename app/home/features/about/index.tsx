@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./index.module.css";
 import Image from "next/image";
-import aboutImage from '@/public/images/02-office.jpg';
+import aboutImage from '@/public/images/slides/02.jpg';
 
 export default function AboutSection() {
     return (

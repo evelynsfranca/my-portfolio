@@ -12,92 +12,92 @@ export const projects: ProjectModel[] = [
       <br/><br/>
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi aut nisi velit rem asperiores est labore laboriosam cupiditate? Quam repudiandae quibusdam dicta magni odio consequatur error beatae dolores non similique.
       `,
-      link: "https://fontawesome.com/icons/arrow-up-right-from-square?f=classic&s=solid",
-      repo: "https://fontawesome.com/icons/arrow-up-right-from-square?f=classic&s=solid",
+      link: "https://dgusto-la-pizza.vercel.app/",
+      repo: "https://github.com/evelynsfranca",
       images: [
         {
           alt: "1",
-          url: "/images/01-city.jpg"
+          url: "/images/projects/01.jpg"
         },
         {
           alt: "2",
-          url: "/images/02-office.jpg"
+          url: "/images/projects/02.jpg"
         },
         {
           alt: "3",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         },
         {
           alt: "4",
-          url: "/images/02-office.jpg"
+          url: "/images/projects/02.jpg"
         },
         {
           alt: "5",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         },
         {
           alt: "6",
-          url: "/images/02-office.jpg"
+          url: "/images/projects/02.jpg"
         },
         {
           alt: "7",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         },
         {
           alt: "8",
-          url: "/images/02-office.jpg"
+          url: "/images/projects/02.jpg"
         },
         {
           alt: "9",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         },
         {
           alt: "10",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         },
         {
           alt: "11",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         },
         {
           alt: "12",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         },
         {
           alt: "13",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         },
         {
           alt: "14",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         },
         {
           alt: "15",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         },
         {
           alt: "16",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         },
         {
           alt: "17",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         },
         {
           alt: "18",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         },
         {
           alt: "19",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         },
         {
           alt: "20",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         },
         {
           alt: "21",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         }
       ]
     },
@@ -112,20 +112,20 @@ export const projects: ProjectModel[] = [
       <br/><br/>
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi aut nisi velit rem asperiores est labore laboriosam cupiditate? Quam repudiandae quibusdam dicta magni odio consequatur error beatae dolores non similique.
       `,
-      link: "https://fontawesome.com/icons/arrow-up-right-from-square?f=classic&s=solid",
-      repo: "https://fontawesome.com/icons/arrow-up-right-from-square?f=classic&s=solid",
+      link: "https://dgusto-la-pizza.vercel.app/",
+      repo: "https://github.com/evelynsfranca",
       images: [
         {
           alt: "1",
-          url: "/images/01-city.jpg"
+          url: "/images/projects/01.jpg"
         },
         {
           alt: "2",
-          url: "/images/02-office.jpg"
+          url: "/images/projects/02.jpg"
         },
         {
           alt: "3",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         }
       ]
     },
@@ -140,20 +140,20 @@ export const projects: ProjectModel[] = [
       <br/><br/>
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi aut nisi velit rem asperiores est labore laboriosam cupiditate? Quam repudiandae quibusdam dicta magni odio consequatur error beatae dolores non similique.
       `,
-      link: "https://fontawesome.com/icons/arrow-up-right-from-square?f=classic&s=solid",
-      repo: "https://fontawesome.com/icons/arrow-up-right-from-square?f=classic&s=solid",
+      link: "https://dgusto-la-pizza.vercel.app/",
+      repo: "https://github.com/evelynsfranca",
       images: [
         {
           alt: "1",
-          url: "/images/01-city.jpg"
+          url: "/images/projects/01.jpg"
         },
         {
           alt: "2",
-          url: "/images/02-office.jpg"
+          url: "/images/projects/02.jpg"
         },
         {
           alt: "3",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         }
       ]
     },
@@ -168,20 +168,20 @@ export const projects: ProjectModel[] = [
       <br/><br/>
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi aut nisi velit rem asperiores est labore laboriosam cupiditate? Quam repudiandae quibusdam dicta magni odio consequatur error beatae dolores non similique.
       `,
-      link: "https://fontawesome.com/icons/arrow-up-right-from-square?f=classic&s=solid",
-      repo: "https://fontawesome.com/icons/arrow-up-right-from-square?f=classic&s=solid",
+      link: "https://dgusto-la-pizza.vercel.app/",
+      repo: "https://github.com/evelynsfranca",
       images: [
         {
           alt: "1",
-          url: "/images/01-city.jpg"
+          url: "/images/projects/01.jpg"
         },
         {
           alt: "2",
-          url: "/images/02-office.jpg"
+          url: "/images/projects/02.jpg"
         },
         {
           alt: "3",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         }
       ]
     },
@@ -196,20 +196,20 @@ export const projects: ProjectModel[] = [
       <br/><br/>
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi aut nisi velit rem asperiores est labore laboriosam cupiditate? Quam repudiandae quibusdam dicta magni odio consequatur error beatae dolores non similique.
       `,
-      link: "https://fontawesome.com/icons/arrow-up-right-from-square?f=classic&s=solid",
-      repo: "https://fontawesome.com/icons/arrow-up-right-from-square?f=classic&s=solid",
+      link: "https://dgusto-la-pizza.vercel.app/",
+      repo: "https://github.com/evelynsfranca",
       images: [
         {
           alt: "1",
-          url: "/images/01-city.jpg"
+          url: "/images/projects/01.jpg"
         },
         {
           alt: "2",
-          url: "/images/02-office.jpg"
+          url: "/images/projects/02.jpg"
         },
         {
           alt: "3",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         }
       ]
     },
@@ -224,20 +224,20 @@ export const projects: ProjectModel[] = [
       <br/><br/>
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi aut nisi velit rem asperiores est labore laboriosam cupiditate? Quam repudiandae quibusdam dicta magni odio consequatur error beatae dolores non similique.
       `,
-      link: "https://fontawesome.com/icons/arrow-up-right-from-square?f=classic&s=solid",
-      repo: "https://fontawesome.com/icons/arrow-up-right-from-square?f=classic&s=solid",
+      link: "https://dgusto-la-pizza.vercel.app/",
+      repo: "https://github.com/evelynsfranca",
       images: [
         {
           alt: "1",
-          url: "/images/01-city.jpg"
+          url: "/images/projects/01.jpg"
         },
         {
           alt: "2",
-          url: "/images/02-office.jpg"
+          url: "/images/projects/02.jpg"
         },
         {
           alt: "3",
-          url: "/images/03-computer.jpg"
+          url: "/images/projects/03.jpg"
         }
       ]
     }
