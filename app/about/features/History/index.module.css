@@ -2,17 +2,18 @@
   padding: 0 15%;
 }
 
-.contentTextLine {
+.text {
   display: flex;
   flex-direction: column;
 }
 
-.contentTextLine > p {
+.text > p {
   font-size: var(--text-font-size);
   line-height: 2rem;
   letter-spacing: 0.75px;
   margin-bottom: 1.25rem;
   text-align: left;
+  text-indent: 5rem;
   white-space: pre-wrap;
 }
 

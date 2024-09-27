@@ -1,36 +1,48 @@
-
-import { HabilityProps } from "../..";
+import { HabilityModel } from "@/models/HabilityModel";
 import styles from "./index.module.css";
 
 export interface SkillsTableProps {
-  name: string,
-  content: HabilityProps[]
+  name: string;
+  content: HabilityModel[];
 }
 
 export default function SkillsTable(props: Readonly<SkillsTableProps>) {
+
+  const { name, content } = props;
+
   return (
     <table aria-hidden="true" className={styles.table}>
+
       <thead className={styles.tableHead}>
         <tr>
           <td colSpan={2}>
-            <span>{props.name}</span>
+            <span>{name}</span>
           </td>
         </tr>
       </thead>
+
       <tbody className={styles.tableBody}>
         <tr></tr>
-        {props.content.map(it => (
+
+        {content.map(it => (
           <tr key={it.name}>
             <td>
               {it.name}
             </td>
             <td>
-              <div className={styles.bar} style={{ width: `${it.average}%` }}>{it.average}%</div>
+              <div
+                className={styles.bar}
+                style={{ width: `${it.average}%` }}
+              >
+                {it.average}%
+              </div>
             </td>
           </tr>
         ))}
+        
         <tr><td></td></tr>
       </tbody>
+
     </table>
   );
 }

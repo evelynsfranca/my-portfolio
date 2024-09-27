@@ -61,14 +61,16 @@
 }
 
 .bar {
-  content: "";
   display: flex;
-  height: 100%;
+  justify-content: center;
+  
   background: linear-gradient(100deg, var(--secondary-color), var(--primary-color));
   border-radius: 1rem;
   color: var(--text-primary-color);
-  justify-content: center;
+  content: "";
   font-weight: 700;
+
+  height: 100%;
 }
 
 
