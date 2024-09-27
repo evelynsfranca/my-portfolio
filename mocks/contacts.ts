@@ -1,4 +1,4 @@
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { ContactModel } from "@/models/ContactModel";
 import {
   faGithub,
   faInstagram,
@@ -7,13 +7,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-export interface Contact {
-  link: string;
-  icon: IconProp;
-  label: string;
-}
-
-export const contacts: Contact[] = [
+export const contacts: ContactModel[] = [
   {
     link: "https://www.instagram.com/edsf_per",
     icon: faInstagram,
@@ -38,5 +32,5 @@ export const contacts: Contact[] = [
     link: "mailto:francasevelyn@gmail.com",
     icon: faEnvelope,
     label: "E-mail"
-  },
+  }
 ];

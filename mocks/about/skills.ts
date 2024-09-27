@@ -1,39 +1,39 @@
-import { HabilityProps } from "@/app/about/features/Skills";
+import { HabilityModel } from "@/models/HabilityModel";
 
-export const softSkills: HabilityProps[] = [
+export const softSkills: HabilityModel[] = [
   {
     name: "Comunicação",
-    average: 30,
+    average: 30
   },
   {
     name: "Organização",
-    average: 50,
+    average: 50
   },
   {
     name: "Planejamento",
-    average: 60,
+    average: 60
   },
   {
     name: "Foco",
-    average: 80,
-  },
+    average: 80
+  }
 ];
 
-export const hardSkills: HabilityProps[] = [
+export const hardSkills: HabilityModel[] = [
   {
     name: "Java",
-    average: 30,
+    average: 30
   },
   {
     name: "JavaScript",
-    average: 50,
+    average: 50
   },
   {
     name: "Lógica de Programação",
-    average: 60,
+    average: 60
   },
   {
     name: "Git",
-    average: 80,
-  },
+    average: 80
+  }
 ];
