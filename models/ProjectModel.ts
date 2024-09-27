@@ -10,5 +10,5 @@ export interface ProjectModel {
     description: string;
     link: string;
     repo: string;
-    images?: ProjectImageModel[]
+    images?: ProjectImageModel[];
 }
