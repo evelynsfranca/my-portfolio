@@ -4,16 +4,21 @@
     justify-content: space-between;
 
     background-color: var(--background-secondary-color);
+    padding: 0 2rem;
     user-select: none;
 
-    height: 7vh;
-    padding: 0 2rem;
+    height: 7vh;    
 
     position: sticky;
     top: 0;
     left: 0;
 
     z-index: 999;
+}
+
+.nav > div > .link:hover {
+    background: none;
+    cursor: pointer;
 }
 
 .logo {
@@ -27,7 +32,7 @@
     cursor: pointer;
 }
 
-.menuButton {
+.button {
     display: none;
     background: none;
     border: 0;
@@ -43,7 +48,7 @@
     width: 30%;
 }
 
-.listItem {
+.item {
     height: 100%;
     width: 20%;
 }
@@ -66,34 +71,28 @@
     cursor: pointer;
 }
 
-
-.logo > .link:hover {
-    background: none;
-    cursor: pointer;
-}
-
 .active {
     background-color: var(--background-hover-color);
     border-bottom: 2px solid var(--primary-color);
 }
 
 @media screen and (max-width: 1350px) {
-    .list {
-        width: 40%;
-    }
-
     .logo {
         width: 15vw;
+    }
+
+    .list {
+        width: 40%;
     }
 }
 
 @media screen and (max-width: 1000px) {
-    .list {
-        width: 55%;
-    }
-
     .logo {
         width: 20vw;
+    }
+
+    .list {
+        width: 55%;
     }
 }
 
@@ -108,17 +107,17 @@
 }
 
 @media screen and (max-width: 700px) {
-    .list {
-        width: 75%;
-    }
-
     .logo {
         width: 28vw;
+    }
+
+    .list {
+        width: 75%;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .menuButton {
+    .button {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -129,7 +128,7 @@
         width: 10%;
     }
 
-    .menuOpen {
+    .open {
         display: flex;
     }
     
@@ -141,7 +140,7 @@
         display: none;
     }
 
-    .list.menuOpen {
+    .list.open {
         display: flex;
         flex-direction: column;
 
@@ -155,7 +154,7 @@
         left: 0;
     }
 
-    .listItem {
+    .item {
         height: 10%;
         width: 100%;
     }
@@ -165,12 +164,12 @@
     }
 }
 
-@media screen and (max-width: 500px) {    
-
+@media screen and (max-width: 500px) {
     .nav {
         position: fixed;
         width: 100%;
     }
+
     .logo {
         width: 42vw;
     }

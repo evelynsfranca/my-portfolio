@@ -24,16 +24,19 @@ export default function Menu() {
       ? styles.active
       : "";
 
-  const setMenuStyle = (): string => `${menu ? styles.menuOpen : ""}`;
-  const setMenuButtonStyle = (): string => `${styles.menuButton + " " + setMenuStyle()}`;
+  const setMenuStyle = (): string => `${menu ? styles.open : ""}`;
+  const setMenuButtonStyle = (): string => `${styles.button + " " + setMenuStyle()}`;
 
   useEffect(() => setMenu(false), [currentPage]);
 
   return (
     <nav className={styles.nav}>
 
-      <div className={styles.logo}>
-        <Link className={styles.link} href="/">
+      <div>
+        <Link 
+          className={styles.link} 
+          href="/"
+        >
           <Image
             alt="logo"
             src={logoSrc}
@@ -56,7 +59,7 @@ export default function Menu() {
         {menuList.map((it) => (
           <li
             key={it.title}
-            className={styles.listItem}
+            className={styles.item}
           >
             <Link
               className={styles.link + " " + setActiveStyle(it.link)}
