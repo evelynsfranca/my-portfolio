@@ -1,34 +1,68 @@
-import Link from "next/link";
+'use client';
+
 import styles from "./index.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons/faArrowUpRightFromSquare";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import Link from "next/link";
 
 export interface ButtonLinkProps {
     label: string;
     url: string;
     color: 'primary' | 'secondary';
-    icon?: IconProp;
+    icon?: IconProp | 'none' | 'default';
+    type: 'button' | 'link';
+    target?: string;
 }
 
 export default function ButtonLink(props: ButtonLinkProps) {
 
-    const { label, url, color, icon } = props;
+    const { label, url, color, icon, type, target } = props;
 
-    const [linkColor, setLinkColor] = useState(`var(--${color}-color-text)`);
+    const [linkColor, setLinkColor] = useState('var(--' + color + '-color-text)');
+    const [linkBackgroundColor, setLinkBackgroundColor] = useState('transparent');
+    const [buttonActive, setButtonActive] = useState(false);
+
+    const buttonColor = type == 'link' ? 'var(--' + color + '-color-text)' : 'var(--text-primary-color)';
+    const buttonBackgroundColor = type == 'link' ? 'none' : 'var(--' + color + '-color-variant)';
+
+    const buttonColorHover = type == 'link' ? 'var(--' + color + '-color-text-hover)' : 'var(--text-primary-color)';
+    const buttonBackgroundColorHover = type == 'link' ? 'none' : 'var(--' + color + '-color-hover)';
+
+    const buttonIcon = icon === 'default'
+        ? faArrowUpRightFromSquare
+        : icon != 'none'
+            ? icon
+            : null;
+
+    const handleButtonColor = () => {
+        if (buttonActive) {
+            setLinkColor(buttonColorHover);
+            setLinkBackgroundColor(buttonBackgroundColorHover);
+        } else {
+            setLinkColor(buttonColor);
+            setLinkBackgroundColor(buttonBackgroundColor);
+        }
+    }
+
+    useEffect(() => handleButtonColor(), [buttonActive]);
 
     return (
-        <Link 
-            href={url} 
-            className={styles.linkButton}
-            style={{ color: linkColor }}
-            onMouseEnter={() => setLinkColor(`var(--${color}-color-text-hover)`)}
-            onMouseLeave={() => setLinkColor(`var(--${color}-color-text)`)}
-            target="_blank"
+        <Link
+            id={url}
+            href={url}
+            className={type == 'link' ? styles.linkButton : styles.button}
+            style={{
+                color: linkColor,
+                background: linkBackgroundColor
+            }}
+            onMouseEnter={() => setButtonActive(true)}
+            onMouseLeave={() => setButtonActive(false)}
+            target={target || "_blank"}
         >
             {label}
-            <FontAwesomeIcon icon={icon || faArrowUpRightFromSquare} />
+            {buttonIcon && (<FontAwesomeIcon icon={buttonIcon} />)}
         </Link>
     );
 }
