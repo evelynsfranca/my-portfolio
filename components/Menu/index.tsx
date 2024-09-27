@@ -9,12 +9,8 @@ import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Image from "next/image";
 import logo from '@/public/images/logo.svg';
-import logo2 from '@/public/images/logo2.svg';
-
-export interface MenuProps {
-  link: string;
-  title: string;
-}
+import logoHover from '@/public/images/logo2.svg';
+import { menuList } from "@/mocks/menu";
 
 export default function Menu() {
 
@@ -22,33 +18,32 @@ export default function Menu() {
   const [menu, setMenu] = useState<boolean>(false);
   const [logoSrc, setLogoSrc] = useState(logo);
 
-  const menuList: MenuProps[] = [
-    { link: "/", title: "Home" },
-    { link: "/services", title: "Serviços" },
-    { link: "/projects", title: "Projetos" },
-    { link: "/about", title: "Sobre" },
-    { link: "/contact", title: "Contato" }
-  ];
+  const setActiveStyle = (link: string): string =>
+    (link != '/' && currentPage.includes(link))
+      || (link === '/' && currentPage === '/')
+      ? styles.active
+      : "";
 
-  const setActiveStyle = (link: string): string => `${link === currentPage ? styles.active : ""}`;
   const setMenuStyle = (): string => `${menu ? styles.menuOpen : ""}`;
   const setMenuButtonStyle = (): string => `${styles.menuButton + " " + setMenuStyle()}`;
 
-  useEffect(() => setMenu(false), [currentPage])
+  useEffect(() => setMenu(false), [currentPage]);
 
   return (
     <nav className={styles.nav}>
+
       <div className={styles.logo}>
         <Link className={styles.link} href="/">
           <Image
             alt="logo"
             src={logoSrc}
             className={styles.logo}
-            onMouseEnter={() => setLogoSrc(logo2)}
+            onMouseEnter={() => setLogoSrc(logoHover)}
             onMouseLeave={() => setLogoSrc(logo)}
           />
         </Link>
       </div>
+
       <button
         className={setMenuButtonStyle()}
         onClick={() => setMenu(!menu)}
@@ -57,8 +52,12 @@ export default function Menu() {
       </button>
 
       <ul className={styles.list + " " + setMenuStyle()}>
+
         {menuList.map((it) => (
-          <li key={it.title} className={styles.listItem}>
+          <li
+            key={it.title}
+            className={styles.listItem}
+          >
             <Link
               className={styles.link + " " + setActiveStyle(it.link)}
               href={it.link}
@@ -67,7 +66,9 @@ export default function Menu() {
             </Link>
           </li>
         ))}
+
       </ul>
+
     </nav>
   );
 }
