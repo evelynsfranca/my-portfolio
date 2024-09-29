@@ -1,26 +1,19 @@
 'use client';
+
 import { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faChevronLeft,
     faChevronRight,
-    faCircle,
+    faCircle
 } from "@fortawesome/free-solid-svg-icons";
 import { slides } from "@/mocks/home/slides";
 
-export interface SlideProps {
-    title: string;
-    subtitle: string;
-    backgroundImage: string;
-}
-
 export default function BannerSection() {
-
 
     const [slideIndex, setSlideIndex] = useState<number>(0);
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     const handleSlide = (index: number) => {
         if (index < 0) {
             setSlideIndex(slides.length - 1);
@@ -38,27 +31,27 @@ export default function BannerSection() {
     }
 
     const handleBannerContentStyle = (index: number) => {
-        const active = index === slideIndex && styles.bannerContentActive;
-        return styles.bannerContent + " " + active;
+        const active = index === slideIndex && styles.active;
+        return styles.content + " " + active;
     }
 
     const handleBannerButtonsStyle = (index: number) => {
-        const active = index === slideIndex && styles.bannerButtonActive;
-        return styles.bannerButton + " " + active;
+        const active = index === slideIndex && styles.active;
+        return styles.button + " " + active;
     }
 
     useEffect(() => {
-        const timeoutId = setTimeout(() => handleSlide(slideIndex + 1), 7000);    
+        const timeoutId = setTimeout(() => handleSlide(slideIndex + 1), 7000);
         return () => clearTimeout(timeoutId);
-      }, [handleSlide, slideIndex]); // Empty dependency array ensures the effect runs only once
-    
+    }, [handleSlide, slideIndex]);
+
 
     return (
-        <section className={styles.section}>            
+        <section className={styles.section}>
             <div>
 
                 <button
-                    className={styles.slideButton}
+                    className={styles.arrowButton}
                     type="button"
                     onClick={() => handleSlide(slideIndex - 1)}
                 >
@@ -66,6 +59,7 @@ export default function BannerSection() {
                 </button>
 
                 <div className={styles.banner}>
+                    
                     {slides.map((it, i) => (
                         <div
                             key={it.title}
@@ -79,22 +73,25 @@ export default function BannerSection() {
                             <h2 className={styles.subTitle}>{it.subtitle}</h2>
                         </div>
                     ))}
+
+
+                    <div className={styles.buttons}>
+                        {slides.map((it, i) => (
+                            <button
+                                key={it.title}
+                                className={handleBannerButtonsStyle(i)}
+                                onClick={() => handleSlide(i)}
+                            >
+                                <FontAwesomeIcon icon={faCircle} />
+                            </button>
+                        ))}
+                    </div>
+
                 </div>
 
-                <div className={styles.bannerButtons}>
-                    {slides.map((it, i) => (
-                        <button
-                            key={it.title}
-                            className={handleBannerButtonsStyle(i)}
-                            onClick={() => handleSlide(i)}
-                        >
-                            <FontAwesomeIcon icon={faCircle} />
-                        </button>
-                    ))}
-                </div>
 
                 <button
-                    className={styles.slideButton}
+                    className={styles.arrowButton}
                     type="button"
                     onClick={() => handleSlide(slideIndex + 1)}
                 >

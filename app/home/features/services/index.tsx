@@ -1,5 +1,5 @@
 'use client';
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+
 import ServiceCard from "./components";
 import styles from "./index.module.css";
 import {
@@ -8,15 +8,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { services } from "@/mocks/home/services";
-import Link from "next/link";
-
-export interface ServiceProps {
-    id: number;
-    title: string;
-    description: string;
-    icon: IconProp;
-}
+import { services } from "@/mocks/services/services";
+import ButtonLink from "@/components/Button/Link";
 
 export default function ServicesSection() {
 
@@ -40,12 +33,15 @@ export default function ServicesSection() {
 
     return (
         <section id="services" className={styles.section}>
+
             <header className={styles.header}>
                 <h2>Serviços</h2>
             </header>
+
             <div className={styles.content}>
+
                 <button
-                    className={styles.slideButton}
+                    className={styles.button}
                     type="button"
                     onClick={() => handleSlide(slideIndex - 1)}
                 >
@@ -66,15 +62,25 @@ export default function ServicesSection() {
                 </div>
 
                 <button
-                    className={styles.slideButton}
+                    className={styles.button}
                     type="button"
                     onClick={() => handleSlide(slideIndex + 1)}
                 >
                     <FontAwesomeIcon icon={faChevronRight} />
                 </button>
+
             </div>
-            
-            <Link href={"/services"} className={styles.button}>Ver serviços</Link>
+
+            <footer>
+                <ButtonLink
+                    label="Ver serviços"
+                    url="/services"
+                    color="primary"
+                    type="button"
+                    target="_self"
+                />
+            </footer>
+
         </section>
     );
 }

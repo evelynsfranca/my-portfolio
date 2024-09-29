@@ -25,11 +25,6 @@
     cursor: default;
 }
 
-.article:last-child {
-    align-items: flex-start;
-    justify-content: space-around;
-}
-
 .article:first-child {
     border-radius: 1rem;
 }
@@ -37,6 +32,11 @@
 .article:first-child > img {
     height: 100%;
     width: 100%;
+}
+
+.article:last-child {
+    align-items: flex-start;
+    justify-content: space-around;
 }
 
 
@@ -82,16 +82,16 @@
         padding: 10rem;
     }
     
-    .article > .header > h2 {
-        padding: 1rem 2rem;
-    }
-
     .article {
         width: 100%;
     }
 
     .article > .header {
         margin-top: 2rem;
+    }
+
+    .article > .header > h2 {
+        padding: 1rem 2rem;
     }
 
     .article > .content {
@@ -115,5 +115,16 @@
 @media screen and (max-width: 500px) {
     .section {    
         padding: 10rem 3rem;
+    }
+
+    .header {
+        text-align: center;
+    }
+    
+    .footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 }

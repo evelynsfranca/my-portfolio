@@ -2,31 +2,31 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
-    padding: 15vh 3vw;
+    padding: 15vh 1vw;
     user-select: none;
 
-    width: 100%;    
+    height: 100%;
+    width: 100%;
 }
 
-.section > .header {
+.header {
     display: flex;
     align-items: center;
     justify-content: center;
 
     font-size: var(--text-header-font-size);
 
-    height: 20%;
     width: 100%;
 }
 
-.section > .header > h2 {
+.header > h2 {
     border-bottom: 2px solid var(--primary-color);
     padding: 1rem 2rem;
 }
 
-.section > .content {
+.content {
     display: flex;
     justify-content: center;
 
@@ -35,7 +35,7 @@
     width: 90%;
 }
 
-.section > .content > .item {
+.item {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -44,28 +44,8 @@
     width: 100%;
 }
 
-.section > .content > .slideButton {
+.button {
     display: none;
-}
-
-.button {    
-    display: flex;
-
-    background: var(--primary-color-variant);
-    border: 0;
-    border-radius: .2rem;
-    font-size: var(--text-button-font-size);
-    font-weight: 700;
-    letter-spacing: 1.25px;
-    outline: 0;
-    padding: .75rem 2.5rem;
-    text-transform: uppercase;
-    transition: background .5s;
-}
-
-.button:hover {
-    cursor: pointer;
-    background-color: var(--primary-color-hover);
 }
 
 @media screen and (max-width: 900px) {
@@ -73,11 +53,11 @@
         height: 100vh;
     }
 
-    .section > .header {
-        font-size: 1.5rem;
+    .header > h2 {
+        padding: 1rem 2rem;
     }
 
-    .section > .content {
+    .content {
         align-items: center;
         flex-direction: row;
         flex-wrap: nowrap;
@@ -88,7 +68,7 @@
         width: 100%;
     }
 
-    .section > .content > .item {
+    .item {
         display: flex;
         justify-content: center;
 
@@ -99,7 +79,7 @@
         width: 100%;
     }
         
-    .section > .content > .slideButton {
+    .button {
         display: flex;
 
         background: none;
@@ -110,23 +90,22 @@
         z-index: 2;
     }
     
-    .section > .content > .slideButton:hover {
+    .button:hover {
         color: var(--primary-color);
         cursor: pointer;
     }
 
-    .button {
+    .section > footer > a {
         margin-top: 2rem;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .section > .header {
-        font-size: 1.5rem;
+    .header {
+        text-align: center;
     }
 
-    .section > .content > .slideButton {
+    .button {
         padding: 1rem;
     }
-    
 }

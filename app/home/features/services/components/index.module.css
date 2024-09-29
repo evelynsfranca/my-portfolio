@@ -15,11 +15,11 @@
     cursor: default;
 }
 
-.card:hover .cardIcon {
+.card:hover .icon {
     color: var(--primary-color);
 }
 
-.cardHeader {
+.header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,17 +28,17 @@
     width: 100%;
 }
 
-.cardIcon {
+.icon {
     font-size: 1.5rem;
     padding-bottom: .5rem;
 }
 
-.cardTitle {
+.title {
     font-size: var(--text-header-font-size);
     padding-bottom: .5rem;
 }
 
-.cardDescription {
+.description {
     color: var(--text-secondary-color);
     font-size: var(--text-description-font-size);
     font-weight: 300;
@@ -74,22 +74,22 @@
         width: 100%;
     }
     
-    .cardHeader {
+    .header {
         align-items: center;
         width: 100%;
     }
 
-    .cardIcon {
+    .icon {
         font-size: 2.5rem;
     }
     
-    .cardTitle {
+    .title {
         font-size: 1.75rem;
         padding: 1.5rem 0;
         text-align: center;
     }
 
-    .cardDescription {
+    .description {
         font-size: 1.2rem;
         text-align: center;
         max-width: none;
@@ -101,10 +101,13 @@
 }
 
 @media screen and (max-width: 500px) {
-    .cardIcon {
-        font-size: 4rem;
+    .icon {
+        font-size: 3.5rem;
     }
-    .cardDescription {
+
+    .description {
         font-size: 1rem;
+        line-clamp: 4;
+        -webkit-line-clamp: 4;
     }
 }

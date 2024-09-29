@@ -11,7 +11,7 @@
     width: 100%;
 }
 
-.section > .article {
+.article {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,26 +22,25 @@
     overflow: hidden;
 }
 
-.section > .article:hover {
+.article:hover {
     cursor: default;
 }
 
-.section > .article:first-child {
+.article:first-child {
     align-items: flex-start;
     justify-content: space-around;
 }
 
-.section > .article:last-child {
+.article:last-child {
     border-radius: 1rem;
 }
 
-.section > .article:last-child > img {
+.article:last-child > img {
     height: 100%;
     width: 100%;
 }
 
-
-.section > .article > .header {
+.header {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -51,12 +50,12 @@
     width: 100%;
 }
 
-.section > .article > .header > h2 {
+.header > h2 {
     border-bottom: 2px solid var(--primary-color);
     padding: 0 2rem 1rem 0;
 }
 
-.section > .article > .content {
+.content {
     color: var(--text-secondary-color);
     font-size: 1rem;
     font-weight: 300;
@@ -66,33 +65,12 @@
     width: 100%;
 }
 
-.section > .article > .button {
-    display: flex;
-
-    background: var(--primary-color-variant);
-    border: 0;
-    border-radius: .2rem;
-    font-size: var(--text-button-font-size);
-    font-weight: 700;
-    letter-spacing: 1.25px;
-    outline: 0;
-    padding: .75rem 2.5rem;
-    text-transform: uppercase;
-    transition: background .5s;
-}
-
-.section > .article > .button:hover {
-    cursor: pointer;
-    background-color: var(--primary-color-hover);
-}
-
-
 @media screen and (max-width: 1200px) {
     .section {
         padding: 0 5rem;
     }
 
-    .section > .article > .content {   
+    .content {   
         margin: 1rem 0;
     }
 }
@@ -104,26 +82,26 @@
         height: auto;
     }
 
-    .section > .article {
+    .article {
         width: 100%;
     }
 
-    .section > .article > .header {
+    .header {
         margin-top: 2rem;
     }
 
-    .section > .article > .header > h2 {
+    .header > h2 {
         padding: 1rem 2rem;
     }
     
 
-    .section > .article > .content {
+    .content {
         margin: 2rem 0;
     }
 
-    .section > .article > .header,
-    .section > .article > .content,
-    .section > .article > .button {
+    .header,
+    .content,
+    .article a {
         align-self: center;
         justify-content: center;
     }
@@ -138,5 +116,16 @@
 @media screen and (max-width: 500px) {
     .section {    
         padding: 10rem 3rem;
+    }
+
+    .header {
+        text-align: center;
+    }
+    
+    .footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 }
