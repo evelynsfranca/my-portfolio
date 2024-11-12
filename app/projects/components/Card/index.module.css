@@ -28,7 +28,7 @@
     border-radius: 1rem;
 
     height: auto;
-    width: 90%;
+    width: 100%;
 }
 
 .cardDescription {
@@ -45,7 +45,7 @@
     width: 100%;
 }
 
-.cardButton {
+.cardFooter > a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,30 +65,6 @@
 
     width: 100%;
     max-width: 49%;
-}
-
-.cardButton:hover {
-    cursor: pointer;
-}
-
-.cardButton:first-child {
-    background: var(--primary-color-variant);
-}
-
-.cardButton:first-child:hover {
-    background-color: var(--primary-color-hover);    
-}
-
-.cardButton:last-child {
-    background: var(--secondary-color-variant);
-}
-
-.cardButton:last-child:hover {
-    background-color: var(--secondary-color-hover);    
-}
-
-.cardButton > span {
-    margin-right: .5rem;
 }
 
 
@@ -112,4 +88,8 @@
     .card {
         width: 100%;
     }
+
+    .cardDescription {
+        font-size: var(--mobile-text-description-font-size);
+    }    
 }

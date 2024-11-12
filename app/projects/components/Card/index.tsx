@@ -1,31 +1,58 @@
 
 import styles from "./index.module.css";
 import Image from "next/image";
-import projectImage from '@/public/images/02-office.jpg';
-import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import defaultProjectImage from '@/public/images/default.svg';
 import { ProjectModel } from "@/models/ProjectModel";
+import ButtonLink from "@/components/Button/Link";
 
 export type ProjectCardProps = ProjectModel;
 
 export default function ProjectCard(props: Readonly<ProjectCardProps>) {
+
+    const { id, name, link, shortDescription, images } = props;
+
+    const projectImage = images != undefined && images.length > 0 ? images[0].url : defaultProjectImage;
+
     return (
         <article className={styles.card}>
+
             <header className={styles.cardHeader}>
-                <h3 className={styles.cardTitle}>{props.name}</h3>
+                <h3 className={styles.cardTitle}>{name}</h3>
             </header>
+
             <div className={styles.cardImage}>
-                <Image src={projectImage} alt="" />
+                <Image
+                    src={projectImage}
+                    alt={`Imagem do projeto ${name}`}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                />
             </div>
-            <div className={styles.cardDescription}>{props.description}</div>
+
+            <div
+                className={styles.cardDescription}
+                dangerouslySetInnerHTML={{ __html: shortDescription }}
+            />
+
             <footer className={styles.cardFooter}>
-                <Link href={"/projects/" + props.id} className={styles.cardButton}>Detalhes</Link>
-                <Link href={props.link} className={styles.cardButton} target="_blank">
-                    <span>Visitar</span>
-                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} /> 
-                </Link>
+                <ButtonLink
+                    label="Detalhes"
+                    url={"/projects/" + id}
+                    color="primary"
+                    type="button"
+                    icon="none"
+                    target="_self"
+                />
+                <ButtonLink
+                    label="Visitar"
+                    url={link}
+                    color="secondary"
+                    type="button"
+                    icon="default"
+                />
             </footer>
+
         </article>
     );
 }
