@@ -1,206 +1,209 @@
 .main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-  background-color: var(--background-primary-color);
-  cursor: default;
-  padding-bottom: 7rem;
-  user-select: none;
+    background-color: var(--background-primary-color);
+    cursor: default;
+    padding-bottom: 7rem;
+    user-select: none;
 
-  height: 87vh;
+    min-height: 87vh;
 }
 
 .section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  height: fit-content;
-  width: 75%;
+    height: fit-content;
+    width: 75vw;
 }
 
 .section > .header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-  padding: 5rem 0 3rem;
-  text-align: center;
+    padding: 5rem 0 3rem;
+    text-align: center;
 
-  width: 100%;
+    width: 100%;
 }
 
 .section > .header > .title {
-  border-bottom: 2px solid var(--primary-color);
-  font-size: var(--title-font-size);
-  margin-bottom: 3rem;
-  padding: 1rem 2rem;
+    border-bottom: 2px solid var(--primary-color);
+    font-size: var(--title-font-size);
+    margin-bottom: 3rem;
+    padding: 1rem 2rem;
 }
 
 .section > .header > .subTitle {
-  color: var(--text-secondary-color);
-  font-size: var(--subtitle-font-size);
-  font-weight: 300;
+    color: var(--text-secondary-color);
+    font-size: var(--subtitle-font-size);
+    font-weight: 300;
 }
 
 .content {
-  display: flex;
-  justify-content: center;
-  width: 90%;
-  margin-bottom: 6rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    margin-bottom: 6rem;
+
+    width: 100%;
 }
 
-.nav {
-  display: flex;
-  flex-direction: column;
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    width: 700px;
+}
+
+.items.active {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+.content > .button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    font-size: 1.25rem;
+    height: 150px;
+    outline: 0;
+    padding: 2rem 1rem;
+    visibility: hidden;
+}
+
+.content > .button.active {
+    visibility: visible;
 }
 
 .item {
-  display: flex;
-  justify-content: flex-start;
-  
-  border-bottom: 2px solid transparent;
-  font-size: var(--text-font-size);
-  font-weight: 500;
-  letter-spacing: .75px;
-  padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    width: 50%;
 }
 
-.item:hover:not(.active) {
-  color: var(--primary-color-text-hover);
+.items.active > .item {
+    min-width: 100%;
 }
 
-.active {
-  border-bottom: 2px solid var(--primary-color-variant);
-  color: var(--primary-color);
+.nav > .button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 2rem 1rem;
+    outline: 0;
+
+    height: 150px;
+    width: 100%;
+}
+
+.nav > .button.active {
+    color: var(--primary-color);
+}
+
+.nav > .button > .icon {
+    font-size: 2rem;
+}
+
+.nav > .button > span {
+    font-size: 1.1rem;
+    margin-top: 1rem;
 }
 
 .description {
-  display: flex;
-  flex-direction: column;
+    height: 0;
+    opacity: 0;
+    transition: all 3s ease;
+}
 
-  border: 1px solid var(--primary-color);
-  border-left-color: var(--primary-color);
-  border-radius: 1rem;
-  padding: 2rem;
+.description.active {
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid var(--primary-color);
+    border-radius: 1rem;
+    height: max-content;
+    opacity: 1;
+    padding: 2rem;
+}
+
+.description > .closeIcon {
+    align-self: flex-end;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
 }
 
 .description > .header {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 
-  padding-bottom: 2rem;
+    padding-bottom: 2rem;
 }
 
 .description > .header > h2 {
-  text-align: center;
+    text-align: center;
 }
 
 .description > .header > .icon {
-  font-size: 2rem;
-  margin-right: 1.5rem;
+    font-size: 2rem;
+    margin-right: 1.5rem;
 }
 
-@media screen and (max-width: 1300px) {
-  .main {
-    height: 100%;
-  }
-
-  .sidebar {
-    min-width: 35%;
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  .section {
-    width: 95%;
-  }
-}
-
-@media screen and (max-width: 800px) {
-
-  .content {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    display: flex;
-  }
-
-  .nav {
-    flex-direction: row;
-    justify-content: flex-start;
-    overflow-x: scroll;
-    width: 100vw;
-  }
-  
-  .nav::-webkit-scrollbar {
-    height: 5px;
-    width: 2px;
-    scrollbar-width: thin;
-  }
-
-  .nav::-webkit-scrollbar-track {
-    background: var(--background-hover-color);
-  }
-
-  .nav::-webkit-scrollbar-thumb {
-    background-color: #3f3f3f;
-    border-radius: 20px;
-    border: 1px solid var(--background-hover-color);
-  }
-
-  .navButton {
-    background: none;
-    border: 0;
-    outline: 0;
-    padding: 1rem;
-  }
-
-  .item {
-    border-bottom: 2px solid transparent;
-    padding: 1rem 0;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .active {
-    border-bottom: 2px solid var(--primary-color-variant);
-    color: var(--primary-color); 
-  }
-
-  .description {
-    border: 0;
-  }
-
-  .description > .header {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .description > .header > .icon {
-    margin-right: 0;
-    margin-bottom: 1rem;
-  }
+@media screen and (max-width: 900px) {
+    .section {
+        width: 85%;
+    }
+    .items {
+        width: 600px;
+    }
 }
 
 @media screen and (max-width: 600px) {
-  .section > .header > .subTitle {
-    font-size: 1.15rem;
-  }
+    .section {
+        width: 100%;
+    }
 
-  .sidebar {
-    width: 100%;
-  }
+    .content {
+        align-items: center;
+    }
+    
+    .items {
+        width: 500px;
+    }
 
-  .item {
-    text-align: center;
-  }
+    .description.active {
+        padding: 2rem 1rem;
+    }
+    
+    .description > .header {
+        flex-direction: column;
+    }
 
-  .description {
-    padding: 2rem 0;
-  }
+    .description > .header > .icon {
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .item {
+        width: 100%;
+    }
 }

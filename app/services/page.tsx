@@ -2,90 +2,64 @@
 
 import { services } from "@/mocks/services/services";
 import styles from "./page.module.css";
-import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
+import { faX } from "@fortawesome/free-solid-svg-icons";
+
+export type ServiceAnimation = {
+  transform: string;
+  opacity: number;
+}
+
+export type MobileAnimation = {
+  animation: string;
+}
 
 export default function Services() {
 
-  const params = useParams();
-  const router = useRouter();
+  const navElementRef = useRef<HTMLElement>(null);
+  const [active, setActive] = useState<number>(0);
+  const [open, setOpen] = useState<boolean>(false);
 
-  const [active, setActive] = useState<number>(1);
-  const [itemSize, setItemSize] = useState<number>(0);
-  const [pageSize, setPageSize] = useState<number>(0);
-  const [navEnd, setNavEnd] = useState<boolean>(false);
-  const [navStart, setNavStart] = useState<boolean>(false);
-  const [navElement, setNavElement] = useState<Element | null>(null);
-  const [navScroll, setNavScroll] = useState<number>(0);
+  const handleNavScroll = (direction?: number) => {
 
-  const handleNavigationClassName = (id: number) =>
-    `${active && active == id && styles.active} ${styles.item}`;
+    let scrollSize = 0;
+    let scroll = 0;
 
-  const handleNavScroll = (value?: number) => {
+    if (navElementRef.current) {
+      scrollSize = navElementRef.current.getBoundingClientRect().width;
+      scroll = direction ? direction * scrollSize : (active - 1) * scrollSize;
 
-    let scroll;
-    let currentScroll;
-
-    if (navElement) {
-      currentScroll = navElement.scrollLeft;
-      scroll = value == 0
-        ? currentScroll - itemSize
-        : itemSize + currentScroll;
-
-      scroll = scroll >= 0 ? scroll : 0;
-
-      navElement.scroll({ left: scroll, top: 0, behavior: 'smooth' });
+      navElementRef.current.scroll({ left: scroll, behavior: 'smooth' });
     }
-    scroll && setNavScroll(scroll);
-
-    if (value == 1 && active < services.length) 
-      setActive(active + value);
-    else if (value == 0 && active > 1)
-      setActive(active - 1);
-
   }
 
-  const handleNavButtons = () => {
-    navScroll <= 1
-      || (active != null && active == 0)
-      ? setNavStart(true)
-      : setNavStart(false); // Se for começo da galeria
+  const handleService = (key: number, type: 'button' | 'item') => {
+    setOpen(true);
 
-    navScroll >= (itemSize * services.length)
-      || (active != null && active >= 0 && active == services.length)
-      ? setNavEnd(true)
-      : setNavEnd(false); // Se for o fim da galeria
+    if (type === 'item') {
+      (open && active == key) && setOpen(false);
+      setActive(key + 1);
+    } else {
+      (key == 1 && active < services.length) // Botão da direita (Avançar)
+        && setActive(active + 1); 
+      (key == -1 && active > 1) // Botão da esquerda (Voltar)
+        && setActive(active - 1); 
+
+      handleNavScroll(key);
+    }
+  }
+
+  const handleCloseDescription = () => {
+    setActive(0);
+    setOpen(false);
   }
 
   useEffect(() => {
-    const hash = window.location.hash.split('#')[1];
-    hash != undefined && setActive(Number(hash));
-  }, [params]);
-
-  useEffect(() => {
-    router.push('/services#' + active);
+    handleNavScroll();
   }, [active]);
-
-  useEffect(() => { // Atualiza a visualização dos botões de scroll da navegação
-    handleNavButtons();
-  }, [navScroll, itemSize, active]);
-
-  useEffect(() => {
-    let element = document.getElementsByClassName(styles.nav).length
-      ? document.getElementsByClassName(styles.nav)[0]
-      : null;
-
-    let size = element && element.getBoundingClientRect().width;
-    size != undefined && setItemSize(size);
-
-    setNavElement(element);
-
-    let docSize = document.getElementsByTagName('body')[0]?.getBoundingClientRect().width;
-    docSize && setPageSize(docSize);
-  }, []);
 
   return (
     <main id="services" className={styles.main}>
@@ -103,62 +77,83 @@ export default function Services() {
         </header>
 
         <div className={styles.content}>
+          
+          <button
+            type="button"
+            className={`${styles.button} ${open && active > 1 && styles.active}`}
+            onClick={() => handleService(-1, 'button')}
+          >
+            <FontAwesomeIcon icon={faChevronLeft} />
+          </button>
 
-          <aside className={styles.sidebar}>
+          <article
+            ref={navElementRef}
+            className={`${styles.items} ${open && styles.active}`}
+          >
 
-            <button
-              type="button"
-              className={styles.navButton}
-              style={{ opacity: !navStart && pageSize <= 800 ? 1 : 0 }}
-              onClick={() => handleNavScroll(0)}
-            >
-              <FontAwesomeIcon icon={faChevronLeft} />
-            </button>
+            {services.map((it, i) => (
 
-            <nav className={styles.nav}>
-              {services.map(it => (
-                <Link
-                  key={it.id}
-                  href={'#' + it.id}
-                  className={handleNavigationClassName(it.id)}
-                  style={{ minWidth: `${itemSize}px` }}
-                >
-                  {it.title}
-                </Link>
-              ))}
-            </nav>
+              <article 
+                key={it.id}
+                className={styles.item}
+              >
 
-            <button
-              type="button"
-              className={styles.navButton}
-              style={{ opacity: !navEnd && pageSize <= 800 ? 1 : 0 }}
-              onClick={() => handleNavScroll(1)}
-            >
-              <FontAwesomeIcon icon={faChevronRight} />
-            </button>
+                <header>
+                  <nav className={styles.nav}>
+                    <button
+                      key={it.id}
+                      type="button"
+                      className={`${styles.button} ${active === it.id && styles.active}`}
+                      onClick={() => handleService(i, 'item')}
+                    >
+                      <FontAwesomeIcon
+                        icon={it.icon}
+                        className={styles.icon}
+                      />
+                      <span>{it.title}</span>
+                    </button>
+                  </nav>
+                </header>
 
-          </aside>
+                {active === it?.id && (
 
-          <article className={styles.description}>
+                  <article className={`${styles.description} ${styles.active}`}>
 
-            <header className={styles.header}>
+                    <FontAwesomeIcon
+                      icon={faX}
+                      className={styles.closeIcon}
+                      onClick={handleCloseDescription}
+                    />
 
-              <FontAwesomeIcon
-                icon={services[active - 1]?.icon}
-                className={styles.icon}
-              />
+                    <header className={styles.header}>
+                      <FontAwesomeIcon
+                        icon={it?.icon}
+                        className={styles.icon}
+                      />
+                      
+                      <h2 className={styles.title}>
+                        {it?.title}
+                      </h2>
+                    </header>
 
-              <h2 className={styles.title}>
-                {services[active - 1]?.title}
-              </h2>
+                    <p dangerouslySetInnerHTML={{ __html: it?.description }} />
 
-            </header>
-
-            <p dangerouslySetInnerHTML={{ __html: services[active - 1]?.description }} />
-
+                  </article>
+                )}
+              </article>
+            ))}
           </article>
 
+          <button
+            type="button"
+            className={`${styles.button} ${open && active < services.length && styles.active}`}
+            onClick={() => handleService(1, 'button')}
+          >
+            <FontAwesomeIcon icon={faChevronRight} />
+          </button>
+
         </div>
+
       </section>
     </main>
   );
