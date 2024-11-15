@@ -8,7 +8,8 @@ import {
     faChevronRight,
     faCircle
 } from "@fortawesome/free-solid-svg-icons";
-import { slides } from "@/mocks/home/slides";
+import { slides } from "@/data/home/slides";
+import ButtonLink from "@/components/Button/Link";
 
 export default function BannerSection() {
 
@@ -69,8 +70,16 @@ export default function BannerSection() {
                                 backgroundImage: `url(${it.backgroundImage})`
                             }}
                         >
-                            <h1 className={styles.title}>{it.title}</h1>
-                            <h2 className={styles.subTitle}>{it.subtitle}</h2>
+                            <h2 className={styles.title}>{it.title}</h2>
+                            <h3 className={styles.subTitle}>{it.subtitle}</h3>
+                            <ButtonLink 
+                                url={it.link}
+                                color="primary"
+                                label="SAIBA MAIS"
+                                type="button"
+                                icon="none"
+                                target="_self"
+                            />
                         </div>
                     ))}
 

@@ -47,6 +47,7 @@
     align-items: center;
     justify-content: center;
 
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute; 
@@ -91,6 +92,10 @@
 .subTitle {
     font-size: 2rem;
     font-weight: 300;
+    z-index: 1;
+}
+.content > a {
+    margin-top: 1.5rem;
     z-index: 1;
 }
 
