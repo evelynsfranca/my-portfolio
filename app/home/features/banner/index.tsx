@@ -85,6 +85,7 @@ export default function BannerSection() {
 
 
                     <div className={styles.buttons}>
+                        <div>
                         {slides.map((it, i) => (
                             <button
                                 key={it.title}
@@ -94,6 +95,7 @@ export default function BannerSection() {
                                 <FontAwesomeIcon icon={faCircle} />
                             </button>
                         ))}
+                        </div>
                     </div>
 
                 </div>

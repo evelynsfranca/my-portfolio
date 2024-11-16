@@ -34,7 +34,7 @@
 }
 
 .title {
-    font-size: var(--text-header-font-size);
+    font-size: 1.2rem;
     padding-bottom: .5rem;
 }
 
@@ -43,7 +43,7 @@
     font-size: var(--text-description-font-size);
     font-weight: 300;
     text-align: center;
-    height: 10vh;
+    height: 8vh;
 
     display: -webkit-box;
     max-width: 40vw;
@@ -84,13 +84,13 @@
     }
     
     .title {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         padding: 1.5rem 0;
         text-align: center;
     }
 
     .description {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         text-align: center;
         max-width: none;
         height: auto;

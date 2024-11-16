@@ -1,6 +1,6 @@
 import styles from "./index.module.css";
 import Image from "next/image";
-import aboutImage from '@/public/images/slides/02.jpg';
+import aboutImage from '@/public/images/about/cover.webp';
 import ButtonLink from "@/components/Button/Link";
 
 export default function AboutSection() {

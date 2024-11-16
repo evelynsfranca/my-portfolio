@@ -1,6 +1,6 @@
 import styles from "./index.module.css";
 import Image from "next/image";
-import projectImage from '@/public/images/projects/01.jpg';
+import projectImage from '@/public/images/projects/cover.webp';
 import ButtonLink from "@/components/Button/Link";
 
 export default function ProjectsSection() {

@@ -105,6 +105,13 @@
         align-self: center;
         justify-content: center;
     }
+    
+    .footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -120,12 +127,5 @@
 
     .header {
         text-align: center;
-    }
-    
-    .footer {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
     }
 }
