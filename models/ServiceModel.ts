@@ -6,4 +6,5 @@ export interface ServiceModel {
     description: string;
     shortDescription: string;
     icon: IconProp;
+    image: string;
 }

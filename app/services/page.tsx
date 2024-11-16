@@ -1,12 +1,14 @@
 'use client';
 
-import { services } from "@/mocks/services/services";
+import { services } from "@/data/services/services";
 import styles from "./page.module.css";
 import { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
 import { faX } from "@fortawesome/free-solid-svg-icons";
+import { useRouter, useParams } from "next/navigation";
+import Image from "next/image";
 
 export type ServiceAnimation = {
   transform: string;
@@ -19,6 +21,9 @@ export type MobileAnimation = {
 
 export default function Services() {
 
+  const router = useRouter();
+  const params = useParams();
+
   const navElementRef = useRef<HTMLElement>(null);
   const [active, setActive] = useState<number>(0);
   const [open, setOpen] = useState<boolean>(false);
@@ -30,7 +35,11 @@ export default function Services() {
 
     if (navElementRef.current) {
       scrollSize = navElementRef.current.getBoundingClientRect().width;
-      scroll = direction ? direction * scrollSize : (active - 1) * scrollSize;
+      scroll = direction 
+                ? direction * scrollSize 
+                : active > 0 
+                  ? (active - 1) * scrollSize 
+                  : 0;
 
       navElementRef.current.scroll({ left: scroll, behavior: 'smooth' });
     }
@@ -39,27 +48,49 @@ export default function Services() {
   const handleService = (key: number, type: 'button' | 'item') => {
     setOpen(true);
 
+    let newActive = 0;
+
     if (type === 'item') {
+
+      newActive = key + 1;
       (open && active == key) && setOpen(false);
-      setActive(key + 1);
+
     } else {
-      (key == 1 && active < services.length) // Botão da direita (Avançar)
-        && setActive(active + 1); 
-      (key == -1 && active > 1) // Botão da esquerda (Voltar)
-        && setActive(active - 1); 
+
+      if (key == 1 && active < services.length) // Botão da direita (Avançar)
+        newActive = active + 1;
+      else if (key == -1 && active > 1) // Botão da esquerda (Voltar)
+        newActive = active - 1;
 
       handleNavScroll(key);
     }
+    setActive(newActive);
+
   }
 
   const handleCloseDescription = () => {
     setActive(0);
     setOpen(false);
+    router.push('/services');
   }
 
   useEffect(() => {
     handleNavScroll();
+
+    if (active) {
+      router.push('/services#' + active);
+      setOpen(true);
+    }
   }, [active]);
+
+  useEffect(() => {
+    let hash = Number(window.location.hash.split('#')[1]) || 0;
+
+    hash && setActive(hash);
+
+  }, [params]);
+
+  useEffect(() => {}, [params])
 
   return (
     <main id="services" className={styles.main}>
@@ -77,7 +108,7 @@ export default function Services() {
         </header>
 
         <div className={styles.content}>
-          
+
           <button
             type="button"
             className={`${styles.button} ${open && active > 1 && styles.active}`}
@@ -93,9 +124,10 @@ export default function Services() {
 
             {services.map((it, i) => (
 
-              <article 
+              <article
                 key={it.id}
                 className={styles.item}
+                id={it.id.toString()}
               >
 
                 <header>
@@ -115,31 +147,36 @@ export default function Services() {
                   </nav>
                 </header>
 
-                {active === it?.id && (
+                  <article className={`${styles.description} ${active === it?.id && styles.active}`}>
 
-                  <article className={`${styles.description} ${styles.active}`}>
-
-                    <FontAwesomeIcon
-                      icon={faX}
-                      className={styles.closeIcon}
-                      onClick={handleCloseDescription}
-                    />
-
-                    <header className={styles.header}>
+                    <header>
                       <FontAwesomeIcon
-                        icon={it?.icon}
-                        className={styles.icon}
+                        icon={faX}
+                        className={styles.closeIcon}
+                        onClick={handleCloseDescription}
                       />
-                      
-                      <h2 className={styles.title}>
-                        {it?.title}
-                      </h2>
                     </header>
 
-                    <p dangerouslySetInnerHTML={{ __html: it?.description }} />
+                    <article>
 
+                      <header className={styles.header}>
+                        <Image
+                          className={styles.image}
+                          src={it.image}
+                          alt={it?.title}
+                          height={0}
+                          width={0}
+                          sizes="100vw"
+                        />
+
+                        <h2 className={styles.title}>
+                          {it?.title}
+                        </h2>
+                      </header>
+
+                      <p dangerouslySetInnerHTML={{ __html: it?.description }} />
+                    </article>
                   </article>
-                )}
               </article>
             ))}
           </article>
