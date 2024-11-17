@@ -21,7 +21,7 @@ export default function ProjectsSection() {
                     <ButtonLink
                         label="Ver projetos"
                         url="/projects"
-                        color="primary"
+                        color="secondary"
                         type="button"
                         target="_self"
                     />

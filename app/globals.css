@@ -10,11 +10,17 @@
   --primary-color-text: #f845f2;
   --primary-color-text-hover: #fa79f5;
 
-  --secondary-color: #00ffff;
+  --secondary-color: #ff9f3e;
+  --secondary-color-variant: #f66b40;
+  --secondary-color-hover: #f95144;
+  --secondary-color-text: #f8894b;
+  --secondary-color-text-hover: #ffb856;
+
+  /* --secondary-color: #00ffff;
   --secondary-color-variant: #00b4b4;
   --secondary-color-hover: #009c9c;
   --secondary-color-text: #00d1d1;
-  --secondary-color-text-hover: #00ffff;
+  --secondary-color-text-hover: #00ffff; */
 
   --background-primary-color: #151515;
   --background-secondary-color: #000000;

@@ -1,7 +1,6 @@
 .button {
     display: flex;
-
-    background: var(--primary-color-variant);
+    background: linear-gradient(45deg, var(--primary-color-variant), var(--secondary-color-variant));
     border: 0;
     border-radius: 0.2rem;
     font-size: var(--text-button-font-size);
@@ -10,6 +9,7 @@
     outline: 0;
     padding: 1rem 5rem;
     text-transform: uppercase;
+    transition: background .5s linear;
 }
 
 .disabled {
@@ -18,5 +18,5 @@
 
 .button:hover {
     cursor: pointer;
-    background-color: var(--primary-color-hover);
+    background: var(--primary-color-variant);
 }

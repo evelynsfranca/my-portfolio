@@ -25,7 +25,10 @@
 }
 
 .title {
-    border-bottom: 2px solid var(--primary-color);
+    border-image: linear-gradient(to left, var(--primary-color-variant), var(--secondary-color-variant)) 1;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    
     font-size: var(--title-font-size);
     margin-bottom: 3rem;
     padding: 1rem 2rem;
@@ -94,6 +97,7 @@
 
     width: 100%;
 }
+
 .socialMediaLink {
     position: relative;
     transition: all 0.5s;

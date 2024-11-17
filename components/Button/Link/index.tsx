@@ -24,11 +24,25 @@ export default function ButtonLink(props: ButtonLinkProps) {
     const [linkBackgroundColor, setLinkBackgroundColor] = useState('transparent');
     const [buttonActive, setButtonActive] = useState(false);
 
-    const buttonColor = type == 'link' ? 'var(--' + color + '-color-text)' : 'var(--text-primary-color)';
-    const buttonBackgroundColor = type == 'link' ? 'none' : 'var(--' + color + '-color-variant)';
+    const buttonColor = 
+        type == 'link' 
+            ? 'var(--' + color + '-color-text)' 
+            : 'var(--text-primary-color)';
+    const buttonBackgroundColor = 
+        type == 'link' 
+            ? 'none' 
+            : color === 'primary' 
+                ? 'linear-gradient(45deg, var(--' + color + '-color-variant), var(--secondary-color-variant))'
+                : 'linear-gradient(45deg, var(--' + color + '-color-variant), var(--primary-color-variant))';
 
-    const buttonColorHover = type == 'link' ? 'var(--' + color + '-color-text-hover)' : 'var(--text-primary-color)';
-    const buttonBackgroundColorHover = type == 'link' ? 'none' : 'var(--' + color + '-color-hover)';
+    const buttonColorHover = 
+        type == 'link' 
+            ? 'var(--' + color + '-color-text-hover)' 
+            : 'var(--text-primary-color)';
+    const buttonBackgroundColorHover = 
+        type == 'link' 
+            ? 'none' 
+            : 'var(--' + color + '-color-hover)';
 
     const buttonIcon = icon === 'default'
         ? faArrowUpRightFromSquare

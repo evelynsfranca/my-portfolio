@@ -74,7 +74,7 @@ export default function BannerSection() {
                             <h3 className={styles.subTitle}>{it.subtitle}</h3>
                             <ButtonLink 
                                 url={it.link}
-                                color="primary"
+                                color={i % 2 == 0 ? "primary" : "secondary"}
                                 label="SAIBA MAIS"
                                 type="button"
                                 icon="none"
