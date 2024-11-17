@@ -158,7 +158,6 @@ export default function Services() {
                     </header>
 
                     <article>
-
                       <header className={styles.header}>
                         <Image
                           className={styles.image}
