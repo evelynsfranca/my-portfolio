@@ -66,6 +66,7 @@ body {
 body {
   color: rgb(var(--foreground-rgb));
   background: var(--background-primary-color);
+  position: relative;
 }
 
 a {
