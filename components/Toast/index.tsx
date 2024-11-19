@@ -13,21 +13,26 @@ export default function Toast(props: ToastProps) {
 
   return (
     <article className={styles.toast}>
+
       <div className={styles.toastContent + ` ${type ? styles.ok : styles.nok}`}>
-        <FontAwesomeIcon 
-          icon={type ? faCheck : faExclamationTriangle}
-          className={styles.toastIcon}
-        />
+
         <div className={styles.message}>
-          {message}
+          <FontAwesomeIcon
+            icon={type ? faCheck : faExclamationTriangle}
+            className={styles.toastIcon}
+          />
+
+          <span>{message}</span>
+
+          <button
+            className={styles.toastButton}
+            onClick={() => closeHandler(false)}
+            type="button"
+          >
+            <FontAwesomeIcon icon={faXmark} />
+          </button>
         </div>
-        <button 
-          className={styles.toastButton} 
-          onClick={() => closeHandler(false)}
-          type="button"
-        >
-          <FontAwesomeIcon icon={faXmark} />
-        </button>
+
       </div>
     </article>
   );
