@@ -12,11 +12,16 @@
     transition: background .5s linear;
 }
 
-.disabled {
-    opacity: 0.5;
-}
-
 .button:hover {
     cursor: pointer;
     background: var(--primary-color-variant);
+}
+
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.disabled:hover {
+    cursor: not-allowed;
 }
