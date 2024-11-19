@@ -5,7 +5,7 @@
     justify-content: flex-start;
 
     background-color: var(--background-hover-color);
-    padding: 0 3vw;
+    padding: 0 3vw 6rem;
     user-select: none;
 
     min-height: 87vh;
@@ -25,10 +25,15 @@
 }
 
 .title {
-    border-image: linear-gradient(to left, var(--primary-color-variant), var(--secondary-color-variant)) 1;
+    border-image: linear-gradient(
+            to left,
+            var(--primary-color-variant),
+            var(--secondary-color-variant)
+        )
+        1;
     border-bottom-style: solid;
     border-bottom-width: 2px;
-    
+
     font-size: var(--title-font-size);
     margin-bottom: 3rem;
     padding: 1rem 2rem;
@@ -156,12 +161,11 @@
     }
 
     .formBox {
-      padding-bottom: 6.5vh;
-      width: 100%;
-
+        padding-bottom: 6.5vh;
+        width: 100%;
     }
     .socialMediaBox {
-      width: 60%;
+        width: 60%;
     }
 
     .form {
