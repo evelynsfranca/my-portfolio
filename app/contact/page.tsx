@@ -6,6 +6,7 @@ import TextArea from "@/components/TextArea";
 import Toast from "@/components/Toast";
 import { contacts } from "@/data/contacts";
 import { ContactEmailModel } from "@/models/ContactEmailModel";
+import { faSquareFull } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { useState } from "react";
@@ -142,7 +143,7 @@ export default function Contact() {
                   className={styles.socialMediaLink}
                   aria-label={it.label}
                 >
-                  <FontAwesomeIcon icon={it.icon} />
+                  <FontAwesomeIcon className={styles.icon} mask={faSquareFull} icon={it.icon} />
                 </Link>
               ))}
             </div>
