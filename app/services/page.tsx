@@ -1,14 +1,14 @@
 'use client';
 
 import { services } from "@/data/services/services";
-import styles from "./page.module.css";
-import { useEffect, useRef, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
-import { faX } from "@fortawesome/free-solid-svg-icons";
-import { useRouter, useParams } from "next/navigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
+import { useParams, useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import styles from "./page.module.css";
 
 export type ServiceAnimation = {
   transform: string;
@@ -35,11 +35,11 @@ export default function Services() {
 
     if (navElementRef.current) {
       scrollSize = navElementRef.current.getBoundingClientRect().width;
-      scroll = direction 
-                ? direction * scrollSize 
-                : active > 0 
-                  ? (active - 1) * scrollSize 
-                  : 0;
+      scroll = direction
+        ? direction * scrollSize
+        : active > 0
+          ? (active - 1) * scrollSize
+          : 0;
 
       navElementRef.current.scroll({ left: scroll, behavior: 'smooth' });
     }
@@ -89,8 +89,6 @@ export default function Services() {
     hash && setActive(hash);
 
   }, [params]);
-
-  useEffect(() => {}, [params])
 
   return (
     <main id="services" className={styles.main}>
@@ -147,8 +145,8 @@ export default function Services() {
                   </nav>
                 </header>
 
-                  <article className={`${styles.description} ${active === it?.id && styles.active}`}>
-
+                <article className={`${styles.description} ${active === it?.id && styles.active}`}>
+                  <div>
                     <header>
                       <FontAwesomeIcon
                         icon={faX}
@@ -175,7 +173,9 @@ export default function Services() {
 
                       <p dangerouslySetInnerHTML={{ __html: it?.description }} />
                     </article>
-                  </article>
+                  </div>
+                </article>
+
               </article>
             ))}
           </article>

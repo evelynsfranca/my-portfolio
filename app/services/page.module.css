@@ -34,10 +34,15 @@
 }
 
 .section > .header > .title {
-    border-image: linear-gradient(to left, var(--primary-color-variant), var(--secondary-color-variant)) 1;
+    border-image: linear-gradient(
+            to left,
+            var(--primary-color-variant),
+            var(--secondary-color-variant)
+        )
+        1;
     border-bottom-style: solid;
     border-bottom-width: 2px;
-    
+
     font-size: var(--title-font-size);
     margin-bottom: 3rem;
     padding: 1rem 2rem;
@@ -80,7 +85,7 @@
 }
 
 .content > .button:hover {
-    color: var(--secondary-color)
+    color: var(--secondary-color);
 }
 
 .content > .button.active {
@@ -135,44 +140,59 @@
     height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: all 1s ease;
+    transition: height 1s ease, opacity 1s, overflow 1s;
 }
 
 .description.active {
     display: flex;
-    flex-direction: column;
 
-    border: 1px solid var(--secondary-color);
-    border-radius: 1rem;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    background-image: linear-gradient(white, white),
+        radial-gradient(
+            circle at top left,
+            var(--primary-color-variant),
+            var(--secondary-color-variant)
+        );
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+
     height: max-content;
     opacity: 1;
+}
+
+.description.active > div {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-primary-color);
+    border-radius: 1rem;
     padding: 2rem;
 }
 
-.description > header {
+.description > div > header {
     display: flex;
     justify-content: flex-end;
 }
 
-.description > header > .closeIcon {
+.description > div > header > .closeIcon {
     align-self: flex-end;
     cursor: pointer;
     font-size: 1rem;
     padding: 0 1.5rem 0.5rem;
 }
 
-.description > header > .closeIcon:hover {
+.description > div > header > .closeIcon:hover {
     color: var(--primary-color);
     cursor: pointer;
 }
 
-.description > article {
+.description > div > article {
     display: flex;
     width: 100%;
     height: inherit;
 }
 
-.description > article > .header {
+.description > div > article > .header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -182,7 +202,7 @@
     width: 50%;
 }
 
-.description > article > .header > .image {
+.description > div > article > .header > .image {
     display: flex;
 
     border-radius: 1rem;
@@ -192,12 +212,12 @@
     width: 100%;
 }
 
-.description > article > .header > h2 {
+.description > div > article > .header > h2 {
     margin-top: 1.5rem;
     text-align: center;
 }
 
-.description > article > p {
+.description > div > article > p {
     display: flex;
     padding-left: 1rem;
     width: 100%;
@@ -212,17 +232,17 @@
         width: 600px;
     }
 
-    .description > header > .closeIcon {
+    .description > div > header > .closeIcon {
         padding-bottom: 1.5rem;
     }
 
-    .description > article > .header {
+    .description > div > article > .header {
         align-items: center;
         justify-content: center;
         width: 100%;
     }
 
-    .description > article {
+    .description > div > article {
         flex-direction: column;
     }
 }
