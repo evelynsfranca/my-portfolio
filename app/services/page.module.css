@@ -254,7 +254,7 @@
 
 @media screen and (max-width: 600px) {
     .section {
-        width: 100%;
+        width: 90%;
     }
 
     .content {
@@ -264,14 +264,23 @@
     .items {
         width: 500px;
     }
-
-    .description.active {
-        padding: 2rem 1rem;
-    }
 }
 
 @media screen and (max-width: 500px) {
     .item {
-        width: 100%;
+        width: 90%;
+    }
+
+    .description.active > div {
+        padding: 1rem;
+    }
+
+    .description > div > article > .header > h2 {
+        font-size: 1.2rem;
+    }
+
+    .description > div > article > p {
+        font-size: 1rem;
+        padding: 0;
     }
 }

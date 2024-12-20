@@ -57,15 +57,17 @@ export default function Services() {
       (open && active == key) && setOpen(false);
 
     } else {
-
-      if (key == 1 && active != undefined && active < services.length) // Botão da direita (Avançar)
+      if (key == 1 && active != undefined && active < (services.length - 1)) // Botão da direita (Avançar)
         newActive = active + 1;
       else if (key == -1 && active != undefined && active > 0) // Botão da esquerda (Voltar)
         newActive = active - 1;
+      else
+        newActive = 0;
+
 
       handleNavScroll(key);
     }
-    
+
     newActive != undefined && setActive(newActive);
 
   }
@@ -79,7 +81,7 @@ export default function Services() {
   useEffect(() => {
     handleNavScroll();
 
-    if (active != undefined) {
+    if (active != undefined && services[active] != undefined) {
       router.push('/services#' + services[active].id);
       setOpen(true);
     }
@@ -185,7 +187,7 @@ export default function Services() {
 
           <button
             type="button"
-            className={`${styles.button} ${open && active != undefined && active < services.length && styles.active}`}
+            className={`${styles.button} ${open && active != undefined && active < (services.length - 1) && styles.active}`}
             onClick={() => handleService(1, 'button')}
           >
             <FontAwesomeIcon icon={faChevronRight} />
