@@ -1,7 +1,7 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 export interface ServiceModel {
-    id: number;
+    id: string;
     title: string;
     description: string;
     shortDescription: string;

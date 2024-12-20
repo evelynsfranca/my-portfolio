@@ -9,6 +9,7 @@ import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import styles from "./page.module.css";
+import { ServiceModel } from "@/models/ServiceModel";
 
 export type ServiceAnimation = {
   transform: string;
@@ -25,7 +26,7 @@ export default function Services() {
   const params = useParams();
 
   const navElementRef = useRef<HTMLElement>(null);
-  const [active, setActive] = useState<number>(0);
+  const [active, setActive] = useState<number>();
   const [open, setOpen] = useState<boolean>(false);
 
   const handleNavScroll = (direction?: number) => {
@@ -33,7 +34,7 @@ export default function Services() {
     let scrollSize = 0;
     let scroll = 0;
 
-    if (navElementRef.current) {
+    if (navElementRef.current && active != undefined) {
       scrollSize = navElementRef.current.getBoundingClientRect().width;
       scroll = direction
         ? direction * scrollSize
@@ -48,28 +49,29 @@ export default function Services() {
   const handleService = (key: number, type: 'button' | 'item') => {
     setOpen(true);
 
-    let newActive = 0;
+    let newActive;
 
     if (type === 'item') {
 
-      newActive = key + 1;
+      newActive = key;
       (open && active == key) && setOpen(false);
 
     } else {
 
-      if (key == 1 && active < services.length) // Botão da direita (Avançar)
+      if (key == 1 && active != undefined && active < services.length) // Botão da direita (Avançar)
         newActive = active + 1;
-      else if (key == -1 && active > 1) // Botão da esquerda (Voltar)
+      else if (key == -1 && active != undefined && active > 0) // Botão da esquerda (Voltar)
         newActive = active - 1;
 
       handleNavScroll(key);
     }
-    setActive(newActive);
+    
+    newActive != undefined && setActive(newActive);
 
   }
 
   const handleCloseDescription = () => {
-    setActive(0);
+    setActive(undefined);
     setOpen(false);
     router.push('/services');
   }
@@ -77,17 +79,18 @@ export default function Services() {
   useEffect(() => {
     handleNavScroll();
 
-    if (active) {
-      router.push('/services#' + active);
+    if (active != undefined) {
+      router.push('/services#' + services[active].id);
       setOpen(true);
     }
+
   }, [active]);
 
   useEffect(() => {
-    let hash = Number(window.location.hash.split('#')[1]) || 0;
+    let hash = window.location.hash.split('#')[1] || '';
+    let serviceIndex = services.indexOf(services.filter((item) => item.id === hash)[0]);
 
-    hash && setActive(hash);
-
+    serviceIndex >= 0 && setActive(serviceIndex);
   }, [params]);
 
   return (
@@ -109,7 +112,7 @@ export default function Services() {
 
           <button
             type="button"
-            className={`${styles.button} ${open && active > 1 && styles.active}`}
+            className={`${styles.button} ${open && active != undefined && active > 0 && styles.active}`}
             onClick={() => handleService(-1, 'button')}
           >
             <FontAwesomeIcon icon={faChevronLeft} />
@@ -133,7 +136,7 @@ export default function Services() {
                     <button
                       key={it.id}
                       type="button"
-                      className={`${styles.button} ${active === it.id && styles.active}`}
+                      className={`${styles.button} ${active === i && styles.active}`}
                       onClick={() => handleService(i, 'item')}
                     >
                       <FontAwesomeIcon
@@ -145,7 +148,7 @@ export default function Services() {
                   </nav>
                 </header>
 
-                <article className={`${styles.description} ${active === it?.id && styles.active}`}>
+                <article className={`${styles.description} ${active === i && styles.active}`}>
                   <div>
                     <header>
                       <FontAwesomeIcon
@@ -182,7 +185,7 @@ export default function Services() {
 
           <button
             type="button"
-            className={`${styles.button} ${open && active < services.length && styles.active}`}
+            className={`${styles.button} ${open && active != undefined && active < services.length && styles.active}`}
             onClick={() => handleService(1, 'button')}
           >
             <FontAwesomeIcon icon={faChevronRight} />

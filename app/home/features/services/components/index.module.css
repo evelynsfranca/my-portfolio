@@ -1,22 +1,20 @@
 .card {
     display: flex;
     flex-direction: column;
+    flex-grow: 1 0 auto;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 
     border-radius: 1rem;
-    margin: 2rem 0;
+    padding: 2rem;
 
-    height: auto;
-    width: 45%;
+    max-width: 50%;
+    width: 100%;
 }
 
 .card:hover {
-    cursor: default;
-}
-
-.card:hover .icon {
     color: var(--primary-color);
+    cursor: default;
 }
 
 .header {
@@ -30,27 +28,14 @@
 
 .icon {
     font-size: 1.5rem;
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
 }
 
 .title {
     font-size: 1.2rem;
-    padding-bottom: .5rem;
-}
-
-.description {
-    color: var(--text-secondary-color);
-    font-size: var(--text-description-font-size);
-    font-weight: 300;
+    font-weight: 400;
+    padding-bottom: 0.5rem;
     text-align: center;
-    height: 8vh;
-
-    display: -webkit-box;
-    max-width: 40vw;
-    line-clamp: 3;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
 }
 
 .link {
@@ -63,51 +48,16 @@
 
 @media screen and (max-width: 900px) {
     .card {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        position: absolute;
-        transition: left 1s;
-
-        height: 100%;
         width: 100%;
     }
-    
-    .header {
-        align-items: center;
-        width: 100%;
-    }
-
-    .icon {
-        font-size: 2.5rem;
-    }
-    
-    .title {
-        font-size: 1.5rem;
-        padding: 1.5rem 0;
-        text-align: center;
-    }
-
-    .description {
-        font-size: 1.1rem;
-        text-align: center;
-        max-width: none;
-        height: auto;
-        line-clamp: 5;
-        -webkit-line-clamp: 5;
-    }
-    
 }
 
-@media screen and (max-width: 500px) {
-    .icon {
-        font-size: 3.5rem;
+@media screen and (max-width: 670px) {
+    .card {
+        max-width: 100%;
     }
 
-    .description {
+    .title {
         font-size: 1rem;
-        line-clamp: 4;
-        -webkit-line-clamp: 4;
     }
 }

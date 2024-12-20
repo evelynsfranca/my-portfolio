@@ -28,84 +28,72 @@
 
 .content {
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
     justify-content: center;
 
     padding: 2rem 0;
 
-    width: 90%;
+    height: 100%;
+    width: 60%;
 }
 
 .item {
     display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: space-around;
+
+    overflow-x: auto;
+    position: relative;
 
     height: 100%;
     width: 100%;
 }
 
-.button {
-    display: none;
+.item::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+    scrollbar-width: thin;
 }
 
-@media screen and (max-width: 900px) {
-    .section {
-        height: 100vh;
-    }
+.item::-webkit-scrollbar-track {
+    background: var(--background-hover-color);
+}
 
-    .header > h2 {
-        padding: 1rem 2rem;
-    }
+.item::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border: 1px solid var(--background-hover-color);
+    border-radius: 20px;
+}
 
+.button {
+    display: flex;
+
+    background: none;
+    border: 0;
+    font-size: 2rem;
+    outline: 0;
+    padding: 2rem;
+    z-index: 2;
+}
+
+.button:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1125px) {
     .content {
-        align-items: center;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        
-        padding: 0;
-
-        height: 100%;
-        width: 100%;
-    }
-
-    .item {
-        display: flex;
-        justify-content: center;
-
-        overflow: hidden;
-        position: relative;
-        
-        height: 100%;
-        width: 100%;
-    }
-        
-    .button {
-        display: flex;
-
-        background: none;
-        border: 0;
-        font-size: 2rem;
-        outline: 0;
-        padding: 2rem;
-        z-index: 2;
-    }
-    
-    .button:hover {
-        color: var(--primary-color);
-        cursor: pointer;
-    }
-
-    .section > footer > a {
-        margin-top: 2rem;
+        width: 85%;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .header {
-        text-align: center;
-    }
-
-    .button {
-        padding: 1rem;
+    .content {
+        width: 100%;
     }
 }
