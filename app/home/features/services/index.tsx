@@ -11,17 +11,28 @@ import { useEffect, useRef, useState } from "react";
 import ServiceCard from "./components";
 import styles from "./index.module.css";
 
+interface ButtonStyle {
+    cursor: string;
+    opacity: number;
+}
+
 export default function ServicesSection() {
 
     const slideRef = useRef<HTMLElement>(null);
 
     const [slideIndex, setSlideIndex] = useState<number>(0);
+    const [slideItems, setSlideItems] = useState<number>(0);
     const [cardHeight, setCardHeight] = useState<number>(0);
+    const [cardWidth, setCardWidth] = useState<number>(0);
     const [slideStart, setSlideStart] = useState<boolean>(true);
     const [slideEnd, setSlideEnd] = useState<boolean>(false);
-    let documentSize = document.body.offsetWidth;
+    const [buttonStartStyle, setButtonStartStyle] = useState<ButtonStyle>();
+    const [buttonEndStyle, setButtonEndStyle] = useState<ButtonStyle>();
+    const [documentSize, setDocumentSize] = useState<number>(0);
+    const [itemsHeight, setItemsHeight] = useState<number>(0);
+    const [itemsWidth, setItemsWidth] = useState<number>(0);
 
-    let totalSlides = Math.ceil(services.length / 4);
+    let totalSlides = Math.ceil(services.length / slideItems);
 
     const handleSlide = (index: number) => {
         if (index < 0) {
@@ -54,15 +65,40 @@ export default function ServicesSection() {
         slideIndex == 0
             ? setSlideStart(true)
             : setSlideStart(false);
-        slideIndex == totalSlides
+        slideIndex == (totalSlides - 1) || totalSlides == 1
             ? setSlideEnd(true)
             : setSlideEnd(false);
 
-    }, [slideIndex]);
+    }, [slideIndex, slideItems]);
+
+    useEffect(() => {
+
+        slideStart
+            ? setButtonStartStyle({
+                opacity: 0,
+                cursor: 'default'
+            })
+            : setButtonStartStyle({
+                opacity: 1,
+                cursor: 'pointer'
+            });
+
+        slideEnd
+            ? setButtonEndStyle({
+                opacity: 0,
+                cursor: 'default'
+            })
+            : setButtonEndStyle({
+                opacity: 1,
+                cursor: 'pointer'
+            });
+
+    }, [slideStart, slideEnd]);
 
     useEffect(() => {
 
         let height = 0;
+        let width = 0;
         let itemSize = document.getElementsByClassName("serviceCard");
 
         Array.prototype.filter.call(
@@ -71,14 +107,36 @@ export default function ServicesSection() {
                 ? height = it.getBoundingClientRect().height
                 : false
         );
-
-        console.log(height)
+        Array.prototype.filter.call(
+            itemSize,
+            (it, _i) => it.getBoundingClientRect().width > width
+                ? width = it.getBoundingClientRect().width
+                : false
+        );
 
         setCardHeight(height);
-    }, []);
+        setCardWidth(width);
 
-    useEffect(() => console.log(documentSize), [documentSize])
+    }, [slideItems]);
     
+    useEffect(() => {
+        setItemsHeight(cardHeight * 2);
+        
+        documentSize >= 670 
+            ? setItemsWidth(cardWidth * 2) 
+            : setItemsWidth(cardWidth);
+
+    }, [cardHeight, cardWidth]);
+    
+    useEffect(() => {
+        documentSize >= 670
+            ? setSlideItems(4)
+            : setSlideItems(2);
+    }, [documentSize]);
+
+    useEffect(() => {
+        setDocumentSize(document.body.offsetWidth);
+    }, []);
 
     return (
         <section id="services" className={styles.section}>
@@ -95,10 +153,7 @@ export default function ServicesSection() {
                     onClick={() => slideStart
                         ? false
                         : handleSlide(slideIndex - 1)}
-                    style={{
-                        opacity: slideStart ? 0 : 1,
-                        cursor: slideStart ? 'default' : 'pointer'
-                    }}
+                    style={buttonStartStyle}
                 >
                     <FontAwesomeIcon icon={faChevronLeft} />
                 </button>
@@ -106,7 +161,10 @@ export default function ServicesSection() {
                 <article
                     ref={slideRef}
                     className={styles.item}
-                    style={{ maxHeight: `${(cardHeight * 7)}px` }}
+                    style={{ 
+                        maxHeight: `${itemsHeight}px`, 
+                        maxWidth: `${itemsWidth}px` 
+                    }}
                 >
                     {services.map((it, i) => (
                         <ServiceCard
@@ -116,7 +174,6 @@ export default function ServicesSection() {
                             description={it.description}
                             icon={it.icon}
                             className="serviceCard"
-                            cardHeight={cardHeight}
                         />
                     ))}
                 </article>
@@ -127,10 +184,7 @@ export default function ServicesSection() {
                     onClick={() => slideEnd
                         ? false
                         : handleSlide(slideIndex + 1)}
-                    style={{
-                        opacity: slideEnd ? 0 : 1,
-                        cursor: slideEnd ? 'default' : 'pointer'
-                    }}
+                    style={buttonEndStyle}
                 >
                     <FontAwesomeIcon icon={faChevronRight} />
                 </button>

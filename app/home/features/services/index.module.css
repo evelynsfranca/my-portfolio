@@ -40,12 +40,10 @@
 }
 
 .item {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-auto-flow: column;
 
     overflow-x: auto;
     position: relative;
@@ -92,8 +90,13 @@
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 670px) {
     .content {
         width: 100%;
+    }
+
+    .item {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
     }
 }
