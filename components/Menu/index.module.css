@@ -72,8 +72,9 @@
 }
 
 .active {
-    background-color: var(--background-hover-color);
-    border-bottom: 2px solid var(--primary-color);
+    border-image: linear-gradient(to left, var(--primary-color-variant), var(--secondary-color-variant)) 1;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
 }
 
 @media screen and (max-width: 1350px) {

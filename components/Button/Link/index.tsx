@@ -32,8 +32,8 @@ export default function ButtonLink(props: ButtonLinkProps) {
         type == 'link' 
             ? 'none' 
             : color === 'primary' 
-                ? 'linear-gradient(45deg, var(--' + color + '-color-variant), var(--secondary-color-variant))'
-                : 'linear-gradient(45deg, var(--' + color + '-color-variant), var(--primary-color-variant))';
+                ? 'var(--' + color + '-color-variant)'
+                : 'var(--' + color + '-color-variant)';
 
     const buttonColorHover = 
         type == 'link' 

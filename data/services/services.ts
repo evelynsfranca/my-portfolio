@@ -40,15 +40,5 @@ export const services: ServiceModel[] = [
         `,
         icon: faChartSimple,
         image: "/images/services/01/04.jpeg"
-    },
-    {
-        id: "implementacao-de-seo2",
-        title: "Implementação e otimização de SEO",
-        shortDescription: "Realizo configurações e otimizações de SEO para melhorar o posicionamento do seu site nos motores de busca. Meu trabalho inclui análise de palavras-chave, otimização de conteúdo, melhorias na velocidade de carregamento e implementação de técnicas avançadas para melhorar a visibilidade do site. Com uma abordagem focada em resultados, ajudo a aumentar a relevância e a atração orgânica para seu site, garantindo que seu público-alvo o encontre com facilidade.",
-        description:
-            `Desenvolvimento de landing pages eficazes e visualmente atraentes, projetadas para converter visitantes em clientes. Cada landing page é construída com base em princípios de design e técnicas de SEO, com elementos que conduzem o visitante ao objetivo desejado, seja uma inscrição, venda ou contato. Utilizando práticas modernas de marketing digital, crio páginas com carregamento rápido e compatibilidade total em dispositivos móveis.
-        `,
-        icon: faTerminal,
-        image: "/images/services/01/03.jpeg"
     }
 ];

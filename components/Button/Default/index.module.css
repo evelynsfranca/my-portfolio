@@ -1,6 +1,6 @@
 .button {
     display: flex;
-    background: linear-gradient(45deg, var(--primary-color-variant), var(--secondary-color-variant));
+    background: var(--primary-color-variant);
     border: 0;
     border-radius: 0.2rem;
     font-size: var(--text-button-font-size);

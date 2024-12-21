@@ -23,7 +23,9 @@
 }
 
 .header > h2 {
-    border-bottom: 2px solid var(--primary-color);
+    border-image: linear-gradient(to left, var(--primary-color-variant), var(--secondary-color-variant)) 1;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
     padding: 1rem 2rem;
 }
 
