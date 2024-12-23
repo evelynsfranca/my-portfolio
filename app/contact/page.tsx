@@ -145,7 +145,7 @@ export default function Contact() {
           <article className={styles.socialMediaBox}>
 
             <header>
-              <p>Veja também:</p>
+              <p>Veja também minhas redes sociais:</p>
             </header>
 
             <div className={styles.socialMedia}>
