@@ -18,7 +18,7 @@
     align-items: center;
 
     height: fit-content;
-    width: 75vw;
+    width: 85vw;
 }
 
 .section > .header {
@@ -27,7 +27,7 @@
     align-items: center;
     justify-content: center;
 
-    padding: 5rem 0 3rem;
+    padding: 5rem 0 0;
     text-align: center;
 
     width: 100%;
@@ -56,231 +56,29 @@
 
 .content {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 70%;
 }
 
 .items {
     display: flex;
-    flex-wrap: wrap;
-    width: 900px;
-}
-
-.items.active {
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    overflow: hidden;
-}
-
-.content > .button {
-    background: none;
-    border: 0;
-    cursor: pointer;
-    font-size: 1.25rem;
-    height: 150px;
-    outline: 0;
-    padding: 2rem 1rem;
-    visibility: hidden;
-}
-
-.content > .button:hover {
-    color: var(--secondary-color);
-}
-
-.content > .button.active {
-    visibility: visible;
-}
-
-.item {
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    height: 100%;
-    width: 50%;
-}
-
-.items.active > .item {
-    min-width: 100%;
-}
-
-.nav > .button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    background: none;
-    border: 0;
-    cursor: pointer;
-    padding: 2rem 1rem;
-    outline: 0;
-
-    height: 150px;
-    width: 100%;
-}
-
-.nav > .button:hover,
-.nav > .button.active {
-    color: var(--primary-color);
-}
-
-.nav > .button > .icon {
-    font-size: 2rem;
-}
-
-.nav > .button > span {
-    font-size: 1.1rem;
-    margin-top: 1rem;
-}
-
-.description {
-    height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: height 1s ease, opacity 1s, overflow 1s;
-}
-
-.description.active {
-    display: flex;
-
-    border: 2px solid transparent;
-    border-radius: 20px;
-    background-image: linear-gradient(white, white),
-        radial-gradient(
-            circle at top left,
-            var(--primary-color-variant),
-            var(--secondary-color-variant)
-        );
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-
-    height: max-content;
-    opacity: 1;
-}
-
-.description.active > div {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--background-primary-color);
-    border-radius: 1rem;
-    padding: 2rem;
-}
-
-.description > div > header {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.description > div > header > .closeIcon {
-    align-self: flex-end;
-    cursor: pointer;
-    font-size: 1rem;
-    padding: 0 1.5rem 0.5rem;
-}
-
-.description > div > header > .closeIcon:hover {
-    color: var(--primary-color);
-    cursor: pointer;
-}
-
-.description > div > article {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-top: 1rem;
-    height: inherit;
-    width: 100%;
-}
-
-.description > div > article > .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    padding-bottom: 2rem;
-    width: 65%;
-}
-
-.description > div > article > .header > .image {
-    display: flex;
-
-    border-radius: 1rem;
-    object-fit: contain;
-
-    height: auto;
-    width: 100%;
-}
-
-.description > div > article > .header > h2 {
-    margin-top: 1.5rem;
-    text-align: center;
-}
-
-.description > div > article > p {
-    display: flex;
-    padding-left: 1rem;
     width: 100%;
 }
 
 @media screen and (max-width: 900px) {
-    .section {
+    .content {
         width: 85%;
-    }
-
-    .items {
-        width: 600px;
-    }
-
-    .description > div > header > .closeIcon {
-        padding-bottom: 1.5rem;
-    }
-
-    .description > div > article > .header {
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .description > div > article {
-        flex-direction: column;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .section {
-        width: 90%;
-    }
-
     .content {
         align-items: center;
-    }
-
-    .items {
-        width: 500px;
+        width: 95%;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .item {
-        width: 90%;
-    }
-
-    .description.active > div {
-        padding: 1rem;
-    }
-
-    .description > div > article > .header > h2 {
-        font-size: 1.2rem;
-    }
-
-    .description > div > article > p {
-        font-size: 1rem;
-        padding: 0;
-    }
 }

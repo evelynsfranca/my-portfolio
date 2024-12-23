@@ -1,0 +1,165 @@
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 1rem;
+    padding-top: 8vh;
+
+    height: 100%;
+    width: 100%;
+
+    transition: all 1s ease-in-out;
+    opacity: 0;
+}
+
+.card:nth-child(even) {
+    transform: translateX(-30%);
+}
+
+.card:nth-child(odd) {
+    transform: translateX(30%);
+}
+
+.card:nth-child(even).active,
+.card:nth-child(odd).active {
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+.card:nth-child(even) .description article {
+    flex-direction: row-reverse;
+}
+
+.description {
+    display: flex;
+
+    border: 2px solid transparent;
+    border-radius: 18px;
+    background-image: linear-gradient(white, white),
+        radial-gradient(
+            circle at top left,
+            var(--primary-color-variant),
+            var(--secondary-color-variant)
+        );
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+
+    height: auto;
+    width: 100%;
+}
+
+.description > div {
+    display: flex;
+    background-color: var(--background-primary-color);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.description article {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    height: inherit;
+    width: 100%;
+}
+
+.description article > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.description article > div > a {
+    margin-top: 1.5rem;
+}
+
+.description .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 50%;
+}
+
+.description .image {
+    display: flex;
+
+    border-radius: 1rem;
+    object-fit: contain;
+
+    height: auto;
+    width: 100%;
+}
+
+.description h2 {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.description p {
+    display: flex;
+}
+
+.card:nth-child(even) .description p {
+    padding-right: 1rem;
+}
+
+.card:nth-child(odd) .description p {
+    padding-left: 1rem;
+}
+
+@media screen and (max-width: 900px) {
+    .description .header {
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .description h2 {
+        font-size: 1.5rem;
+    }
+
+    .card:nth-child(even),
+    .card:nth-child(odd) {
+        justify-content: center;
+    }
+
+    .card:nth-child(even) .description article,
+    .card:nth-child(odd) .description article {
+        flex-direction: column;
+    }
+
+    .card:nth-child(even) .description p,
+    .card:nth-child(odd) .description p {
+        padding: 1rem 0 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .card:nth-child(even) {
+        transform: translateX(-5%);
+    }
+
+    .card:nth-child(odd) {
+        transform: translateX(5%);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .description > div {
+        padding: 1.5rem;
+    }
+
+    .description h2 {
+        font-size: 1.2rem;
+    }
+
+    .description p {
+        font-size: 1rem;
+    }
+}
