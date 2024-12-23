@@ -34,6 +34,7 @@
     flex-direction: column;
     align-items: center;
 
+    padding: 2rem 0;
     width: 90%;    
 }
 
@@ -43,7 +44,10 @@
     color: var(--text-secondary-color);
     font-size: 1rem;
     font-weight: 300;
-    padding: 2rem 0;
+}
+
+.content > a {
+    margin-top: 1rem;
 }
 
 .socialMedia {

@@ -1,8 +1,8 @@
+import ButtonLink from "@/components/Button/Link";
+import { contacts } from "@/mocks/contacts";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import styles from "./index.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { contacts } from "@/mocks/contacts";
-import ButtonLink from "@/components/Button/Link";
 
 export default function ContactSection() {
     return (
@@ -13,7 +13,8 @@ export default function ContactSection() {
             </header>
 
             <div className={styles.content}>
-                <p>Entre em contato</p>
+                <p>Dúvidas ou sugestões?</p>
+                <p>Entre em contato.</p>
                 <ButtonLink
                     label="Entrar em contato"
                     url="/contact"
