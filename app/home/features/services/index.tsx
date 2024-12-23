@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useRef, useState } from "react";
-import ServiceCard from "./components";
+import ServiceCard from "./components/card";
 import styles from "./index.module.css";
 
 interface ButtonStyle {
