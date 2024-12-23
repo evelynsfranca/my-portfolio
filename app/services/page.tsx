@@ -3,6 +3,7 @@
 import { services } from "@/data/services/services";
 import ServiceCard from "./components/card/page";
 import styles from "./page.module.css";
+import ButtonLink from "@/components/Button/Link";
 
 export default function Services() {
 
@@ -16,7 +17,7 @@ export default function Services() {
           <h1 className={styles.title}>Serviços</h1>
 
           <h2 className={styles.subTitle}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate odio, consectetur dolorum atque quidem aliquid temporibus placeat tempora modi debitis. Eligendi quibusdam necessitatibus culpa labore explicabo, iste laudantium esse quisquam.
+            Abaixo estão listados os principais serviços prestados, mas, caso você queira tirar dúvidas sobre algum outro serviço que não esteja aparecendo ou caso queira mais informações, você pode entrar em contato clicando <ButtonLink color="secondary" label="aqui" type="link" url="/contact"/>.
           </h2>
 
         </header>

@@ -21,7 +21,7 @@
     width: 85vw;
 }
 
-.section > .header {
+.header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,10 +30,10 @@
     padding: 5rem 0 0;
     text-align: center;
 
-    width: 100%;
+    width: 80%;
 }
 
-.section > .header > .title {
+.title {
     border-image: linear-gradient(
             to left,
             var(--primary-color-variant),
@@ -48,10 +48,17 @@
     padding: 1rem 2rem;
 }
 
-.section > .header > .subTitle {
+.subTitle {
     color: var(--text-secondary-color);
     font-size: var(--subtitle-font-size);
     font-weight: 300;
+}
+
+.subTitle a {
+    display: inline-block;
+    font-size: var(--subtitle-font-size);
+    padding: 0;
+    text-transform: lowercase;
 }
 
 .content {
@@ -77,6 +84,10 @@
     .content {
         align-items: center;
         width: 95%;
+    }
+    
+    .header {
+        width: 90%;
     }
 }
 
