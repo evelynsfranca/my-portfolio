@@ -5,11 +5,13 @@ import InputText from "@/components/Input/Text";
 import TextArea from "@/components/TextArea";
 import Toast from "@/components/Toast";
 import { contacts } from "@/data/contacts";
+import { services } from "@/data/services/services";
 import { ContactEmailModel } from "@/models/ContactEmailModel";
 import { faSquareFull } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import { handleContact } from "./api";
 import styles from "./page.module.css";
 import { emailValidation } from "./validation";
@@ -21,6 +23,8 @@ export default function Contact() {
   const [loading, setLoading] = useState<boolean>(false);
   const [toast, setToast] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<string>();
+
+  const params = useSearchParams();
 
   const handleEmail = (e: any) => setEmail(prev => ({ ...prev, ...e }))
 
@@ -67,6 +71,16 @@ export default function Contact() {
 
   const resetForm = () => setEmail({ name: '', from: '', subject: '', content: '' });
 
+  useEffect(() => { 
+    if (params.get('service')) {
+      let service = services.filter(it => it.id == params.get('service'))[0];      
+      setEmail({ 
+        subject: service.title,
+        content: "Olá gostaria de fazer um orçamento para o serviço de " + service.title + "... (Informe os detalhes do projeto ou as dúvidas)"
+      }); 
+    }
+  }, [params]);
+
   return (
     <>
       <main className={styles.main}>
@@ -74,6 +88,7 @@ export default function Contact() {
         <header className={styles.header}>
           <h2 className={styles.title}>Contato</h2>
           <p className={styles.subtitle}>Informe seus dados e a mensagem que deseja enviar que eu retornarei o contato o mais breve possível (:</p>
+          <p className={styles.subtitle}>Ah, e não esqueça de fornecer os detalhes do projeto para orçamento e/ou tirar dúvidas!</p>
         </header>
 
         <div className={styles.content}>
