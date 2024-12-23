@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-     default: "Evelyn França", template: "Evelyn França | %s"
+     default: "Evelyn França | Portfólio", template: "Evelyn França | %s"
   }
 };
 

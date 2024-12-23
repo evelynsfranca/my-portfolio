@@ -1,17 +1,17 @@
-import ServicesSection from "./home/features/services";
-import BannerSection from "./home/features/banner";
-import ProjectsSection from "./home/features/projects";
-import styles from "./page.module.css";
-import AboutSection from "./home/features/about";
-import ContactSection from "./home/features/contact";
-import { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Evelyn França | Portfólio"
-};
+import { useEffect } from "react";
+import AboutSection from "./home/features/about";
+import BannerSection from "./home/features/banner";
+import ContactSection from "./home/features/contact";
+import ProjectsSection from "./home/features/projects";
+import ServicesSection from "./home/features/services";
+import styles from "./page.module.css";
 
 export default function Home() {
   
+  useEffect(() => { document.body.scrollTo({ top: 0, behavior: 'smooth' })}, []);
+
   return (
     <main id="home" className={styles.main}>
       <BannerSection />
