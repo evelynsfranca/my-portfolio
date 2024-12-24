@@ -1,0 +1,49 @@
+.slider {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2rem 0;
+
+    height: 100%;
+    width: 100%;
+}
+
+.slide {
+    display: grid;
+    overflow-x: auto;
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+}
+
+.slide::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+    scrollbar-width: thin;
+}
+
+.button {
+    display: flex;
+
+    background: none;
+    border: 0;
+    font-size: 2rem;
+    outline: 0;
+    padding: 2rem;
+    z-index: 2;
+}
+
+.button:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 670px) {
+    .slider {
+        width: 100%;
+    }
+}
