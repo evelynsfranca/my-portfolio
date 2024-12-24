@@ -22,7 +22,7 @@ export default function AboutSection() {
 
                 <div className={styles.content}>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Error aut reiciendis amet cupiditate eum ipsa doloribus, sequi, quasi laboriosam soluta facilis natus voluptatem hic quo numquam blanditiis iure eius reprehenderit.
+                        Formada em Análise e desenvolvimento de Sistemas pela PUC-PR, tenho atuado na área de Desenvolvimento de Software, onde venho aperfeiçoando e exercendo minhas habilidades, visando a entrega de produtos de qualidade, com performance e desempenho para meus clientes.   
                     </p>
                 </div>
 
