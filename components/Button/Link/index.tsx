@@ -1,11 +1,11 @@
 'use client';
 
-import styles from "./index.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons/faArrowUpRightFromSquare";
-import { useEffect, useState } from "react";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons/faArrowUpRightFromSquare";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import styles from "./index.module.css";
 
 export interface ButtonLinkProps {
     label: string;
@@ -24,24 +24,24 @@ export default function ButtonLink(props: ButtonLinkProps) {
     const [linkBackgroundColor, setLinkBackgroundColor] = useState('transparent');
     const [buttonActive, setButtonActive] = useState(false);
 
-    const buttonColor = 
-        type == 'link' 
-            ? 'var(--' + color + '-color-text)' 
+    const buttonColor =
+        type == 'link'
+            ? 'var(--' + color + '-color-text)'
             : 'var(--text-primary-color)';
-    const buttonBackgroundColor = 
-        type == 'link' 
-            ? 'none' 
-            : color === 'primary' 
+    const buttonBackgroundColor =
+        type == 'link'
+            ? 'none'
+            : color === 'primary'
                 ? 'var(--' + color + '-color-variant)'
                 : 'var(--' + color + '-color-variant)';
 
-    const buttonColorHover = 
-        type == 'link' 
-            ? 'var(--' + color + '-color-text-hover)' 
+    const buttonColorHover =
+        type == 'link'
+            ? 'var(--' + color + '-color-text-hover)'
             : 'var(--text-primary-color)';
-    const buttonBackgroundColorHover = 
-        type == 'link' 
-            ? 'none' 
+    const buttonBackgroundColorHover =
+        type == 'link'
+            ? 'none'
             : 'var(--' + color + '-color-hover)';
 
     const buttonIcon = icon === 'default'
@@ -58,7 +58,7 @@ export default function ButtonLink(props: ButtonLinkProps) {
             setLinkColor(buttonColor);
             setLinkBackgroundColor(buttonBackgroundColor);
         }
-    }
+    };
 
     useEffect(() => handleButtonColor(), [buttonActive]);
 
