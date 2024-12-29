@@ -1,6 +1,6 @@
-import { ContactEmail } from '@/app/contact/page';
+import { ContactEmailModel } from '@/models/ContactEmailModel';
 
-export const EmailTemplate: React.FC<ContactEmail> = (props: ContactEmail) => {
+export const EmailTemplate: React.FC<ContactEmailModel> = (props: ContactEmailModel) => {
 
     const { from, subject, content } = props;
 
@@ -17,8 +17,8 @@ export const EmailTemplate: React.FC<ContactEmail> = (props: ContactEmail) => {
                     padding: '2rem 0'
                 }}
             >
-                <span style={{ fontWeight: 'bold' }}>De:</span> 
-                <br/><br/>
+                <span style={{ fontWeight: 'bold' }}>De:</span>
+                <br /><br />
                 <span>{from}</span>
             </p>
 
@@ -29,7 +29,7 @@ export const EmailTemplate: React.FC<ContactEmail> = (props: ContactEmail) => {
                 }}
             >
                 <span style={{ fontWeight: 'bold' }}>Assunto:</span>
-                <br/><br/>
+                <br /><br />
                 <span>{subject}</span>
             </p>
 
@@ -39,8 +39,8 @@ export const EmailTemplate: React.FC<ContactEmail> = (props: ContactEmail) => {
                     padding: '2rem 0'
                 }}
             >
-                <span style={{ fontWeight: 'bold' }}>Conteúdo:</span>  
-                <br/><br/> 
+                <span style={{ fontWeight: 'bold' }}>Conteúdo:</span>
+                <br /><br />
                 <span>{content}</span>
             </p>
 
