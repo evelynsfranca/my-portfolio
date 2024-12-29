@@ -1,16 +1,16 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import styles from "./index.module.css";
-import { usePathname } from "next/navigation";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
-import Image from "next/image";
+import { menuList } from "@/mocks/menu";
 import logo from '@/public/images/logo.svg';
 import logoHover from '@/public/images/logo2.svg';
-import { menuList } from "@/mocks/menu";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Menu() {
 
@@ -33,8 +33,8 @@ export default function Menu() {
     <nav className={styles.nav}>
 
       <div>
-        <Link 
-          className={styles.link} 
+        <Link
+          className={styles.link}
           href="/"
         >
           <Image
