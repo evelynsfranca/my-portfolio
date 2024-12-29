@@ -2,18 +2,14 @@
 
 import {
     faChevronLeft,
-    faChevronRight
+    faChevronRight,
+    faCircle
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useRef, useState } from "react";
+import { CSSProperties, useEffect, useRef, useState } from "react";
 import styles from "./index.module.css";
 
-interface ButtonStyle {
-    cursor: string;
-    opacity: number;
-}
-
-interface CardSliderProps {
+interface SliderProps {
     itemsList: any[];
     totalItems?: number;
     itemsHeight?: number;
@@ -26,20 +22,21 @@ interface CardSliderProps {
     cardClass: string;
     heightAutoAdjust?: boolean;
     widthAutoAdjust?: boolean;
+    fullScreen?: boolean;
     children: React.ReactNode;
 }
 
-export default function CardSlider(props: CardSliderProps) {
+export default function Slider(props: SliderProps) {
 
-    const { itemsList, cardClass, totalItems, itemsHeight, itemsWidth, slideItemsQuantity, gridRows, gridColumns, gridFlow, gridGap, widthAutoAdjust, heightAutoAdjust, children } = props;
+    const { itemsList, cardClass, totalItems, itemsHeight, itemsWidth, slideItemsQuantity, gridRows, gridColumns, gridFlow, gridGap, widthAutoAdjust, heightAutoAdjust, fullScreen, children } = props;
 
     const slideRef = useRef<HTMLElement>(null);
 
     const [slideIndex, setSlideIndex] = useState<number>(0);
     const [slideStart, setSlideStart] = useState<boolean>(true);
     const [slideEnd, setSlideEnd] = useState<boolean>(false);
-    const [buttonStartStyle, setButtonStartStyle] = useState<ButtonStyle>();
-    const [buttonEndStyle, setButtonEndStyle] = useState<ButtonStyle>();
+    const [buttonStartStyle, setButtonStartStyle] = useState<CSSProperties>();
+    const [buttonEndStyle, setButtonEndStyle] = useState<CSSProperties>();
 
     const [cardHeight, setCardHeight] = useState<number>(0);
     const [cardWidth, setCardWidth] = useState<number>(0);
@@ -53,7 +50,7 @@ export default function CardSlider(props: CardSliderProps) {
     const handleSlide = (index: number) => {
         if (index < 0) {
             setSlideIndex(totalSlides - 1);
-        } else if (index > totalSlides) {
+        } else if (index >= totalSlides) {
             setSlideIndex(0);
         } else {
             setSlideIndex(index);
@@ -70,16 +67,25 @@ export default function CardSlider(props: CardSliderProps) {
             : 0;
 
         if (slideRef.current) {
-            scrollSize = slideRef.current.getBoundingClientRect().width + gapWidth;
+            scrollSize =
+                fullScreen
+                    ? document.body.offsetWidth
+                    : slideRef.current.getBoundingClientRect().width + gapWidth;
             scroll = slideIndex
                 ? slideIndex * scrollSize
                 : 0;
+
             slideRef.current.scroll({ left: scroll, behavior: 'smooth' });
         }
     };
 
     const handleSlideButtons = (condition: boolean, value: number) =>
-        condition ? handleSlide(value) : false;
+        condition || fullScreen ? handleSlide(value) : false;
+
+    const handleBannerButtonsStyle = (index: number) => {
+        const active = index === slideIndex && styles.active;
+        return styles.roundButton + " " + active;
+    }
 
     useEffect(() => {
         handleLeft();
@@ -95,25 +101,43 @@ export default function CardSlider(props: CardSliderProps) {
 
     useEffect(() => {
 
-        slideStart
-            ? setButtonStartStyle({
-                opacity: 0,
-                cursor: 'default'
-            })
-            : setButtonStartStyle({
+        if (fullScreen) {
+            setButtonStartStyle({
                 opacity: 1,
-                cursor: 'pointer'
+                cursor: 'pointer',
+                position: 'absolute',
+                left: 0,
+                zIndex: 5
             });
 
-        slideEnd
-            ? setButtonEndStyle({
-                opacity: 0,
-                cursor: 'default'
-            })
-            : setButtonEndStyle({
+            setButtonEndStyle({
                 opacity: 1,
-                cursor: 'pointer'
+                cursor: 'pointer',
+                position: 'absolute',
+                right: 0,
+                zIndex: 5
             });
+        } else {
+            slideStart
+                ? setButtonStartStyle({
+                    opacity: 0,
+                    cursor: 'default'
+                })
+                : setButtonStartStyle({
+                    opacity: 1,
+                    cursor: 'pointer'
+                });
+
+            slideEnd
+                ? setButtonEndStyle({
+                    opacity: 0,
+                    cursor: 'default'
+                })
+                : setButtonEndStyle({
+                    opacity: 1,
+                    cursor: 'pointer'
+                });
+        }
 
     }, [slideStart, slideEnd]);
 
@@ -156,18 +180,28 @@ export default function CardSlider(props: CardSliderProps) {
 
     }, [cardHeight, cardWidth, gridGap, gridColumns]);
 
+    useEffect(() => {
+
+        if (fullScreen) {
+            const timeoutId = setTimeout(() => handleSlide(slideIndex + 1), 7000);
+            return () => clearTimeout(timeoutId);
+        }
+
+    }, [fullScreen, handleSlide, slideIndex]);
+
+
     let maxHeight =
         itemsHeight
             ? `${itemsHeight}px`
             : heightAutoAdjust
                 ? 'none'
-                : slideHeight;
+                : fullScreen ? '100%' : slideHeight;
     let maxWidth =
         itemsWidth
             ? `${itemsWidth}px`
             : widthAutoAdjust
                 ? 'none'
-                : slideWidth;
+                : fullScreen ? '100%' : slideWidth;
 
     let templateRows = `repeat(${gridRows}, 1fr)` || 'none';
     let templateColumns = `repeat(${gridColumns}, 1fr)` || 'none';
@@ -196,7 +230,8 @@ export default function CardSlider(props: CardSliderProps) {
                     gridTemplateRows: templateRows,
                     gridTemplateColumns: templateColumns,
                     gridAutoFlow: autoFlow,
-                    gap: gap
+                    gap: gap,
+                    width: fullScreen ? '100vw' : 'auto'
                 }}
             >
                 {children}
@@ -210,6 +245,20 @@ export default function CardSlider(props: CardSliderProps) {
             >
                 <FontAwesomeIcon icon={faChevronRight} />
             </button>
+
+            {fullScreen && (
+                <div className={styles.buttons}>
+                    {itemsList.map((it, i) => (
+                        <button
+                            key={it.title}
+                            className={handleBannerButtonsStyle(i)}
+                            onClick={() => handleSlide(i)}
+                        >
+                            <FontAwesomeIcon icon={faCircle} />
+                        </button>
+                    ))}
+                </div>
+            )}
 
         </section>
     );
