@@ -1,38 +1,66 @@
-import styles from "./index.module.css";
-import Image from "next/image";
-import projectImage from '@/public/images/projects/cover.webp';
 import ButtonLink from "@/components/Button/Link";
+import CardSlider from "@/components/CardSlider";
+import { projects } from "@/data/projects/projects";
+import { useEffect, useState } from "react";
+import ProjectCard from "./components/Card";
+import styles from "./index.module.css";
 
 export default function ProjectsSection() {
+
+    const [slideItems, setSlideItems] = useState<number>(0);
+
+    useEffect(() => {
+        let documentSize = document.body.offsetWidth;
+
+        if (documentSize >= 1000)
+            setSlideItems(3);
+        else if (documentSize < 1000 && documentSize > 800)
+            setSlideItems(2);
+        else
+            setSlideItems(1);
+    }, []);
+
     return (
         <section id="projects" className={styles.section}>
-
             <article className={styles.article}>
 
                 <header className={styles.header}>
-                    <h2>Meus Projetos</h2>
+                    <h2 className={styles.title}>Meus Projetos</h2>
                 </header>
 
                 <div className={styles.content}>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error aut reiciendis amet cupiditate eum ipsa doloribus, sequi, quasi laboriosam soluta facilis natus voluptatem hic quo numquam blanditiis iure eius reprehenderit.</p>
+                    <CardSlider
+                        itemsList={projects.slice(0, 6)}
+                        totalItems={7}
+                        slideItemsQuantity={slideItems}
+                        gridRows={1}
+                        gridColumns={slideItems}
+                        gridFlow="column"
+                        gridGap={slideItems > 1 ? 2 : 0}
+                        heightAutoAdjust={true}
+                        cardClass="projectCard"
+                    >
+                        <>
+                            {projects.slice(0, 6).map(it => (
+                                <ProjectCard
+                                    key={it.id}
+                                    className="projectCard"
+                                    {...it}
+                                />
+                            ))}
+
+                            <ButtonLink
+                                label="Ver todos"
+                                url="/projects"
+                                color="secondary"
+                                type="link"
+                                target="_self"
+                            />
+                        </>
+                    </CardSlider>
                 </div>
-
-                <footer className={styles.footer}>
-                    <ButtonLink
-                        label="Ver projetos"
-                        url="/projects"
-                        color="secondary"
-                        type="button"
-                        target="_self"
-                    />
-                </footer>
-
+                
             </article>
-
-            <article className={styles.article}>
-                <Image src={projectImage} alt="projects-image" />
-            </article>
-
         </section>
     );
 }
