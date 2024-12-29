@@ -1,5 +1,5 @@
 import ButtonLink from "@/components/Button/Link";
-import CardSlider from "@/components/CardSlider";
+import Slider from "@/components/Slider";
 import { projects } from "@/data/projects/projects";
 import { useEffect, useState } from "react";
 import ProjectCard from "./components/Card";
@@ -29,7 +29,7 @@ export default function ProjectsSection() {
                 </header>
 
                 <div className={styles.content}>
-                    <CardSlider
+                    <Slider
                         itemsList={projects.slice(0, 6)}
                         totalItems={7}
                         slideItemsQuantity={slideItems}
@@ -57,7 +57,7 @@ export default function ProjectsSection() {
                                 target="_self"
                             />
                         </>
-                    </CardSlider>
+                    </Slider>
                 </div>
                 
             </article>

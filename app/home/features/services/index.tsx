@@ -1,7 +1,7 @@
 'use client';
 
 import ButtonLink from "@/components/Button/Link";
-import CardSlider from "@/components/CardSlider";
+import Slider from "@/components/Slider";
 import { services } from "@/data/services/services";
 import { useEffect, useState } from "react";
 import ServiceCard from "./components/card";
@@ -30,7 +30,7 @@ export default function ServicesSection() {
             </header>
 
             <div className={styles.content}>
-                <CardSlider
+                <Slider
                     itemsList={services}
                     slideItemsQuantity={slideItems}
                     gridRows={2}
@@ -51,7 +51,7 @@ export default function ServicesSection() {
                             />
                         ))}
                     </>
-                </CardSlider>
+                </Slider>
             </div>
 
             <footer>
