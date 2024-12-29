@@ -14,7 +14,7 @@ export default function Banner(props: BannerProps & SlideModel) {
 
     return (
         <article
-            className={`${styles.card} ${className}`}
+            className={`${styles.banner} ${className}`}
             style={{ background: `url(${backgroundImage}) no-repeat center` }}
         >
             <h2 className={styles.title}>{title}</h2>
