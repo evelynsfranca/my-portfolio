@@ -1,6 +1,6 @@
-import { faCheck, faExclamationTriangle, faHeart, faX, faXmark } from "@fortawesome/free-solid-svg-icons";
-import styles from "./index.module.css";
+import { faCheck, faExclamationTriangle, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styles from "./index.module.css";
 
 export interface ToastProps {
   message: string;
@@ -9,31 +9,33 @@ export interface ToastProps {
 }
 
 export default function Toast(props: ToastProps) {
+  
   const { message, type, closeHandler } = props;
 
   return (
     <article className={styles.toast}>
 
-      <div className={styles.toastContent + ` ${type ? styles.ok : styles.nok}`}>
-
+      <div className={styles.content + ` ${type ? styles.ok : styles.nok}`}>
         <div className={styles.message}>
+          
           <FontAwesomeIcon
             icon={type ? faCheck : faExclamationTriangle}
-            className={styles.toastIcon}
+            className={styles.icon}
           />
 
           <span>{message}</span>
 
           <button
-            className={styles.toastButton}
+            className={styles.button}
             onClick={() => closeHandler(false)}
             type="button"
           >
             <FontAwesomeIcon icon={faXmark} />
           </button>
-        </div>
 
+        </div>
       </div>
+      
     </article>
   );
 }

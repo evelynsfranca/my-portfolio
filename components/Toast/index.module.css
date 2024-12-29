@@ -10,12 +10,12 @@
     top: 10vh;
 }
 
-.toastContent {
+.content {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     text-align: center;
     user-select: none;
 
@@ -39,12 +39,12 @@
     font-size: 1rem;
 }
 
-.toastIcon {
+.icon {
     display: flex;
     padding-right: 1rem;
 }
 
-.toastButton {
+.button {
     display: flex;
     background: none;
     border: 0;
@@ -54,7 +54,8 @@
 }
 
 @media screen and (max-width: 400px) {
-    .toastContent {    
+    
+    .content {
         padding: 1rem;
     }
 }
