@@ -16,10 +16,12 @@ export default function InputText(props: InputTextProps) {
     const { name, label, handler, value, placeholder, onFocus } = props;
 
     return (
-        <label className={styles.formLabel}>
+        <label className={styles.label}>
+
             <span>{label}</span>
+
             <input
-                className={styles.formInput}
+                className={styles.input}
                 type="text"
                 name={name}
                 value={value || ''}
@@ -28,6 +30,7 @@ export default function InputText(props: InputTextProps) {
                 onChange={e => handler(e.target.value)}
                 onFocus={() => onFocus()}
             />
+
         </label>
     );
 }

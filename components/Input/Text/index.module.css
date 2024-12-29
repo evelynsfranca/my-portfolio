@@ -1,14 +1,14 @@
-.formLabel {
+.label {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.formLabel > span {
+.label > span {
     margin-bottom: 0.75rem;
 }
 
-.formInput {
+.input {
     display: flex;
 
     border: 0;
@@ -27,25 +27,25 @@
     width: 100%;
 }
 
-.formInput:focus {
+.input:focus {
     border-image: linear-gradient(to left, var(--primary-color-variant), var(--secondary-color-variant)) 1;
     border-bottom-style: solid;
     border-bottom-width: 2px;
     border-radius: 10px 10px 0 0;
 }
 
-.formInput::-webkit-scrollbar-track {
+.input::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     background-color: var(--background-hover-color);
 }
 
-.formInput::-webkit-scrollbar {
+.input::-webkit-scrollbar {
     width: 12px;
     background-color: var(--background-hover-color);
 }
 
-.formInput::-webkit-scrollbar-thumb {
+.input::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #555;
