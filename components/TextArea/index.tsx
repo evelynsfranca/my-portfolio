@@ -17,10 +17,12 @@ export default function TextArea(props: TextAreaProps) {
     const { name, label, handler, value, placeholder, onFocus } = props;
 
     return (
-        <label className={styles.formLabel}>
+        <label className={styles.label}>
+
             <span>{label}</span>
+
             <textarea
-                className={styles.formInput}
+                className={styles.input}
                 name={name}
                 value={value || ''}
                 placeholder={placeholder}
@@ -28,6 +30,7 @@ export default function TextArea(props: TextAreaProps) {
                 onChange={e => handler(e.target.value)}
                 onFocus={() => onFocus()}
             />
+            
         </label>
     );
 }
