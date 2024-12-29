@@ -1,0 +1,64 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    height: 100%;
+    width: 100vw;
+}
+
+.title {
+    font-size: 3rem;
+    max-width: 80%;
+    z-index: 1;
+}
+
+.subTitle {
+    font-size: 2rem;
+    font-weight: 300;
+    max-width: 80%;
+    z-index: 1;
+}
+
+@media screen and (max-width: 1000px) {
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .subTitle {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .title {
+        font-size: 2.25rem;
+    }
+    
+    .subTitle {
+        font-size: 1.45rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .title {
+        font-size: 2.25rem;
+        padding: 3rem 0;
+    }
+    
+    .subTitle {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .title {
+        font-size: 1.5rem;
+    }
+    
+    .subTitle {
+        font-size: 1.2rem;
+        max-width: 75%;
+    }
+}
