@@ -35,8 +35,15 @@
 }
 
 .button:hover {
-    color: var(--primary-color);
     cursor: pointer;
+}
+
+.button:first-child:hover {
+    color: var(--secondary-color);
+}
+
+.button:last-child:hover {
+    color: var(--primary-color);
 }
 
 @media screen and (max-width: 670px) {

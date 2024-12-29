@@ -48,7 +48,7 @@ export default function ProjectCard(props: ProjectCardProps & ProjectModel) {
                     <ButtonLink
                         label="Detalhes"
                         url={"/projects/" + id}
-                        color="primary"
+                        color="secondary"
                         type="link"
                         icon="none"
                         target="_self"
@@ -56,7 +56,7 @@ export default function ProjectCard(props: ProjectCardProps & ProjectModel) {
                     <ButtonLink
                         label="Visitar"
                         url={link}
-                        color="secondary"
+                        color="primary"
                         type="link"
                         icon="default"
                     />
