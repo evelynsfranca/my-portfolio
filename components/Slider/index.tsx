@@ -254,7 +254,7 @@ export default function Slider(props: SliderProps) {
                             className={handleBannerButtonsStyle(i)}
                             onClick={() => handleSlide(i)}
                         >
-                            <FontAwesomeIcon icon={faCircle} />
+                            <FontAwesomeIcon icon={faCircle} mask={faCircle}/>
                         </button>
                     ))}
                 </div>

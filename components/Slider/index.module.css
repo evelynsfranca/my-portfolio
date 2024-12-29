@@ -68,12 +68,18 @@
     padding: 1rem;
 }
 
-.roundButton:hover {
-    cursor: pointer;
+.roundButton > svg {
+    border-radius: 100%;
+    background-color: white;
 }
 
-.roundButton.active {
-    color: var(--primary-color);
+.roundButton:hover > svg {
+    cursor: pointer;    
+    background: var(--secondary-color-variant);
+}
+
+.roundButton.active > svg {
+    background: linear-gradient(45deg, var(--primary-color-variant), var(--secondary-color-variant));
 }
 
 @media screen and (max-width: 670px) {
