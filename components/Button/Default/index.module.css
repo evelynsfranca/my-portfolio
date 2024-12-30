@@ -14,7 +14,7 @@
 
 .button:hover {
     cursor: pointer;
-    background: var(--primary-color-variant);
+    background: var(--primary-color-hover);
 }
 
 .disabled {
