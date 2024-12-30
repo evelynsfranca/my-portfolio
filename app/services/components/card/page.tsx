@@ -7,13 +7,13 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./page.module.css";
 
 export interface ServiceCardProps {
-  index: number;
+  itemId: number;
   service: ServiceModel;
 }
 
 export default function ServiceCard(props: ServiceCardProps) {
 
-  const { index, service } = props;
+  const { itemId, service } = props;
 
   const cardRef = useRef<HTMLElement>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -60,7 +60,7 @@ export default function ServiceCard(props: ServiceCardProps) {
               <p dangerouslySetInnerHTML={{ __html: service?.description }} />
 
               <ButtonLink
-                color={index % 2 > 0 ? "primary" : "secondary"}
+                color={itemId % 2 > 0 ? "primary" : "secondary"}
                 label="Solicitar orçamento"
                 type="button"
                 url={`/contact?service=${service.id}`}

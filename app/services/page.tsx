@@ -29,7 +29,7 @@ export default function Services() {
             {services.map((it, i) => (
               <ServiceCard 
                 key={it.id} 
-                index={i} 
+                itemId={services.indexOf(it)} 
                 service={it}
               />
             ))}
