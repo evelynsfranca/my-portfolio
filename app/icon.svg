@@ -1,23 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" version="1.1" width="130" height="130">
-    <rect width="130" height="130" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svgjs="http://svgjs.dev/svgjs" version="1.1" width="130" height="130">
+    <defs>
+        <linearGradient id="myGradient" gradientTransform="rotate(45)">
+            <stop offset="5%" stop-color="#c600c0" />
+            <stop offset="95%" stop-color="#f66b40" />
+        </linearGradient>
+    </defs>
+    <rect width="130" height="130" fill="none" />
     <g>
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="" data-background-color="#000000" preserveAspectRatio="xMidYMid meet" height="500" width="500">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="" data-background-color="#000000" preserveAspectRatio="xMidYMid meet"
+            height="500" width="500">
             <g id="tight-bounds" width="500" height="500">
                 <svg viewBox="0 0 500 500" height="500" width="500">
                     <g>
                         <svg height="500" width="500">
                             <g>
                                 <svg height="500" width="500">
-                                    
+
                                     <g id="icon-0">
                                         <svg height="500" width="500">
                                             <g>
-                                                <path d="M0 64.314c0-35.52 28.794-64.314 64.314-64.314 35.52 0 64.314 28.794 64.314 64.314 0 35.52-28.794 64.314-64.314 64.314-35.52 0-64.314-28.794-64.314-64.314zM64.314 123.708c32.802 0 59.394-26.592 59.394-59.394 0-32.802-26.592-59.394-59.394-59.394-32.802 0-59.394 26.592-59.394 59.394 0 32.802 26.592 59.394 59.394 59.394z" data-fill-palette-color="accent" fill="#f845f2" stroke="transparent"/>
+                                                <path
+                                                    d="M0 64.314c0-35.52 28.794-64.314 64.314-64.314 35.52 0 64.314 28.794 64.314 64.314 0 35.52-28.794 64.314-64.314 64.314-35.52 0-64.314-28.794-64.314-64.314zM64.314 123.708c32.802 0 59.394-26.592 59.394-59.394 0-32.802-26.592-59.394-59.394-59.394-32.802 0-59.394 26.592-59.394 59.394 0 32.802 26.592 59.394 59.394 59.394z"
+                                                    data-fill-palette-color="accent" fill="url('#myGradient')"
+                                                    stroke="transparent" />
                                             </g>
                                             <g transform="matrix(1,0,0,1,49,35)">
-                                                <svg viewBox="0 0 40.027177888720615 66.71196314786769" height="66.71196314786769" width="40.027177888720615">
+                                                <svg
+                                                    viewBox="0 0 40.027177888720615 66.71196314786769"
+                                                    height="66.71196314786769"
+                                                    width="40.027177888720615">
                                                     <g>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0" y="0" viewBox="14 2 36 60" style="enable-background:new 0 0 64 64;" xml:space="preserve" height="66.71196314786769" width="40.027177888720615" class="icon-dxe-0" data-fill-palette-color="accent" id="dxe-0"><path d="M45 36H42V32H14V57C14 59.8 16.2 62 19 62H37C39.8 62 42 59.8 42 57V54H45C47.8 54 50 51.8 50 49V41C50 38.2 47.8 36 45 36M23.9 54.5L22.2 55.5 17.8 48 22.1 40.5 23.8 41.5 20.2 48zM27 55.3L25 54.7 29 40.7 30.9 41.2zM33.9 55.5L32.2 54.5 35.9 48 32.2 41.5 33.9 40.5 38.2 48zM48 49C48 50.7 46.7 52 45 52H42V38H45C46.7 38 48 39.3 48 41z" fill="#f845f2" data-fill-palette-color="accent"/><g fill="#f845f2" data-fill-palette-color="accent"><path d="M38 30H36V28C36 26.9 35.1 26 34 26H20C17.8 26 16 24.2 16 22S17.8 18 20 18H34C35.1 18 36 17.1 36 16S35.1 14 34 14H20C17.8 14 16 12.2 16 10S17.8 6 20 6H34C35.1 6 36 5.1 36 4V2H38V4C38 6.2 36.2 8 34 8H20C18.9 8 18 8.9 18 10S18.9 12 20 12H34C36.2 12 38 13.8 38 16S36.2 20 34 20H20C18.9 20 18 20.9 18 22S18.9 24 20 24H34C36.2 24 38 25.8 38 28z" fill="#f845f2" data-fill-palette-color="accent"/></g></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            version="1.1" x="0" y="0"
+                                                            viewBox="14 2 36 60"
+                                                            style="enable-background:new 0 0 64 64;"
+                                                            xml:space="preserve"
+                                                            height="66.71196314786769"
+                                                            width="40.027177888720615"
+                                                            class="icon-dxe-0"
+                                                            data-fill-palette-color="accent"
+                                                            id="dxe-0"><path d="M45 36H42V32H14V57C14 59.8 16.2 62 19 62H37C39.8 62 42 59.8 42 57V54H45C47.8 54 50 51.8 50 49V41C50 38.2 47.8 36 45 36M23.9 54.5L22.2 55.5 17.8 48 22.1 40.5 23.8 41.5 20.2 48zM27 55.3L25 54.7 29 40.7 30.9 41.2zM33.9 55.5L32.2 54.5 35.9 48 32.2 41.5 33.9 40.5 38.2 48zM48 49C48 50.7 46.7 52 45 52H42V38H45C46.7 38 48 39.3 48 41z" fill="url('#myGradient')" data-fill-palette-color="accent"/><g fill="url('#myGradient')" data-fill-palette-color="accent"><path d="M38 30H36V28C36 26.9 35.1 26 34 26H20C17.8 26 16 24.2 16 22S17.8 18 20 18H34C35.1 18 36 17.1 36 16S35.1 14 34 14H20C17.8 14 16 12.2 16 10S17.8 6 20 6H34C35.1 6 36 5.1 36 4V2H38V4C38 6.2 36.2 8 34 8H20C18.9 8 18 8.9 18 10S18.9 12 20 12H34C36.2 12 38 13.8 38 16S36.2 20 34 20H20C18.9 20 18 20.9 18 22S18.9 24 20 24H34C36.2 24 38 25.8 38 28z" fill="url('#myGradient')" data-fill-palette-color="accent"/></g></svg>
                                                     </g>
                                                 </svg>
                                             </g>
@@ -27,9 +52,9 @@
                             </g>
                         </svg>
                     </g>
-                    <defs/>
+                    <defs />
                 </svg>
-                
+
             </g>
         </svg>
     </g>
