@@ -23,6 +23,8 @@ export default function Contact() {
   const [loading, setLoading] = useState<boolean>(false);
   const [toast, setToast] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<string>();
+  const [isClient, setIsClient] = useState(false);
+  const [hoverStyle, setHoverStyle] = useState<number>();
 
   const params = useSearchParams();
 
@@ -71,15 +73,19 @@ export default function Contact() {
 
   const resetForm = () => setEmail({ name: '', from: '', subject: '', content: '' });
 
-  useEffect(() => { 
+  useEffect(() => {
     if (params.get('service')) {
-      let service = services.filter(it => it.id == params.get('service'))[0];      
-      setEmail({ 
+      let service = services.filter(it => it.id == params.get('service'))[0];
+      setEmail({
         subject: service.title,
         content: "Olá gostaria de fazer um orçamento para o serviço de " + service.title + "... (Informe os detalhes do projeto ou as dúvidas)"
-      }); 
+      });
     }
   }, [params]);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   return (
     <>
@@ -150,15 +156,28 @@ export default function Contact() {
 
             <div className={styles.socialMedia}>
 
-              {contacts.map(it => (
+              {contacts.map((it, i) => (
                 <Link
-                  key={it.link}
+                  key={i}
                   href={it.link}
                   target="_blank"
-                  className={styles.socialMediaLink}
+                  className={styles.link}
                   aria-label={it.label}
+                  onMouseEnter={() => setHoverStyle(i)}
+                  onMouseLeave={() => setHoverStyle(undefined)}
                 >
-                  <FontAwesomeIcon className={styles.icon} mask={faSquareFull} icon={it.icon} />
+                  {isClient && (
+                    <FontAwesomeIcon
+                      className={styles.icon}
+                      icon={it.icon}
+                      mask={faSquareFull}
+                      style={{
+                        background: hoverStyle == i
+                          ? 'linear-gradient(45deg, var(--primary-color-variant), var(--secondary-color-variant))'
+                          : 'white'
+                      }}
+                    />
+                  )}
                 </Link>
               ))}
             </div>

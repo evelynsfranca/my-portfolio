@@ -104,12 +104,12 @@
     width: 100%;
 }
 
-.socialMediaLink {
+.link {
     position: relative;
     transition: all 0.5s;
 }
 
-.socialMediaLink:hover::before {
+.link:hover::before {
     display: block;
 
     background-color: #000;
@@ -131,7 +131,7 @@
     color: var(--background-hover-color);
 }
 
-.socialMediaLink:hover > .icon {
+.link:hover > .icon {
     background: linear-gradient(
         to left,
         var(--primary-color-variant),
