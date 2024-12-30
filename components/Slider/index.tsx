@@ -2,8 +2,7 @@
 
 import {
     faChevronLeft,
-    faChevronRight,
-    faCircle
+    faChevronRight
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { CSSProperties, useEffect, useRef, useState } from "react";
@@ -250,11 +249,11 @@ export default function Slider(props: SliderProps) {
                 <div className={styles.buttons}>
                     {itemsList.map((it, i) => (
                         <button
-                            key={it.title}
+                            key={i}
                             className={handleBannerButtonsStyle(i)}
                             onClick={() => handleSlide(i)}
                         >
-                            <FontAwesomeIcon icon={faCircle} mask={faCircle}/>
+                            <div className={styles.circle} />
                         </button>
                     ))}
                 </div>
