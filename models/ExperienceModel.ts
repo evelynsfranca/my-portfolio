@@ -4,7 +4,10 @@ export interface ExperienceImageModel {
 }
 
 export interface ExperienceModel {
+    title: string;
     description: string;
     year: number;
     image: ExperienceImageModel;
+    technologies?: string[];
+    link?: string;
 }

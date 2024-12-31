@@ -1,8 +1,8 @@
-import styles from "./page.module.css";
 import { Metadata } from "next";
-import AboutHistory from "./features/History";
 import AboutExperience from "./features/Experience";
+import AboutHistory from "./features/History";
 import AboutSkills from "./features/Skills";
+import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "Sobre"

@@ -45,6 +45,7 @@
 
   padding: 5rem 0 3rem;
   text-align: center;
+  flex-wrap: wrap;
 }
 
 .section > article > header > h2 {
@@ -57,4 +58,11 @@
   font-size: var(--title-font-size);
   margin-bottom: 3rem;
   padding: 1rem 2rem;
+}
+
+
+@media screen and (max-width: 640px) {
+  .section > article {
+    width: 90%;
+  }
 }

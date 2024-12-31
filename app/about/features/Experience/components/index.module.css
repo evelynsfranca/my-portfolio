@@ -1,292 +1,411 @@
 .card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  height: 40vh;
-  width: 85%;
+    height: auto;
+    width: 85%;
 
-  position: relative;
+    position: relative;
 }
 
 .card:nth-child(even) {
-  border-bottom: 2px solid var(--primary-color);
-  border-left: 2px solid var(--primary-color);
-  border-bottom-left-radius: 1rem;
-  flex-direction: row-reverse;
+    border-bottom: 2px solid var(--primary-color);
+    border-left: 2px solid var(--primary-color);
+    border-bottom-left-radius: 1rem;
+    flex-direction: row-reverse;
 }
 
 .card:nth-child(odd) {
-  border-bottom: 2px solid var(--secondary-color-text-hover);
-  border-right: 2px solid var(--secondary-color-text-hover);
-  border-bottom-right-radius: 1rem;
-  border-top-right-radius: 1rem;
+    border-bottom: 2px solid var(--secondary-color-text-hover);
+    border-right: 2px solid var(--secondary-color-text-hover);
+    border-bottom-right-radius: 1rem;
+    border-top-right-radius: 1rem;
 }
 
 /* Efeitos nos cantos dos cards */
 
 .effect {
-  content: "";
-  border-style: solid;
-  position: absolute;
+    content: "";
+    border-style: solid;
+    position: absolute;
 
-  height: 0;
-  width: 0;
+    height: 0;
+    width: 0;
 
-  z-index: 1;
+    z-index: 1;
 }
 
 .effect::before,
 .effect::after {
-  content: "";
-  position: absolute;
+    content: "";
+    position: absolute;
 
-  height: 35px;
-  width: 35px;
+    height: 35px;
+    width: 35px;
 }
 
 .effect::before {
-  z-index: 2;
+    z-index: 2;
 }
 
 .effect::after {
-  background-color: var(--background-primary-color);
-  z-index: 3;
+    background-color: var(--background-primary-color);
+    z-index: 3;
 }
 
 /* Efeitos nos cantos dos cards - Ímpares */
 
 .card:first-child {
-  border-top-right-radius: 0;
+    border-top-right-radius: 0;
 }
 
 .card:first-child .effect {
-  display: none;
+    display: none;
 }
 
 .card:nth-child(odd) .effect {
-  border-color:  transparent transparent var(--background-primary-color) var(--background-primary-color);
-  border-width: 0px 0px 1.2rem 1.2rem;
-  top: -2.1px;
-  right: -2px;
+    border-color: transparent transparent var(--background-primary-color)
+        var(--background-primary-color);
+    border-width: 0px 0px 1.2rem 1.2rem;
+    top: -2.1px;
+    right: -2px;
 }
 
 .card:nth-child(odd) .effect::before {
-  background: linear-gradient(0deg, var(--secondary-color-text-hover), var(--primary-color));  
+    background: linear-gradient(
+        0deg,
+        var(--secondary-color-text-hover),
+        var(--primary-color)
+    );
 
-  top: 0px;
-  right: 0px;
+    top: 0px;
+    right: 0px;
 }
 
 .card:nth-child(odd) .effect:after {
-  top: 2px;
-  right: 2px;
+    top: 2px;
+    right: 2px;
 }
 
 .card:nth-child(odd) .effect::before,
 .card:nth-child(odd) .effect::after {
-  border-top-right-radius: 50%;
+    border-top-right-radius: 50%;
 }
 
 /* Efeitos nos cantos dos cards - Pares */
 
 .card:nth-child(even) .effect {
-  border-color:  var(--background-primary-color) transparent transparent var(--background-primary-color);
-  border-width: 0px 0px 1.2rem 1.2rem;
-  top: -2.4px;
-  left: -3px;
+    border-color: var(--background-primary-color) transparent transparent
+        var(--background-primary-color);
+    border-width: 0px 0px 1.2rem 1.2rem;
+    top: -2.4px;
+    left: -3px;
 }
 
 .card:nth-child(even) .effect::before {
-  background: linear-gradient(225deg, var(--secondary-color-text-hover), var(--primary-color));  
+    background: linear-gradient(
+        225deg,
+        var(--secondary-color-text-hover),
+        var(--primary-color)
+    );
 
-  top: 0.4px;
-  left: -18px;
+    top: 0.4px;
+    left: -18px;
 }
 
 .card:nth-child(even) .effect:after {
-  top: 2.5px;
-  left: -16px;
+    top: 2.5px;
+    left: -16px;
 }
 
 .card:nth-child(even) .effect::before,
 .card:nth-child(even) .effect::after {
-  border-top-left-radius: 50%;
+    border-top-left-radius: 50%;
 }
 
 /* Imagem dos cards */
 
 .imageBox {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .image {
-  padding: 2rem;
-  position: relative;
+    padding: 2rem;
+    position: relative;
 }
 
 .image::before,
 .image::after {
-  border-radius: 50%;
-  content: "";
-  display: inline-block;
-  position: absolute;
+    border-radius: 50%;
+    content: "";
+    display: inline-block;
+    position: absolute;
 }
 
 .image::before {
-  background-color: var(--primary-color);
-  top: 14%;
-  left: 1%;
+    background-color: var(--primary-color);
+    top: 14%;
+    left: 1%;
 }
 
 .image::after {
-  background-color: var(--secondary-color-text-hover);
-  top: 5%;
-  left: 15%;
+    background-color: var(--secondary-color-text-hover);
+    top: 5%;
+    left: 15%;
 }
 
 .image > img {
-  object-fit: cover;
-  position: relative;
-  z-index: 2;
+    background-color: #000;
+    padding: 3rem;
+    object-fit: contain;
+    position: relative;
+    z-index: 2;
 }
 
 .image::before,
 .image::after,
 .image > img {
-  border-radius: 50%;
+    border-radius: 50%;
 
-  height: 275px;
-  width: 275px;
+    height: 275px;
+    width: 275px;
 }
 
 /* Texto dos cards */
 
-.text {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-grow: 1;
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
 
-  color: var(--text-secondary-color);
+    color: var(--text-secondary-color);
 
-  height: 100%;
+    height: 100%;
 }
 
-.text > h3 {
-  display: flex;
-  align-items: center;
+.year {
+    display: flex;
+    align-items: center;
 
-  padding: 0 3.3rem;
+    padding: 0 3.3rem;
 }
 
-.text > p {
-  font-size: var(--text-font-size);
-  padding: 0 2rem;
+.content > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
-.card:nth-child(even) > .text {
-  margin-right: 0;
+.title {
+    color: #fff;
+    padding: 1rem 2rem;
 }
 
-.card:nth-child(odd) > .text {
-  margin-left: 0;
-  flex-direction: row-reverse;
+.description {
+    font-size: var(--text-font-size);
+    padding: 0 2rem;
 }
 
-.card:nth-child(even) > .text > h3 {
-  border: 2px solid var(--primary-color);
-  border-left: 0;
-  border-radius: 0 1rem 1rem 0;
-  color: var(--primary-color);
+.card:nth-child(even) > .content {
+    margin-right: 0;
 }
 
-.card:nth-child(odd) > .text > h3 {
-  border: 2px solid var(--secondary-color-text-hover);
-  border-right: 0;
-  border-radius: 1rem 0 0 1rem;
-  color: var(--secondary-color-text-hover);
+.card:nth-child(odd) > .content {
+    margin-left: 0;
+    flex-direction: row-reverse;
+}
+
+.card:nth-child(even) .year {
+    border: 2px solid var(--primary-color);
+    border-left: 0;
+    border-radius: 0 0 1rem 0;
+    color: var(--primary-color);
+}
+
+.card:nth-child(odd) .year {
+    border: 2px solid var(--secondary-color-text-hover);
+    border-right: 0;
+    border-radius: 0 0 0 1rem;
+    color: var(--secondary-color-text-hover);
+}
+
+.card:nth-child(even) .title {
+    border: 2px solid var(--primary-color);
+    border-left: 0;
+    border-bottom: 0;
+    border-radius: 0 1rem 0 0;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.card:nth-child(odd) .title {
+    border: 2px solid var(--secondary-color-text-hover);
+    border-right: 0;
+    border-bottom: 0;
+    border-radius: 1rem 0 0 0;
+    color: var(--secondary-color-text-hover);
+    text-align: center;
+}
+
+.title:hover {
+    cursor: pointer;
+}
+
+.card:nth-child(even) .content > div:hover .year,
+.card:nth-child(even) .content > div:hover .title {
+    background: linear-gradient(
+        to left,
+        var(--secondary-color-variant),
+        var(--primary-color-variant)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.card:nth-child(odd) .content > div:hover .year,
+.card:nth-child(odd) .content > div:hover .title {
+    background: linear-gradient(
+        to right,
+        var(--primary-color-variant),
+        var(--secondary-color-variant)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.icons {
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+    padding-left: 2rem;
+}
+
+.icon {
+    margin-right: 1rem;
+    position: relative;
+    padding: 1rem 0;
+}
+
+.icon:hover {
+    cursor: pointer;
+}
+
+.icon:hover::before {
+    display: block;
+
+    background-color: #000;
+    border-radius: 5px 20px 5px;
+    color: #fff;
+    content: attr(aria-label);
+    font-size: 0.65rem;
+    text-align: center;
+    padding: 0.3rem 0.75rem;
+    min-width: 75px;
+    width: max-content;
+
+    position: absolute;
+    left: -32.5px;
+    top: -17px;
 }
 
 @media screen and (max-width: 1500px) {
+    .image > img,
+    .image::before,
+    .image::after {
+        height: 215px;
+        width: 215px;
+    }
 
-  .image > img,
-  .image::before,
-  .image::after {
-    height: 215px;
-    width: 215px;
-  }
-  
-  .image::before {
-    top: 16%;
-    left: 3%;
-  }
+    .image::before {
+        top: 16%;
+        left: 3%;
+    }
 
-  .image::after {
-    top: 6%;
-    left: 16%;
-  }
+    .image::after {
+        top: 6%;
+        left: 16%;
+    }
 }
 
 @media screen and (max-width: 1100px) {
-  .card {
-    width: 90%;
-  }
+    .card {
+        width: 90%;
+    }
 }
 
 @media screen and (max-width: 1000px) {
-  .card {
-    width: 95%;
-  }
+    .card {
+        width: 95%;
+    }
 }
 
 @media screen and (max-width: 900px) {
-  .text > h3 {
-    padding: 0 1.5rem;
-  }
+    .year {
+        padding: 0 1.5rem;
+    }
 
-  .text > p {
-    padding: 0 1rem;
-  }  
+    .description {
+        padding: 0 1rem;
+    }
 
-  .card:nth-child(even) > .text {
-    margin-left: 2rem;
-  }
+    .card:nth-child(even) > .content {
+        margin-left: 2rem;
+    }
 
-  .card:nth-child(odd) > .text {
-    margin-right: 2rem;
-  }
+    .card:nth-child(odd) > .content {
+        margin-right: 2rem;
+    }
 }
 
 @media screen and (max-width: 800px) {
-  .card {
-    flex-direction: column;  
-    height: auto;
-  }
+    .card {
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+    }
 
-  .card:nth-child(even) {
-    flex-direction: column;
-  }
+    .card:nth-child(even) {
+        flex-direction: column;
+    }
 
-  .image {
-    margin: 2rem 0;
-  }  
+    .image {
+        margin: 2rem 0;
+    }
 
-  .text {
-    padding: 2rem 0;
-    width: 100%;
-  }
+    .content {
+        padding: 2rem 0;
+        width: 100%;
+    }
 
-  .text > h3 {
-    align-self: flex-start;
-  }
+    .year {
+        align-self: flex-end;
+        width: fill-available;
+        justify-content: center;
+    }
 
-  .card:nth-child(even) > .text {
-    margin-left: 0;
-  }
+    .description {
+        padding: 2rem 1rem;
+    }
 
-  .card:nth-child(odd) > .text {
-    margin-right: 0;
-  }
+    .icons {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .card:nth-child(even) .content {
+        margin-left: 0;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .card:nth-child(odd) .content {
+        margin-right: 0;
+        flex-direction: column;
+        align-items: flex-end;
+    }
 }

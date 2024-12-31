@@ -10,16 +10,16 @@ export default function AboutHistory() {
 
       <div className={styles.text}>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima officia, ipsum exercitationem et voluptate numquam illo unde. Optio voluptate tenetur pariatur, quod vero fugit cum voluptatem, dolorem deleniti veniam repudiandae.
+          Atualmente, atuo como arquiteta de software no Grupo Marista, onde utilizo tecnologias de ponta, como Microsoft Azure, Java, Spring Boot e Kubernetes, para projetar soluções robustas e escaláveis no ambiente de cloud.
         </p>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima officia, ipsum exercitationem et voluptate numquam illo unde. Optio voluptate tenetur pariatur, quod vero fugit cum voluptatem, dolorem deleniti veniam repudiandae.
+          Minha trajetória inclui experiência como desenvolvedora web, desenvolvendo APIs e páginas web com ferramentas como Java, Spring Framework, ReactJS, TypeScript, e bancos de dados como MySQL, Oracle DB e Microsoft SQL Server. Além disso, possuo conhecimentos em JUnit, AWS e práticas de desenvolvimento orientadas a performance e qualidade.
         </p>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima officia, ipsum exercitationem et voluptate numquam illo unde. Optio voluptate tenetur pariatur, quod vero fugit cum voluptatem, dolorem deleniti veniam repudiandae.
+          Sou formada em Análise e Desenvolvimento de Sistemas pela PUC-PR e movida pela paixão por tecnologia, inovação e aprendizado contínuo. Adoro enfrentar novos desafios e me empenho constantemente para evoluir e entregar soluções de alta qualidade, com foco em resultados e impacto positivo.
         </p>
       </div>
-      
+
     </article>
   );
 }

@@ -2,7 +2,33 @@
   padding: 0 5%;
 }
 
+.content > header > h2 {
+  text-align: center;
+  text-wrap: wrap;
+}
+
 .contentBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contentBox > header {
+  display: flex;
+  justify-content: flex-end;
+  width: 85%;
+}
+
+.sort {
+  display: flex;
+  background: none;
+  border: 0;
+  font-size: 1.25rem;
+  outline: 0;
+  padding: 1rem;
+}
+
+.contentBox > div {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,5 +37,19 @@
 @media screen and (max-width: 800px) {
   .content {
     padding: 0 10%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .content {
+    padding: 0 2%;
+  }
+
+  .contentBox > header {
+    width: 100%;
+  }
+
+  .sort {
+    font-size: 1.75rem;
   }
 }
