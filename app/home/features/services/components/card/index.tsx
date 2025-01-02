@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import styles from "./index.module.css";
 
-export interface ServiceCardProps {
+export interface ServiceCardFeatureProps {
     id: string;
     title: string;
     className: string;
@@ -11,7 +11,7 @@ export interface ServiceCardProps {
     icon: IconProp;
 }
 
-export default function ServiceCard(props: Readonly<ServiceCardProps>) {
+export default function ServiceCardFeature(props: Readonly<ServiceCardFeatureProps>) {
 
     const { id, title, icon, className } = props;
 
