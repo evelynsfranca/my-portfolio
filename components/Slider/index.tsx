@@ -5,7 +5,7 @@ import {
     faChevronRight
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { CSSProperties, useEffect, useRef, useState } from "react";
+import { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
 import styles from "./index.module.css";
 
 interface SliderProps {
@@ -46,7 +46,7 @@ export default function Slider(props: SliderProps) {
         ? Math.ceil(totalItems / slideItemsQuantity)
         : Math.ceil(itemsList.length / slideItemsQuantity);
 
-    const handleSlide = (index: number) => {
+    const handleSlide = useCallback((index: number) => {
         if (index < 0) {
             setSlideIndex(totalSlides - 1);
         } else if (index >= totalSlides) {
@@ -54,7 +54,7 @@ export default function Slider(props: SliderProps) {
         } else {
             setSlideIndex(index);
         }
-    };
+    }, []);
 
     const handleLeft = () => {
 
@@ -96,7 +96,7 @@ export default function Slider(props: SliderProps) {
             ? setSlideEnd(true)
             : setSlideEnd(false);
 
-    }, [slideIndex, slideItemsQuantity]);
+    }, [slideIndex, slideItemsQuantity, handleLeft, totalSlides]);
 
     useEffect(() => {
 
@@ -138,7 +138,7 @@ export default function Slider(props: SliderProps) {
                 });
         }
 
-    }, [slideStart, slideEnd]);
+    }, [slideStart, slideEnd, fullScreen]);
 
     useEffect(() => {
 
@@ -162,7 +162,7 @@ export default function Slider(props: SliderProps) {
         setCardHeight(height);
         setCardWidth(width);
 
-    }, [slideItemsQuantity]);
+    }, [slideItemsQuantity, cardClass]);
 
     useEffect(() => {
         setSlideHeight(cardHeight * (gridRows || 0));
@@ -177,7 +177,7 @@ export default function Slider(props: SliderProps) {
             ? setSlideWidth((cardWidth * slideItemsQuantity) + gap)
             : setSlideWidth(cardWidth);
 
-    }, [cardHeight, cardWidth, gridGap, gridColumns]);
+    }, [cardHeight, cardWidth, gridGap, gridColumns, gridRows]);
 
     useEffect(() => {
 

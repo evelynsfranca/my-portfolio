@@ -60,7 +60,7 @@ export default function ButtonLink(props: ButtonLinkProps) {
         }
     };
 
-    useEffect(() => handleButtonColor(), [buttonActive]);
+    useEffect(() => handleButtonColor(), [buttonActive, handleButtonColor]);
 
     return (
         <Link
