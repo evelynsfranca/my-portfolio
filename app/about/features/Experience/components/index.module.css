@@ -146,14 +146,14 @@
 
 .image::before {
     background-color: var(--primary-color);
-    top: 14%;
-    left: 1%;
+    top: 15%;
+    left: 4%;
 }
 
 .image::after {
     background-color: var(--secondary-color-text-hover);
-    top: 5%;
-    left: 15%;
+    top: 8%;
+    left: 16%;
 }
 
 .image > img {
@@ -169,8 +169,8 @@
 .image > img {
     border-radius: 50%;
 
-    height: 275px;
-    width: 275px;
+    height: 225px;
+    width: 225px;
 }
 
 /* Texto dos cards */
@@ -254,6 +254,10 @@
     cursor: pointer;
 }
 
+.card:nth-child(odd) .description {
+    text-align: right;
+}
+
 .card:nth-child(even) .content > div:hover .year,
 .card:nth-child(even) .content > div:hover .title {
     background: linear-gradient(
@@ -314,7 +318,7 @@
 }
 
 @media screen and (max-width: 1500px) {
-    .image > img,
+    /* .image > img,
     .image::before,
     .image::after {
         height: 215px;
@@ -329,7 +333,7 @@
     .image::after {
         top: 6%;
         left: 16%;
-    }
+    } */
 }
 
 @media screen and (max-width: 1100px) {
@@ -384,7 +388,7 @@
 
     .year {
         align-self: flex-end;
-        width: fill-available;
+        width: stretch;
         justify-content: center;
     }
 

@@ -13,10 +13,9 @@
   letter-spacing: 0.75px;
   margin-bottom: 1.25rem;
   text-align: left;
-  text-indent: 5rem;
+  text-indent: 3rem;
   white-space: pre-wrap;
 }
-
 
 @media screen and (max-width: 1500px) {
   .content {
@@ -27,6 +26,10 @@
 @media screen and (max-width: 900px) {
   .content {
     padding: 0 10%;
+  }  
+
+  .text > p {
+    text-indent: 2rem;
   }  
 }
 
