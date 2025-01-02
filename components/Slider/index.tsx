@@ -54,9 +54,9 @@ export default function Slider(props: SliderProps) {
         } else {
             setSlideIndex(index);
         }
-    }, []);
+    }, [totalSlides]);
 
-    const handleLeft = () => {
+    const handleLeft = useCallback(() => {
 
         let scroll = 0;
         let scrollSize = 0;
@@ -76,7 +76,7 @@ export default function Slider(props: SliderProps) {
 
             slideRef.current.scroll({ left: scroll, behavior: 'smooth' });
         }
-    };
+    }, [slideIndex]);
 
     const handleSlideButtons = (condition: boolean, value: number) =>
         condition || fullScreen ? handleSlide(value) : false;
@@ -177,7 +177,7 @@ export default function Slider(props: SliderProps) {
             ? setSlideWidth((cardWidth * slideItemsQuantity) + gap)
             : setSlideWidth(cardWidth);
 
-    }, [cardHeight, cardWidth, gridGap, gridColumns, gridRows]);
+    }, [cardHeight, cardWidth, gridGap, gridColumns, gridRows, slideItemsQuantity]);
 
     useEffect(() => {
 

@@ -4,7 +4,7 @@ import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons/faArrowUpRightFromSquare";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styles from "./index.module.css";
 
 export interface ButtonLinkProps {
@@ -50,7 +50,7 @@ export default function ButtonLink(props: ButtonLinkProps) {
             ? icon
             : null;
 
-    const handleButtonColor = () => {
+    const handleButtonColor = useCallback(() => {
         if (buttonActive) {
             setLinkColor(buttonColorHover);
             setLinkBackgroundColor(buttonBackgroundColorHover);
@@ -58,9 +58,10 @@ export default function ButtonLink(props: ButtonLinkProps) {
             setLinkColor(buttonColor);
             setLinkBackgroundColor(buttonBackgroundColor);
         }
-    };
-
+    }, [buttonActive]);
+    
     useEffect(() => handleButtonColor(), [buttonActive, handleButtonColor]);
+
 
     return (
         <Link
