@@ -4,7 +4,7 @@ import ButtonLink from "@/components/Button/Link";
 import { ServiceModel } from "@/models/ServiceModel";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import styles from "./page.module.css";
+import styles from "./index.module.css";
 
 export interface ServiceCardProps {
   itemId: number;
