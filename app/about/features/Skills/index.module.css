@@ -1,31 +1,31 @@
-.contentTable {
-  display: flex;
-  justify-content: space-around;
+.table {
+    display: flex;
+    justify-content: space-around;
 
-  width: 75%;
+    width: 75%;
 }
 
 @media screen and (max-width: 1400px) {
-  .contentTable {
-    width: 90%;
-  }
+    .table {
+        width: 90%;
+    }
 }
 
 @media screen and (max-width: 1200px) {
-  .content {
-    align-items: center;    
-    margin-bottom: 0;
-  }
+    .content {
+        align-items: center;
+        margin-bottom: 0;
+    }
 
-  .contentTable {
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: space-around;
-  }
+    .table {
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: space-around;
+    }
 }
 
 @media screen and (max-width: 800px) {
-  .contentTable {
-    width: 80%;
-  }
+    .table {
+        width: 80%;
+    }
 }

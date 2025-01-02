@@ -1,103 +1,149 @@
 .table {
-  border-radius: 1rem;
-  width: 47%;
+    border-radius: 1rem;
+    padding: 2rem;
+    
+    width: 47%;
 }
 
 .table:first-child {
-  border: 2px solid var(--secondary-color);
+    border: 2px solid var(--secondary-color);
 }
 
-.table:first-child > .tableHead > tr > td > span {
-  border-bottom: 2px solid var(--secondary-color);
+.table:first-child > .head > tr > td > span {
+    border-bottom: 2px solid var(--secondary-color);
 }
 
 .table:last-child {
-  border: 2px solid var(--primary-color);
+    border: 2px solid var(--primary-color);
 }
 
-.table:last-child > .tableHead > tr > td > span {
-  border-bottom: 2px solid var(--primary-color);
+.table:last-child > .head > tr > td > span {
+    border-bottom: 2px solid var(--primary-color);
 }
 
-.tableHead {
-  font-size: 1.2rem;
-  font-weight: 900;
+.head {
+    display: table;
+    table-layout: fixed;
+
+    font-size: 1.2rem;
+    font-weight: 900;
+
+    width: 100%;
 }
 
-.tableHead > tr > td {
-  font-size: 1.5rem;
-  padding: 2rem 0 3rem;
-  text-align: center;
-  width: 100%;
+.head > tr > td {
+    font-size: 1.5rem;
+    padding-bottom: 3rem;
+    text-align: center;
+
+    width: 100%;
 }
 
-.tableHead > tr > td > span {
-  padding: 0.5rem 1rem;
+.head > tr > td > span {
+    padding: 0.5rem 1rem;
 }
 
-.tableBody {
-  padding: 1rem;
+.body {
+    display: block;
+
+    overflow: auto;
+
+    height: 22rem;
 }
 
-.tableBody > tr:last-child {
-  display: flex;
-  padding: .5rem;
+.body::-webkit-scrollbar {
+    scrollbar-width: thin;
+
+    height: 3px;
+    width: 2px;
 }
 
-.tableBody > tr > td {
-  font-size: var(--text-font-size);
+.body::-webkit-scrollbar-thumb {
+    border-radius: 20px;
 }
 
-.tableBody > tr > td:first-child {
-  min-width: 225px;
-  padding: 0.5rem 2rem;
-  padding-right: 0;
-  text-wrap: nowrap;
+.body::-webkit-scrollbar-track {
+    background-color: var(--background-secondary-color);
 }
 
-.tableBody > tr > td:last-child {
-  padding: 0.5rem 1rem;
-  width: 100%;
+.table:first-child .body::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+}
+
+.table:last-child .body::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+}
+
+.body > tr {
+    display: flex;
+    flex-direction: column;
+}
+
+.body > tr > td {
+    font-size: var(--text-font-size);
+    padding: 0.5rem 0;
+    width: 100%;
+}
+
+.body > tr > td:first-child {
+    display: flex;
+    align-items: center;
+
+    min-width: 225px;
+    text-wrap: nowrap;
+}
+
+.icon {
+    display: flex;
+
+    margin-right: 0.5rem;
 }
 
 .bar {
-  display: flex;
-  justify-content: center;
-  
-  background: linear-gradient(100deg, var(--secondary-color), var(--primary-color));
-  border-radius: 1rem;
-  color: var(--text-primary-color);
-  content: "";
-  font-weight: 700;
+    display: flex;
+    justify-content: center;
 
-  height: 100%;
+    background: linear-gradient(
+        100deg,
+        var(--secondary-color),
+        var(--primary-color)
+    );
+    border-radius: 1rem;
+    color: var(--text-primary-color);
+    content: "";
+    font-weight: 700;
+
+    height: 100%;
 }
 
-
 @media screen and (max-width: 1200px) {
-  .table {
-    margin-bottom: 5rem;
-    width: 80%;
-  }
+    .table {
+        margin-bottom: 5rem;
+        width: 80%;
+    }
 }
 
 @media screen and (max-width: 800px) {
-  .table {
-    margin-bottom: 5rem;
-    width: 100%;
-  }
+    .table {
+        margin-bottom: 5rem;
+        width: 100%;
+    }
 
-  .tableBody > tr {
-    display: flex;
-    flex-direction: column;
-  }
+    .body {
+        height: 24.5rem;
+    }
 
-  .tableBody > tr > td {
-    font-size: var(--text-font-size);
-  }
+    .body > tr {
+        display: flex;
+        flex-direction: column;
+    }
 
-  .tableBody > tr > td:first-child,
-  .tableBody > tr > td:last-child {
-    padding: .5rem;
-  }
+    .body > tr > td {
+        font-size: var(--text-font-size);
+    }
+
+    .body > tr > td:first-child,
+    .body > tr > td:last-child {
+        padding: 0.5rem;
+    }
 }
