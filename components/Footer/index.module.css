@@ -26,8 +26,11 @@
 }
 
 .text > svg {
-    color: var(--background-secondary-color);
     margin-left: 4px;
+}
+
+.text:hover > svg {    
+    color: var(--primary-color);
 }
 
 .socialMedia {
@@ -48,8 +51,12 @@
     cursor: pointer;
 }
 
-.link > svg {
-    color: var(--background-secondary-color);
+.icon {
+    color: #fff;
+}
+
+.icon:hover {
+    color: var(--primary-color);
 }
 
 @media screen and (max-width: 1350px) {
