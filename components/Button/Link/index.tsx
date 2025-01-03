@@ -58,7 +58,7 @@ export default function ButtonLink(props: ButtonLinkProps) {
             setLinkColor(buttonColor);
             setLinkBackgroundColor(buttonBackgroundColor);
         }
-    }, [buttonActive]);
+    }, [buttonActive, buttonColor, buttonColorHover, buttonBackgroundColor, buttonBackgroundColorHover]);
     
     useEffect(() => handleButtonColor(), [buttonActive, handleButtonColor]);
 

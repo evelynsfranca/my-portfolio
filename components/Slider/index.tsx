@@ -76,7 +76,7 @@ export default function Slider(props: SliderProps) {
 
             slideRef.current.scroll({ left: scroll, behavior: 'smooth' });
         }
-    }, [slideIndex]);
+    }, [slideIndex, gridGap, gridColumns, fullScreen, slideRef]);
 
     const handleSlideButtons = (condition: boolean, value: number) =>
         condition || fullScreen ? handleSlide(value) : false;
