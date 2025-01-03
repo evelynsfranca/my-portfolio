@@ -1,0 +1,77 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-radius: 1rem;
+    box-shadow: inset -0.5px -0.5px 1.5px var(--primary-color-variant),
+        inset 0.5px 0.5px 1.5px var(--secondary-color-variant),
+        inset -0.25px -0.25px 1.5px var(--secondary-color-variant);
+    padding: 1rem;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+
+    padding-bottom: 1rem;
+    text-align: center;
+
+    width: 100%;
+}
+
+.title {
+    font-size: var(--title-secondary-font-size);
+    border-image: linear-gradient(
+            to left,
+            var(--primary-color-variant),
+            var(--secondary-color-variant)
+        )
+        1;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    padding: 1rem;
+
+    width: fit-content;
+}
+
+.list {
+    list-style: none;
+    overflow: auto;
+    padding: 1rem 0;
+
+    max-height: 150px;
+}
+
+.list::-webkit-scrollbar {
+    scrollbar-width: thin;
+
+    height: 3px;
+    width: 2px;
+}
+
+.list::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color);
+    border-radius: 20px;
+}
+
+.list::-webkit-scrollbar-track {
+    background-color: var(--background-secondary-color);
+}
+
+.item {
+    padding: 0.5rem 1rem;
+}
+
+.item:hover {
+    color: var(--primary-color-text-hover);
+}
+
+.text {
+    font-size: var(--text-font-size);
+    font-weight: normal;
+}
+
+.card > a {
+    font-size: 1rem;
+}

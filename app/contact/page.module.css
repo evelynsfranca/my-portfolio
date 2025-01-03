@@ -12,7 +12,7 @@
     width: 100%;
 }
 
-.main > .header {
+.header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,18 +43,19 @@
     color: var(--text-secondary-color);
     font-size: var(--subtitle-font-size);
     font-weight: 300;
+    margin-bottom: 0.75rem;
 }
 
-.main > .content {
+.content {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-around;
 
     width: 80%;
 }
 
-.main > .content > p {
+.content > p {
     display: flex;
 
     color: var(--text-secondary-color);
@@ -63,21 +64,12 @@
     padding: 2rem 0;
 }
 
-.formBox {
-    width: 40%;
-}
-
-.form {
+.content > div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
 
-    width: 100%;
-}
-
-.form button {
-    margin-top: 2vh;
+    width: 40%;
 }
 
 .socialMediaBox {
@@ -86,11 +78,15 @@
     align-items: center;
     justify-content: center;
 
-    font-size: 1.25rem;
     padding: 3rem 0;
     text-align: center;
 
-    width: 25%;
+    width: 80%;
+}
+
+.socialMediaBox h2 {
+    font-size: 1.2rem;
+    font-weight: normal;
 }
 
 .socialMedia {
@@ -99,7 +95,7 @@
     justify-content: space-around;
 
     font-size: 2rem;
-    padding: 3rem 0;
+    padding: 1rem 0;
 
     width: 100%;
 }
@@ -112,13 +108,14 @@
 .link:hover::before {
     display: block;
 
-    background-color: #000;
+    background-color: var(--background-secondary-color);
     border-radius: 5px 20px 5px;
-    color: #fff;
+    color: var(--text-primary-color);
     content: attr(aria-label);
     font-size: 0.75rem;
     text-align: center;
     padding: 0.3rem 0.5rem;
+
     width: 75px;
 
     position: absolute;
@@ -140,16 +137,8 @@
 }
 
 @media screen and (max-width: 1300px) {
-    .main > .content {
+    .content {
         width: 100%;
-    }
-
-    .formBox {
-        width: 50%;
-    }
-
-    .socialMediaBox {
-        width: 35%;
     }
 }
 
@@ -159,44 +148,43 @@
         padding-top: 5vh;
     }
 
-    .main > .header {
+    .header {
         font-size: 1.5rem;
         padding: 5vh 7vw;
         width: 100%;
     }
-    .main > .content {
+
+    .content {
         flex-direction: column;
-        width: 100%;
         margin-bottom: 0;
-    }
 
-    .formBox {
-        padding-bottom: 6.5vh;
         width: 100%;
     }
-    .socialMediaBox {
-        width: 60%;
+
+    .content > div {
+        flex-direction: row;
+        justify-content: space-around;
+
+        width: 100%;
     }
 
-    .form {
-        padding: 0 7vw;
+    .socialMediaBox {
+        width: 40%;
     }
 }
 
 @media screen and (max-width: 900px) {
-    .main {
-        padding-bottom: 0;
-    }
-
-    .main > .header {
+    .header {
         font-size: 1.5rem;
         padding-top: 0;
     }
-}
 
-@media screen and (max-width: 700px) {
+    .content > div {
+        flex-direction: column;
+    }
+
     .socialMediaBox {
-        width: 90%;
+        width: 60%;
     }
 }
 
