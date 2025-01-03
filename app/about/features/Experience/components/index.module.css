@@ -157,7 +157,7 @@
 }
 
 .image > img {
-    background-color: #000;
+    background-color: var(--background-secondary-color);
     padding: 3rem;
     object-fit: contain;
     position: relative;
@@ -200,7 +200,7 @@
 }
 
 .title {
-    color: #fff;
+    color: var(--text-primary-color);
     padding: 1rem 2rem;
 }
 
@@ -302,38 +302,20 @@
 .icon:hover::before {
     display: block;
 
-    background-color: #000;
-    border-radius: 5px 20px 5px;
-    color: #fff;
+    background-color: var(--background-secondary-color);
+    border-radius: 5px 20px 5px;    
+    color: var(--text-primary-color);
     content: attr(aria-label);
     font-size: 0.65rem;
     text-align: center;
     padding: 0.3rem 0.75rem;
+
     min-width: 75px;
     width: max-content;
 
     position: absolute;
     left: -32.5px;
     top: -17px;
-}
-
-@media screen and (max-width: 1500px) {
-    /* .image > img,
-    .image::before,
-    .image::after {
-        height: 215px;
-        width: 215px;
-    }
-
-    .image::before {
-        top: 16%;
-        left: 3%;
-    }
-
-    .image::after {
-        top: 6%;
-        left: 16%;
-    } */
 }
 
 @media screen and (max-width: 1100px) {
@@ -394,6 +376,7 @@
 
     .description {
         padding: 2rem 1rem;
+        font-size: var(--text-description-font-size);
     }
 
     .icons {

@@ -33,6 +33,16 @@
   }  
 }
 
+@media screen and (max-width: 640px) {
+  .content {
+    width: 90%;
+  }
+
+  .text > p {
+    font-size: var(--text-description-font-size);
+  }  
+}
+
 @media screen and (max-width: 500px) {
   .content {
     padding: 0 5%;
