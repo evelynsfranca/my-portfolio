@@ -3,6 +3,7 @@ import AboutExperience from "./features/Experience";
 import AboutHistory from "./features/History";
 import AboutSkills from "./features/Skills";
 import styles from "./page.module.css";
+import AboutCertificates from "./features/Certificates";
 
 export const metadata: Metadata = {
   title: "Sobre"
@@ -19,7 +20,8 @@ export default function About() {
         </header>
 
         <AboutHistory />
-        <AboutExperience />        
+        <AboutExperience /> 
+        <AboutCertificates />       
         <AboutSkills />
       </section>
     </main>

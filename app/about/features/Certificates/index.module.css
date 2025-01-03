@@ -1,0 +1,22 @@
+.content {
+  width: 100%;
+}
+
+.contentBox {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 80%;
+}
+
+@media screen and (max-width: 640px) {  
+  .contentBox {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 420px) { 
+  .content button {
+    padding: 1rem;
+  }
+}
