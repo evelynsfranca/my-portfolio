@@ -11,17 +11,46 @@ import "./globals.css";
 config.autoAddCss = false;
 const inter = Inter({ subsets: ["latin"] });
 
+const AUTHOR = "Evelyn França";
+const TITLE = "Evelyn França | Desenvolvimento de sites | Portfólio";
+const DESCRIPTION = "Especializada em desenvolvimento de sites, aplicativos e otimização de SEO. Confira meu portfólio e entre em contato para projetos personalizados.";
+const KEYWORDS = ["Desenvolvimento de Sites", "Evelyn França", "Redes Sociais", "Criação de Aplicativos", "Landing Pages", "SEO", "Integrações Personalizadas", "Serviços Web", "Orçamento", "Portfólio"];
+const URL = "https://evelynfranca.com/"
+
 export const metadata: Metadata = {
-  title: {
-     default: "Evelyn França | Portfólio | Desenvolvimento de sites", template: "Evelyn França | %s"
+  applicationName: "My Portfolio",
+  creator: AUTHOR,
+  authors: {
+    name: AUTHOR,
+    url: URL
   },
-  description: "Solicite seu orçamento agora! Entre em contato para discutir projetos de desenvolvimento web, criação de aplicativos, landing pages, integrações e otimização de SEO. Retorno rapidamente!",
-  keywords: ["Evelyn França", "Portfólio", "Redes Sociais", "Desenvolvimento de Sites", "Criação de Aplicativos", "Landing Pages", "SEO", "Integrações Personalizadas", "Serviços Web", "Orçamento"]
+  category: "Tecnologia",
+  alternates: {
+    canonical: URL
+  },
+  title: {
+    default: TITLE, 
+    template: "Evelyn França | %s"
+  },
+  description: DESCRIPTION,
+  keywords: KEYWORDS,
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: URL
+  },
+  twitter: {
+    title: "Evelyn França - Desenvolvedora de Software",
+    description: DESCRIPTION
+  },
+  icons: {
+    icon: "/icon.png"
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-br">      
+    <html lang="pt-br">
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.x.x/css/all.min.css" />
 
       <GoogleAnalytics gaId={"G-1ZN4MFRD46"} />
