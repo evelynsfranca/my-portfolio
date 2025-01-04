@@ -13,8 +13,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-     default: "Evelyn França | Portfólio", template: "Evelyn França | %s"
-  }
+     default: "Evelyn França | Portfólio | Desenvolvimento de sites", template: "Evelyn França | %s"
+  },
+  description: "Solicite seu orçamento agora! Entre em contato para discutir projetos de desenvolvimento web, criação de aplicativos, landing pages, integrações e otimização de SEO. Retorno rapidamente!",
+  keywords: ["Evelyn França", "Portfólio", "Redes Sociais", "Desenvolvimento de Sites", "Criação de Aplicativos", "Landing Pages", "SEO", "Integrações Personalizadas", "Serviços Web", "Orçamento"]
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

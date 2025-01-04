@@ -6,7 +6,9 @@ import styles from "./page.module.css";
 import AboutCertificates from "./features/Certificates";
 
 export const metadata: Metadata = {
-  title: "Sobre"
+  title: "Sobre | Desenvolvimento de Sites",
+  description: "Conheça a minha trajetória profissional, certificações, habilidades e história com o desenvolvimento de software.",
+  keywords: ["Evelyn França", "Sobre", "Sobre mim" , "Habilidades", "História", "Skills", "Certificações", "Experiência profissional", "Desenvolvimento de Sites", "Criação de Aplicativos", "Landing Pages", "SEO", "Integrações Personalizadas", "Serviços Web"]
 };
 
 export default function About() {
