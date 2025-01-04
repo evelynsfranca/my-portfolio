@@ -11,7 +11,7 @@ import styles from "./page.module.css";
 
 export default function Contact() {
 
-  const [isClient, setIsClient] = useState(false);
+  const [isClient, setIsClient] = useState<boolean>(false);
   const [hoverStyle, setHoverStyle] = useState<number>();
 
   useEffect(() => {

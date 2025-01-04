@@ -16,7 +16,7 @@ export default function ServiceCard(props: ServiceCardProps) {
   const { itemId, service } = props;
 
   const cardRef = useRef<HTMLElement>(null);
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
 
   useEffect(() => {
     if (cardRef.current

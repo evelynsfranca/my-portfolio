@@ -20,9 +20,9 @@ export default function ButtonLink(props: ButtonLinkProps) {
 
     const { label, url, color, icon, type, target } = props;
 
-    const [linkColor, setLinkColor] = useState('var(--' + color + '-color-text)');
-    const [linkBackgroundColor, setLinkBackgroundColor] = useState('transparent');
-    const [buttonActive, setButtonActive] = useState(false);
+    const [linkColor, setLinkColor] = useState<string>('var(--' + color + '-color-text)');
+    const [linkBackgroundColor, setLinkBackgroundColor] = useState<string>('transparent');
+    const [buttonActive, setButtonActive] = useState<boolean>(false);
 
     const buttonColor =
         type == 'link'

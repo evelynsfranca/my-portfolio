@@ -3,7 +3,6 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import styles from "./index.module.css";
-
 import { menuList } from "@/mocks/menu";
 import logo from '@/public/images/logo.svg';
 import logoHover from '@/public/images/logo2.svg';
@@ -16,7 +15,7 @@ export default function Menu() {
 
   const currentPage = usePathname();
   const [menu, setMenu] = useState<boolean>(false);
-  const [logoSrc, setLogoSrc] = useState(logo);
+  const [logoSrc, setLogoSrc] = useState<string>(logo);
 
   const setActiveStyle = (link: string): string =>
     (link != '/' && currentPage.includes(link))
