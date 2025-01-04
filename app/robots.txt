@@ -1,0 +1,4 @@
+User-agent: Googlebot
+Disallow: /projetos/
+
+Sitemap: https://www.evelynfranca.com/sitemap.xml
