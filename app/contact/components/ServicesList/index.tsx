@@ -33,7 +33,7 @@ export default function ServicesList() {
 
       <ButtonLink
         label="Ver todos os serviços"
-        url="/services"
+        url="/servicos"
         color="secondary"
         type="link"
       />

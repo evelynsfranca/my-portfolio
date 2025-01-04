@@ -17,7 +17,7 @@ export default function Services() {
           <h1 className={styles.title}>Serviços</h1>
 
           <h2 className={styles.subTitle}>
-            Abaixo estão listados os principais serviços prestados, mas, caso você queira tirar dúvidas sobre algum outro serviço que não esteja aparecendo ou caso queira mais informações, você pode entrar em contato clicando <ButtonLink color="secondary" label="aqui" type="link" url="/contact"/>.
+            Abaixo estão listados os principais serviços prestados, mas, caso você queira tirar dúvidas sobre algum outro serviço que não esteja aparecendo ou caso queira mais informações, você pode entrar em contato clicando <ButtonLink color="secondary" label="aqui" type="link" url="/contato"/>.
           </h2>
 
         </header>

@@ -63,7 +63,7 @@ export default function ServiceCard(props: ServiceCardProps) {
                 color={itemId % 2 > 0 ? "primary" : "secondary"}
                 label="Solicitar orçamento"
                 type="button"
-                url={`/contact?service=${service.id}`}
+                url={`/contato?service=${service.id}`}
                 target="_self"
               />
             </div>

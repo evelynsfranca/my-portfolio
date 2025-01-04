@@ -18,7 +18,7 @@ export default function ServiceCardFeature(props: Readonly<ServiceCardFeaturePro
     return (
         <article className={`${styles.card} ${className}`}>
             <Link
-                href={"/services#" + id}
+                href={"/servicos#" + id}
                 className={styles.link}
             >
                 <header className={styles.header}>

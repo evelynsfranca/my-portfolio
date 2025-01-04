@@ -57,7 +57,7 @@ export default function ServicesSection() {
             <footer>
                 <ButtonLink
                     label="Ver todos os serviços"
-                    url="/services"
+                    url="/servicos"
                     color="primary"
                     type="button"
                     target="_self"

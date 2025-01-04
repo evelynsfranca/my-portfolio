@@ -51,7 +51,7 @@ export default function ProjectsSection() {
 
                             <ButtonLink
                                 label="Ver todos"
-                                url="/projects"
+                                url="/projetos"
                                 color="secondary"
                                 type="link"
                                 target="_self"

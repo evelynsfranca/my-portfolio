@@ -17,7 +17,7 @@ export default function ContactSection() {
                 <p>Entre em contato.</p>
                 <ButtonLink
                     label="Entrar em contato"
-                    url="/contact"
+                    url="/contato"
                     color="primary"
                     type="button"
                     target="_self"

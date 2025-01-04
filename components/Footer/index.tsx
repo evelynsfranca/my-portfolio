@@ -25,7 +25,7 @@ export default function Footer() {
       </article>
 
       {currentPage != "/"
-        && currentPage != "/contact"
+        && currentPage != "/contato"
         && (
           <article className={styles.socialMedia}>
 

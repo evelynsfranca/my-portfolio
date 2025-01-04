@@ -29,7 +29,7 @@ export default function AboutSection() {
                 <footer className={styles.footer}>
                     <ButtonLink
                         label="Saiba mais"
-                        url="/about"
+                        url="/sobre"
                         color="primary"
                         type="button"
                         target="_self"

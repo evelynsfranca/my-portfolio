@@ -6,19 +6,19 @@ export const menuList: MenuModel[] = [
         title: "Home"
     },
     {
-        link: "/services",
+        link: "/servicos",
         title: "Serviços"
     },
     {
-        link: "/projects",
+        link: "/projetos",
         title: "Projetos"
     },
     {
-        link: "/about",
+        link: "/sobre",
         title: "Sobre"
     },
     {
-        link: "/contact",
+        link: "/contato",
         title: "Contato"
     }
 ];
