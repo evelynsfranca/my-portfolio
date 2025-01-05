@@ -44,7 +44,55 @@ export const metadata: Metadata = {
     description: DESCRIPTION
   },
   icons: {
-    icon: "/icon.png"
+    icon: [
+      {
+        url: "/images/icon.ico",
+        href: "/images/icon.ico",
+        sizes: "any",
+        rel: "icon"
+      },
+      {
+        url: "/images/icon.ico",
+        href: "/images/icon.ico",
+        rel: "shortcut icon"
+      },
+      {
+        url: "/images/icon-32x32.png",
+        href: "/images/icon-32x32.png",
+        sizes: "32x32",
+        rel: "icon"
+      },
+      {
+        url: "/images/icon-24x24.png",
+        href: "/images/icon-24x24.png",
+        sizes: "24x24",
+        rel: "icon"
+      },
+      {
+        url: "/images/icon-20x20.png",
+        href: "/images/icon-20x20.png",
+        sizes: "20x20",
+        rel: "icon"
+      },
+      {
+        url: "/images/icon-18x18.png",
+        href: "/images/icon-18x18.png",
+        sizes: "18x18",
+        rel: "icon"
+      },
+      {
+        url: "/images/icon-16x16.png",
+        href: "/images/icon-16x16.png",
+        sizes: "16x16",
+        rel: "icon"
+      },
+      {
+        url: "/images/apple-touch-icon.png",
+        href: "/images/apple-touch-icon.png",
+        sizes: "180x180",
+        rel: "apple-touch-icon"
+      }
+    ]
   }
 };
 
