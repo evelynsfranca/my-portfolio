@@ -22,7 +22,7 @@ export interface ProjectVersion {
 }
 
 export interface ProjectModel {
-    id: number;
+    id: string;
     name: string;
     shortDescription: string;
     description: string;
