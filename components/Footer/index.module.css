@@ -52,7 +52,7 @@
 }
 
 .icon {
-    color: #fff;
+    color: var(--text-primary-color);
 }
 
 .icon:hover {

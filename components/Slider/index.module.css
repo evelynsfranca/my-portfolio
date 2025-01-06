@@ -71,7 +71,7 @@
 .circle {
     display: flex;
 
-    background-color: white;
+    background-color: var(--text-primary-color);
     border-radius: 100%;
 
     height: 1rem;

@@ -15,7 +15,7 @@
     border-bottom: 2px solid var(--background-primary-color);
     border-radius: 10px;
     background-color: #202020;
-    color: #fff;
+    color: var(--text-primary-color);
     font-size: 1rem;
     resize: none;
     outline: 0;
