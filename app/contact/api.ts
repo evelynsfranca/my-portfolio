@@ -1,6 +1,5 @@
 import { ContactEmailModel } from "@/models/ContactEmailModel";
-
-const API_URL = process.env.API_URL;
+import { API_URL } from "../shared/utils/variables";
 
 export async function handleContact(email: ContactEmailModel) {
     return await fetch(API_URL + '/send', {
