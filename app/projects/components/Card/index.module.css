@@ -1,95 +1,129 @@
 .card {
     display: flex;
-    flex-direction: column;
     align-items: center;
 
     background-color: var(--background-secondary-color);
     border-radius: 1rem;
+    box-shadow: inset -0.5px -0.5px 1.5px var(--primary-color-variant),
+        inset 0.5px 0.5px 1.5px var(--secondary-color-variant),
+        inset -0.25px -0.25px 1.5px var(--secondary-color-variant);
 
-    margin-bottom: 4rem;
-    padding: 3rem;
-    
-    width: 30%;
+    width: 100%;
 }
 
-.cardTitle {
-    font-size: 1.75rem;
+.card > div {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--background-secondary-color);
+    border-radius: 1rem;
+    padding: 2rem;
+
+    height: 100%;
+    width: 100%;
+}
+
+.title {
+    font-size: 1.5rem;
     margin-bottom: 2rem;
 }
 
-.cardImage {
+.image {
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
     width: 100%;
 }
 
-.cardImage > img {
+.image > img {
     border-radius: 1rem;
 
     height: auto;
     width: 100%;
 }
 
-.cardDescription {
+.description {
     color: var(--text-secondary-color);
-    font-size: var(--text-description-font-size);
+    font-size: 1rem;
+    line-clamp: 5;
+    line-height: 2rem;
     margin-bottom: 2.5rem;
+    height: 10rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.cardFooter {
+.tags {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.flag,
+.type {
+    border-radius: 0.3rem;
+    font-size: 0.875rem;
+    padding: 0.3rem 0.5rem;
+    width: fit-content;
+}
+
+.footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
+    margin-top: 1rem;
+
     width: 100%;
 }
 
-.cardFooter > a {
+.footer > a {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: nowrap;
-    
+
     border: 0;
-    border-radius: .2rem;
+    border-radius: 0.2rem;
     font-size: var(--text-button-font-size);
     font-weight: 700;
     letter-spacing: 1.25px;
     outline: 0;
-    padding: .75rem 0;
+    padding: 0.75rem 0.25rem;
     text-align: center;
     text-transform: uppercase;
-    transition: background .5s;
+    transition: background 0.5s;
     white-space: nowrap;
 
     width: 100%;
-    max-width: 49%;
-}
-
-
-@media screen and (max-width: 1300px) {
-    .card {
-        width: 45%;
-    }
+    max-width: 45%;
 }
 
 @media screen and (max-width: 900px) {
-    .card {
-        width: 47%;
-    }
-
-    .cardImage > img {
+    .image > img {
         width: 100%;
-    }    
+    }
 }
 
 @media screen and (max-width: 700px) {
-    .card {
-        width: 100%;
+    .description {
+        font-size: var(--mobile-text-description-font-size);
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .title {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
     }
 
-    .cardDescription {
-        font-size: var(--mobile-text-description-font-size);
-    }    
+    .description {
+        font-size: 0.875rem;
+    }
+
+    .footer > a {
+        font-size: 0.875rem;
+    }
 }
