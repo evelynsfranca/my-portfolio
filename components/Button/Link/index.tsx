@@ -14,11 +14,12 @@ export interface ButtonLinkProps {
     icon?: IconProp | 'none' | 'default';
     type: 'button' | 'link';
     target?: string;
+    iconSide?: "left" | "right";
 }
 
 export default function ButtonLink(props: ButtonLinkProps) {
 
-    const { label, url, color, icon, type, target } = props;
+    const { label, url, color, icon, type, target, iconSide } = props;
 
     const [linkColor, setLinkColor] = useState<string>('var(--' + color + '-color-text)');
     const [linkBackgroundColor, setLinkBackgroundColor] = useState<string>('transparent');
@@ -67,10 +68,11 @@ export default function ButtonLink(props: ButtonLinkProps) {
         <Link
             id={url}
             href={url}
-            className={type == 'link' ? styles.linkButton : styles.button}
+            className={`${type == 'link' ? styles.linkButton : styles.button} ${iconSide == "left" && styles.left }`}
             style={{
                 color: linkColor,
-                background: linkBackgroundColor
+                background: linkBackgroundColor,
+                flexDirection: iconSide == 'left' ? 'row-reverse' : 'row'
             }}
             onMouseEnter={() => setButtonActive(true)}
             onMouseLeave={() => setButtonActive(false)}

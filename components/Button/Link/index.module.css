@@ -45,3 +45,9 @@
 .button svg {
     margin-left: 0.5rem;
 }
+
+.linkButton.left svg,
+.button.left svg {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
