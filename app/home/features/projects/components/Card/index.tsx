@@ -1,4 +1,5 @@
 
+import { fetchImages } from "@/app/projects/api";
 import ButtonLink from "@/components/Button/Link";
 import { ProjectModel } from "@/models/ProjectModel";
 import { useEffect, useState } from "react";
@@ -10,26 +11,29 @@ export interface ProjectCardProps {
 
 export default function ProjectCard(props: ProjectCardProps & ProjectModel) {
 
-    const { id, name, link, shortDescription, images, className } = props;
+    const { id, name, shortDescription, versions, className } = props;
 
     const [showDetails, setShowDetails] = useState<boolean>(false);
-
-    const projectImage =
-        images != undefined && images.length > 0
-            ? images[0].url
-            : '/images/default.svg';
+    const [image, setImage] = useState<string>("");
 
     useEffect(() => {
         let documentSize = document.body.offsetWidth;
 
         if (documentSize <= 640)
             setShowDetails(true);
+
+        async function fetchImage() {
+            const data = await fetchImages(id, versions[0].tag);
+            setImage(data?.images ? data?.images[0]?.url : "");
+        }
+
+        fetchImage();
     }, []);
 
     return (
         <article
             className={`${styles.card} ${className}`}
-            style={{ background: `url(${projectImage}) no-repeat center` }}
+            style={{ background: `url(${image}) no-repeat center` }}
             onMouseEnter={() => setShowDetails(true)}
             onMouseLeave={() => setShowDetails(false)}
         >
@@ -55,7 +59,7 @@ export default function ProjectCard(props: ProjectCardProps & ProjectModel) {
                     />
                     <ButtonLink
                         label="Visitar"
-                        url={link}
+                        url={versions[0].links.app ?? "www.evelynfranca.com"}
                         color="primary"
                         type="link"
                         icon="default"
