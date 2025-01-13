@@ -53,6 +53,10 @@
     width: fit-content;
 }
 
+.content h2:first-child {
+    margin-top: 0;
+}
+
 .content h3 {
     font-size: var(--subtitle-font-size);
     font-weight: normal;
@@ -186,11 +190,16 @@
     margin-bottom: auto;
 
     height: 100%;
+    width: 100%;
 }
 
 @media screen and (max-width: 800px) {
     .content article > ul {
         grid-template-columns: repeat(auto-fill, minmax(45%, auto));
+    }
+
+    .content ol {
+        flex-wrap: wrap;
     }
 }
 
