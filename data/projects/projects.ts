@@ -5,6 +5,7 @@ export const projects: ProjectModel[] = [
     id: "dgusto-la-pizza",
     name: "D'Gusto La Pizza",
     shortDescription: "Site de uma pizzaria para que clientes realizem pedidos e usuários realizem a gestão desses pedidos.",
+    resume: "Desenvolvido como projeto final de curso, o site D’gusto La Pizza foi criado para digitalizar e otimizar o gerenciamento de uma pizzaria, permitindo tanto a interação dos clientes com os serviços quanto o gerenciamento completo por parte do administrador.",
     versions: [
       {
         tag: "1.6.0",

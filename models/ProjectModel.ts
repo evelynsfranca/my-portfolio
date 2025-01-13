@@ -31,6 +31,7 @@ export interface ProjectModel {
     id: string;
     name: string;
     shortDescription: string;
+    resume: string;
     versions: ProjectVersion[];
     flag?: ProjectFlag;
 }
