@@ -66,6 +66,14 @@
     width: 0;
 }
 
+.verTodos > a {
+    display: flex;
+    align-self: center;
+
+    height: 100%;
+    width: 100%;
+}
+
 @media screen and (max-width: 640px) {
     .section button {
         font-size: 1.75rem;

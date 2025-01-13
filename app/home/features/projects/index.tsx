@@ -1,6 +1,7 @@
 import ButtonLink from "@/components/Button/Link";
 import Slider from "@/components/Slider";
 import { projects } from "@/data/projects/projects";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import ProjectCard from "./components/Card";
 import styles from "./index.module.css";
@@ -40,26 +41,27 @@ export default function ProjectsSection() {
                         heightAutoAdjust={true}
                         cardClass="projectCard"
                     >
-                        <>
-                            {projects.slice(0, 6).map(it => (
-                                <ProjectCard
-                                    key={it.id}
-                                    className="projectCard"
-                                    {...it}
-                                />
-                            ))}
+                        {projects.slice(0, 6).map(it => (
+                            <ProjectCard
+                                key={it.id}
+                                className="projectCard"
+                                {...it}
+                            />
+                        ))}
 
+                        <div className={styles.verTodos}>
                             <ButtonLink
                                 label="Ver todos"
                                 url="/projetos"
                                 color="secondary"
                                 type="link"
                                 target="_self"
+                                icon={faChevronRight}
                             />
-                        </>
+                        </div>
                     </Slider>
                 </div>
-                
+
             </article>
         </section>
     );
