@@ -2,7 +2,7 @@
 
 import ButtonLink from "@/components/Button/Link";
 import { services } from "@/data/services/services";
-import ServiceCard from "./components/Card";
+import ServiceCard from "./components/ServiceCard";
 import styles from "./page.module.css";
 
 export default function Services() {
