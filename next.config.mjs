@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,
+    reactStrictMode: false,
     env: {
         API_URL: process.env.API_URL,
         RESEND_TOKEN: process.env.RESEND_TOKEN,
@@ -20,6 +20,10 @@ const nextConfig = {
             {
                 source: "/projetos",
                 destination: "/projects"
+            },
+            {
+                source: "/projetos/:id",
+                destination: "/projects/:id"
             },
             {
                 source: "/servicos",
