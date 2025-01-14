@@ -4,7 +4,7 @@ import ButtonLink from "@/components/Button/Link";
 import Slider from "@/components/Slider";
 import { services } from "@/data/services/services";
 import { useEffect, useState } from "react";
-import ServiceCardFeature from "./components/Card";
+import ServiceCard from "./components/ServiceCardFeature";
 import styles from "./index.module.css";
 
 export default function ServicesSection() {
@@ -41,7 +41,7 @@ export default function ServicesSection() {
                 >
                     <>
                         {services.map((it, i) => (
-                            <ServiceCardFeature
+                            <ServiceCard
                                 key={it.id}
                                 id={it.id}
                                 title={it.title}

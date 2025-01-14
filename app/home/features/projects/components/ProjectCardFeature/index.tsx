@@ -5,11 +5,11 @@ import { ProjectModel } from "@/models/ProjectModel";
 import { useEffect, useState } from "react";
 import styles from "./index.module.css";
 
-export interface ProjectCardProps {
+export interface ProjectCardFeatureProps {
     className: string;
 }
 
-export default function ProjectCard(props: ProjectCardProps & ProjectModel) {
+export default function ProjectCardFeature(props: ProjectCardFeatureProps & ProjectModel) {
 
     const { id, name, shortDescription, versions, className } = props;
 
