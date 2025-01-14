@@ -78,7 +78,7 @@
 .image > span {
     display: block;
 
-    background-color: #000;
+    background-color: var(--background-secondary-color);
     opacity: .85;
     text-align: center;
 
