@@ -29,7 +29,7 @@
 
     background-color: var(--background-secondary-color);
     border-radius: 2rem;
-    margin: 2rem auto 4rem;
+    margin: 2rem auto;
     padding: 3rem 2rem;
 }
 
@@ -47,13 +47,13 @@
     font-weight: normal;
     justify-self: center;
     letter-spacing: 0.75px;
-    margin: 3rem;
+    margin: 2rem 0 3rem;
     padding: 1rem 2rem;
 
     width: fit-content;
 }
 
-.content h2:first-child {
+.content section:first-child h2 {
     margin-top: 0;
 }
 

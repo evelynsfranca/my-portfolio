@@ -2,7 +2,9 @@
 
 import { projects } from "@/data/projects/projects";
 import { ProjectImageModel } from "@/models/ProjectModel";
-import { useParams } from "next/navigation";
+import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { fetchImages } from "../api";
 import ProjectDetails from "./features/Details";
@@ -18,15 +20,30 @@ type ProjectImages = {
 export default function Project() {
 
   const params = useParams<{ id: string }>();
+  const router = useRouter();
   const project = projects.filter((it) => it.id === params.id[0])[0];
-  const [selectedVersion, setSelectedVersion] = useState<string>(project.versions[0].tag);
+  const [selectedVersion, setSelectedVersion] = useState<string>();
   const [imagesArr, setImagesArr] = useState<ProjectImages[] | any[]>([]);
 
   const imagesDefault = [{ url: "/images/default.svg", alt: "no-image" }];
 
+  const handleVersion = (version: string) => {
+    version == selectedVersion
+      ? setSelectedVersion("")
+      : setSelectedVersion(version);
+  }
+
+  useEffect(() => {
+    selectedVersion
+      ? router.push(project.id + '#' + selectedVersion)
+      : router.push(project.id);
+  }, [selectedVersion]);
+
   useEffect(() => {
     let documentSize = document.body.offsetWidth;
     let mobile = documentSize < 640;
+
+    setSelectedVersion(project.versions[0].tag);
 
     project.versions.forEach(v => {
 
@@ -61,30 +78,53 @@ export default function Project() {
 
         <p>{project.resume}</p>
 
-        {project.versions.map(version => (
-          <details
-            className={`${styles.details} ${selectedVersion == version.tag && styles.active}`}
-            key={version.tag}
-            onClick={() => setSelectedVersion(version.tag)}
-            open={selectedVersion == version.tag}
-          >
-            <summary>{version.tag}</summary>
+        <article className={styles.versions}>
 
-            <div
-              className={styles.content}
-            >
-              <ProjectDetails filePath={version.description} />
+          <header>
+            <h3>Versões:</h3>
+          </header>
 
-              <ProjectGallery
-                images={imagesArr.find(it => it.version == version.tag)?.images ?? imagesDefault}
-              />
+          <div>
 
-              <footer className={styles.footer}>
-                <ProjectLinks version={version} />
-              </footer>
-            </div>
-          </details>
-        ))}
+            <ul className={styles.list}>
+
+              {project.versions.map(version => (
+
+                <li
+                  id={version.tag}
+                  key={version.tag}
+                  className={`${styles.details} ${selectedVersion == version.tag && styles.active}`}
+                >
+                  <p
+                    className={styles.version}
+                    onClick={() => handleVersion(version.tag)}
+                  >
+                    <FontAwesomeIcon
+                      icon={selectedVersion == version.tag ? faChevronDown : faChevronRight}
+                    />
+                    <span>{version.tag}</span>
+                  </p>
+
+                  <div>
+
+                    <ProjectDetails filePath={version.description} />
+
+                    <ProjectGallery
+                      images={imagesArr.find(it => it.version == version.tag)?.images ?? imagesDefault}
+                    />
+
+                    <footer className={styles.footer}>
+                      <ProjectLinks version={version} />
+                    </footer>
+
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </article>
+
       </section>
     </main>
   );
