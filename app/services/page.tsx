@@ -1,9 +1,9 @@
 'use client';
 
-import { services } from "@/data/services/services";
-import ServiceCard from "./components/card";
-import styles from "./page.module.css";
 import ButtonLink from "@/components/Button/Link";
+import { services } from "@/data/services/services";
+import ServiceCard from "./components/Card";
+import styles from "./page.module.css";
 
 export default function Services() {
 

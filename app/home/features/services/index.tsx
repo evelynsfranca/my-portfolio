@@ -4,7 +4,7 @@ import ButtonLink from "@/components/Button/Link";
 import Slider from "@/components/Slider";
 import { services } from "@/data/services/services";
 import { useEffect, useState } from "react";
-import ServiceCardFeature from "./components/card";
+import ServiceCardFeature from "./components/Card";
 import styles from "./index.module.css";
 
 export default function ServicesSection() {

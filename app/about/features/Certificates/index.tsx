@@ -3,7 +3,7 @@
 import Slider from "@/components/Slider";
 import { certificates } from "@/data/about/certificates";
 import React, { useEffect, useState } from "react";
-import CertificateCard from "./components";
+import CertificateCard from "./components/Card";
 import styles from "./index.module.css";
 
 export default function AboutCertificates() {

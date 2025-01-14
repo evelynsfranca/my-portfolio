@@ -5,7 +5,7 @@ import { ExperienceModel } from "@/models/ExperienceModel";
 import { faArrowDownShortWide, faArrowDownWideShort } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
-import ExperienceCard from "./components";
+import ExperienceCard from "./components/Card";
 import styles from "./index.module.css";
 
 export default function AboutExperience() {
@@ -22,7 +22,7 @@ export default function AboutExperience() {
         : experiences;
 
     setOrderedList([...list]);
-  }, [sort]);
+  }, [sort, orderedList]);
 
   return (
     <article id="experience" className={styles.content}>
