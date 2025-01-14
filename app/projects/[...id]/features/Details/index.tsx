@@ -11,21 +11,24 @@ export default function ProjectDetails(props: ProjectDetailsProps) {
 
   const [content, setContent] = useState<string | ArrayBuffer>("");
 
-  const readFile = () => {
-    var xhr = new XMLHttpRequest();
+  useEffect(() => { 
 
-    xhr.open("GET", filePath, false);
-
-    xhr.onreadystatechange = () => {
-      xhr.readyState === 4
-        && (xhr.status === 200 || xhr.status == 0)
-        && setContent(xhr.responseText);
+    const readFile = () => {
+      var xhr = new XMLHttpRequest();
+  
+      xhr.open("GET", filePath, false);
+  
+      xhr.onreadystatechange = () => {
+        xhr.readyState === 4
+          && (xhr.status === 200 || xhr.status == 0)
+          && setContent(xhr.responseText);
+      }
+  
+      xhr.send(null)
     }
 
-    xhr.send(null)
-  }
-
-  useEffect(() => { readFile() }, []);
+    readFile();
+  }, [filePath]);
 
   return (
     <article
