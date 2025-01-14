@@ -1,11 +1,12 @@
-.carouselBlock {
+.block {
     display: flex;
     flex-direction: column;
+
     height: 100%;
     width: 100%;    
 }
 
-.carouselCloseButton {
+.closeButton {
     align-self: flex-end;
     background: none;
     border: 0;
@@ -16,7 +17,7 @@
     z-index: 2;
 }
 
-.carouselCloseButton:hover {
+.closeButton:hover {
     color: var(--primary-color);
     cursor: pointer;
 }
@@ -31,46 +32,64 @@
     width: 100%;
 }
 
-.carouselScroll {
+.scroll {
     display: flex;
     align-items: center;
     flex-flow: column;
+
     overflow: auto;
     position: relative;
+    transition: all 2s;
 
     height: 100%;
     width: 100%;
-    transition: all 2s;
 }
 
-.carouselScroll::-webkit-scrollbar {
+.scroll::-webkit-scrollbar {
   height: 0;
 }
 
-.carouselImages {
+.images {
     display: flex;
     flex-shrink: 0;
     flex-basis: content;
-
-    border-bottom: 1px solid var(--primary-color);
     
     height: 100%;
     width: 100%;
 }
 
-.carouselImage {
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
     flex: none;
-    border-radius: 1rem;
-    object-fit: fill;
 
-    min-height: 50vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 1rem;
+
+    min-height: 60vh;
     height: 100%;
     width: 100%;
 
-    display: flex;
 }
 
-.carouselButtons {
+.image > span {
+    display: block;
+
+    background-color: #000;
+    opacity: .85;
+    text-align: center;
+
+    width: 100%;
+}
+
+.image > span::first-letter {
+    text-transform: uppercase;
+}
+
+.buttons {
     display: flex;
     justify-content: space-between;
 
@@ -83,7 +102,7 @@
     width: 4%;
 }
 
-.carouselButton {
+.button {
     background: none;
     border: 0;
     font-size: 2rem;
@@ -93,7 +112,7 @@
     z-index: 2;
 }
 
-.carouselButton:hover {
+.button:hover {
     color: var(--primary-color);
     cursor: pointer;
 }
@@ -108,19 +127,19 @@
 @media screen and (max-width: 900px) {
 }
 
-@media screen and (max-width: 700px) {    
+@media screen and (max-width: 640px) {    
 }
 
 @media screen and (max-width: 500px) {  
-    .carouselImage {    
+    .image {    
         min-height: 70vh;
     }
 
-    .carouselCloseButton {
+    .closeButton {
         font-size: 1.25rem;
     }
 
-    .carouselButton {
+    .button {
         font-size: 1rem;
         padding: 4rem 1rem;
     }  

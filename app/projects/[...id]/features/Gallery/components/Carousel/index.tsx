@@ -1,11 +1,11 @@
 'use client';
 
+import { ProjectImageModel } from "@/models/ProjectModel";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons/faXmark";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
 import styles from "./index.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { ProjectImageModel } from "@/models/ProjectModel";
-import { faXmark } from "@fortawesome/free-solid-svg-icons/faXmark";
 
 export type ProjectCarouselProps = {
     images: ProjectImageModel[]
@@ -19,7 +19,7 @@ export default function ProjectCarousel(props: ProjectCarouselProps) {
 
     const { images, imageIndex, setImageIndex, showImages, setShowImages } = props;
 
-    const handleCarouselImage = (index?: number) => {
+    const handleImage = (index: number) => {
 
         if (imageIndex != null && index != undefined) {
             let newImageIndex = index === 0 ? imageIndex - 1 : imageIndex + 1;
@@ -31,12 +31,10 @@ export default function ProjectCarousel(props: ProjectCarouselProps) {
             else // Quando está tentando avançar da última imagem
                 setImageIndex(0);
         }
-
-        handleCarouselScroll(index);
     };
 
-    const handleCarouselScroll = (index?: number) => {
-        const currentElement = document.getElementsByClassName(styles.carouselScroll)[0];
+    const handleScroll = () => {
+        const currentElement = document.getElementsByClassName(styles.scroll)[0];
         let galleryWidth = Number(currentElement?.getBoundingClientRect().width);
 
         let scroll;
@@ -44,36 +42,25 @@ export default function ProjectCarousel(props: ProjectCarouselProps) {
         let currentScroll;
 
         if (showImages) {
-
-            if (index != undefined) { // Quando é movimentado pelos botões
-                currentScroll = currentElement.scrollLeft;
-                scroll = index == 0
-                    ? currentScroll - galleryWidth
-                    : galleryWidth + currentScroll;
-
-                currentElement.scroll({ left: scroll, top: 0, behavior: 'smooth' });
-
-            } else if (imageIndex != null) { // Quando é movimentado de forma automática
-                currentScroll = (imageIndex + 1) * galleryWidth;
-                defaultScroll = galleryWidth;
-                scroll = currentScroll - defaultScroll;
-                currentElement.scroll({ left: scroll || 0, top: 0, behavior: 'smooth' });
-            }
+            currentScroll = (imageIndex ? (imageIndex + 1) : 0) * galleryWidth;
+            defaultScroll = galleryWidth;
+            scroll = currentScroll - defaultScroll;
+            currentElement.scroll({ left: scroll || 0, top: 0, behavior: 'smooth' });
         }
     };
 
-    const handleCarouselClose = () => {
+    const handleClose = () => {
         setShowImages(!showImages);
         setImageIndex(null);
     };
 
     useEffect(() => { // Atualizar scroll do carrossel quando selecionada outra imagem
-        handleCarouselImage();
+        handleScroll();
     }, [imageIndex]);
 
     useEffect(() => { // Atualizar scroll do carrossel de forma automática (7 segundos)
         if (showImages && imageIndex != null) {
-            const timeoutId = setTimeout(() => handleCarouselImage(1), 7000);
+            const timeoutId = setTimeout(() => handleImage(1), 2000);
             return () => clearTimeout(timeoutId);
         }
     }, [imageIndex]);
@@ -81,49 +68,54 @@ export default function ProjectCarousel(props: ProjectCarouselProps) {
     return (
         <>
             {showImages && (
-                <div className={styles.carouselBlock}>
+                <article className={styles.block}>
 
                     <button
-                        className={styles.carouselCloseButton}
+                        className={styles.closeButton}
                         type="button"
-                        onClick={handleCarouselClose}
+                        onClick={handleClose}
                     >
                         <FontAwesomeIcon icon={faXmark} />
                     </button>
 
                     <article className={styles.carousel}>
+
                         <button
-                            className={styles.carouselButton}
+                            className={styles.button}
                             type="button"
-                            onClick={() => handleCarouselImage(0)}
+                            onClick={() => handleImage(0)}
                         >
                             <FontAwesomeIcon icon={faChevronLeft} />
                         </button>
 
-                        <div className={styles.carouselScroll}>
+                        <div className={styles.scroll}>
 
-                            <div className={styles.carouselImages}>
+                            <div className={styles.images}>
+
                                 {images.map((it, i) => (
                                     <div
-                                        key={it.alt}
-                                        className={`${styles.carouselImage} ${imageIndex == i && styles.carouselImageActive}`}
+                                        key={it.url}
+                                        className={`${styles.image} ${imageIndex == i && styles.imageActive}`}
                                         style={{
                                             backgroundImage: `url(${it.url})`
                                         }}
-                                    >{it.alt}</div>
+                                    >
+                                        <span>{it.alt.trim()}</span>
+                                    </div>
                                 ))}
                             </div>
                         </div>
 
                         <button
-                            className={styles.carouselButton}
+                            className={styles.button}
                             type="button"
-                            onClick={() => handleCarouselImage(1)}
+                            onClick={() => handleImage(1)}
                         >
                             <FontAwesomeIcon icon={faChevronRight} />
                         </button>
+
                     </article>
-                </div>
+                </article>
             )}
         </>
     );
