@@ -203,7 +203,10 @@ export default function Slider(props: SliderProps) {
                 : fullScreen ? '100%' : slideWidth;
 
     let templateRows = `repeat(${gridRows}, 1fr)` || 'none';
-    let templateColumns = `repeat(${gridColumns}, 1fr)` || `repeat(${totalItems}, 1fr)`;
+    let templateColumns = 
+        totalItems && gridColumns && totalItems < gridColumns 
+            ? `repeat(${totalItems}, 1fr)` 
+            : `repeat(${gridColumns}, 1fr)`;
     let autoFlow = gridFlow || 'none';
     let gap = `${gridGap}rem` || 0;
 
