@@ -25,7 +25,7 @@ export const projects: ProjectModel[] = [
           app: "https://dgusto-la-pizza.vercel.app/",
           api: ""
         },
-        description: "/descriptions/dgusto-la-pizza/1.6.0/description.html",
+        description: process.env.BLOB_HOSTNAME + "/projects/details/dgusto-la-pizza/1.6.0/description.html",
         images: [
           {
             alt: "Home",

@@ -1,39 +1,58 @@
+import { fetchDetails } from "@/app/projects/api";
+import Loading from "@/components/Loading";
 import { useEffect, useState } from "react";
 import styles from "./index.module.css";
 
 export interface ProjectDetailsProps {
-  filePath: string;
+  projectId: string;
+  versionTag: string;
 }
 
 export default function ProjectDetails(props: ProjectDetailsProps) {
 
-  const { filePath } = props;
+  const { projectId, versionTag } = props;
 
-  const [content, setContent] = useState<string | ArrayBuffer>("");
+  const [filePath, setFilePath] = useState<string>("");
+  const [content, setContent] = useState<string | TrustedHTML>("");
+  const [loading, setLoading] = useState<boolean>(true);
 
-  useEffect(() => { 
+  useEffect(() => {
 
-    const readFile = () => {
-      var xhr = new XMLHttpRequest();
-  
-      xhr.open("GET", filePath, false);
-  
-      xhr.onreadystatechange = () => {
-        xhr.readyState === 4
-          && (xhr.status === 200 || xhr.status == 0)
-          && setContent(xhr.responseText);
-      }
-  
-      xhr.send(null)
+    async function fetchDetail() {
+      return await fetchDetails(projectId, versionTag)
+        .then(res => setFilePath(res.content));
     }
 
-    readFile();
+    fetchDetail();
+
+  }, []);
+
+  useEffect(() => {
+
+    async function read(url: string) {
+      await fetch(url)
+        .then(res => res.text())
+        .then(data => setContent(data));
+    }
+
+    filePath && read(filePath);
+
   }, [filePath]);
 
+  useEffect(() => {
+    content && setLoading(false);
+  }, [content]);
+
   return (
-    <article
-      className={styles.content}
-      dangerouslySetInnerHTML={{ __html: content }}
-    />
+    <>
+      {loading ? (
+        <Loading message="Carregando os detalhes do projeto..." />
+      ) : (
+        <article
+          className={styles.content}
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
+      )}
+    </>
   );
 }
