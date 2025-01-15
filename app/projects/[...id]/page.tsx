@@ -43,8 +43,6 @@ export default function Project() {
     let documentSize = document.body.offsetWidth;
     let mobile = documentSize < 640;
 
-    setSelectedVersion(project.versions[0].tag);
-
     project.versions.forEach(v => {
 
       async function fetchImage() {
