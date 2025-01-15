@@ -26,6 +26,10 @@
     width: fit-content;
 }
 
+.images > article > div {
+    background-color: var(--background-secondary-color);
+}
+
 @media screen and (max-width: 640px) {
     .images {
         padding: 3rem 1rem;

@@ -4,7 +4,7 @@ import { ProjectImageModel } from "@/models/ProjectModel";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./index.module.css";
 
 export type ProjectMiniaturesProps = {
@@ -19,13 +19,14 @@ export default function ProjectMiniatures(props: ProjectMiniaturesProps) {
 
     const { images, imageIndex, setImageIndex, showImages, setShowImages } = props;
 
-    const miniatureSize = 116;
+    const miniatureSize = 118;
+
+    const element = useRef<HTMLDivElement>(null);
 
     const [scroll, setScroll] = useState<number>(0);
     const [end, setEnd] = useState<boolean>(false);
     const [start, setStart] = useState<boolean>(false);
     const [width, setWidth] = useState<number>(0);
-    const [element, setElement] = useState<Element | null>(null);
     const [showDescription, setShowDescription] = useState<number>();
 
     const itemsSize = images.length * miniatureSize
@@ -36,24 +37,35 @@ export default function ProjectMiniatures(props: ProjectMiniaturesProps) {
         let defaultScroll;
         let currentScroll;
 
-        if (element) {
+        if (element.current) {
             if (!value && typeof value != "number") { // Quando é atualizado de forma automática
-                currentScroll = imageIndex ? imageIndex * miniatureSize : 0;
-                defaultScroll = (width / 2) - (miniatureSize / 2);
-                scroll = currentScroll - defaultScroll;
+                currentScroll = (imageIndex || 0) * miniatureSize;
+
+                let w =
+                    width > 0
+                        ? width
+                        : document
+                            .getElementsByClassName(styles.scroll)[0]
+                            .getBoundingClientRect()
+                            .width;
+
+                defaultScroll = (w / 2) - (miniatureSize / 2);
+                scroll = imageIndex == 0
+                    ? 0
+                    : currentScroll - defaultScroll;
 
                 scroll = scroll >= 0 ? scroll : 0;
 
-                element.scroll({ left: scroll, top: 0, behavior: 'smooth' });
+                element.current.scroll({ left: scroll, top: 0, behavior: 'smooth' });
             } else { // Quando é atualizado de forma manual
-                currentScroll = element.scrollLeft;
+                currentScroll = element.current.scrollLeft;
                 scroll = value == 0
                     ? currentScroll - width
                     : width + currentScroll;
 
                 scroll = scroll >= 0 ? scroll : 0;
 
-                element.scroll({ left: scroll, top: 0, behavior: 'smooth' });
+                element.current.scroll({ left: scroll, top: 0, behavior: 'smooth' });
             }
             scroll && setScroll(scroll);
         }
@@ -83,18 +95,14 @@ export default function ProjectMiniatures(props: ProjectMiniaturesProps) {
 
     useEffect(() => { // Atualizar scroll de galeria de forma automática
         handleScroll();
-    }, [imageIndex, showImages]);
+    }, [imageIndex, showImages, width]);
 
     useEffect(() => {
 
-        let element = document.getElementsByClassName(styles.scroll).length
-            ? document.getElementsByClassName(styles.scroll)[0]
-            : null;
-        let gWidth = Number(element?.getBoundingClientRect().width);
+        let gWidth = Number(element?.current?.offsetWidth);
 
-        setElement(element);
         setWidth(gWidth);
-    }, [images]);
+    }, [images, element]);
 
     return (
         <article className={styles.gallery}>
@@ -111,10 +119,12 @@ export default function ProjectMiniatures(props: ProjectMiniaturesProps) {
             )}
 
             <div
+                ref={element}
                 className={styles.scroll}
                 onScroll={e => setScroll(e.currentTarget.scrollLeft)}
             >
                 <div className={styles.miniatures}>
+
                     {images.map((it, i) => (
                         <figure
                             key={i}

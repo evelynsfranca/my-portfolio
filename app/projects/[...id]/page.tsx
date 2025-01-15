@@ -1,21 +1,14 @@
 "use client";
 
 import { projects } from "@/data/projects/projects";
-import { ProjectImageModel } from "@/models/ProjectModel";
 import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { fetchImages } from "../api";
 import ProjectDetails from "./features/Details";
 import ProjectGallery from "./features/Gallery";
 import ProjectLinks from "./features/Links";
 import styles from "./page.module.css";
-
-type ProjectImages = {
-  version: string;
-  images: ProjectImageModel[];
-}
 
 export default function Project() {
 
@@ -23,9 +16,6 @@ export default function Project() {
   const router = useRouter();
   const project = projects.filter((it) => it.id === params.id[0])[0];
   const [selectedVersion, setSelectedVersion] = useState<string>();
-  const [imagesArr, setImagesArr] = useState<ProjectImages[] | any[]>([]);
-
-  const imagesDefault = [{ url: "/images/default.svg", alt: "no-image" }];
 
   const handleVersion = (version: string) => {
     version == selectedVersion
@@ -38,30 +28,6 @@ export default function Project() {
       ? router.push(project.id + '#' + selectedVersion)
       : router.push(project.id);
   }, [selectedVersion]);
-
-  useEffect(() => {
-    let documentSize = document.body.offsetWidth;
-    let mobile = documentSize < 640;
-
-    project.versions.forEach(v => {
-
-      async function fetchImage() {
-
-        await fetchImages(project.id, v.tag, mobile)
-          .then(res => {
-
-            let newObject = {
-              version: v.tag,
-              images: res.images
-            };
-
-            setImagesArr(prev => [...prev, newObject]);
-          });
-      }
-
-      fetchImage();
-    });
-  }, []);
 
   return (
     <main id={project.name} className={styles.main}>
@@ -105,11 +71,9 @@ export default function Project() {
 
                   <div>
 
-                    <ProjectDetails filePath={version.description} />
+                    <ProjectDetails projectId={project.id} versionTag={version.tag} />
 
-                    <ProjectGallery
-                      images={imagesArr.find(it => it.version == version.tag)?.images ?? imagesDefault}
-                    />
+                    <ProjectGallery projectId={project.id} versionTag={version.tag} />
 
                     <footer className={styles.footer}>
                       <ProjectLinks version={version} />
