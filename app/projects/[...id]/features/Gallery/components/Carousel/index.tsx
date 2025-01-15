@@ -60,7 +60,7 @@ export default function ProjectCarousel(props: ProjectCarouselProps) {
 
     useEffect(() => { // Atualizar scroll do carrossel de forma automática (7 segundos)
         if (showImages && imageIndex != null) {
-            const timeoutId = setTimeout(() => handleImage(1), 2000);
+            const timeoutId = setTimeout(() => handleImage(1), 7000);
             return () => clearTimeout(timeoutId);
         }
     }, [imageIndex]);

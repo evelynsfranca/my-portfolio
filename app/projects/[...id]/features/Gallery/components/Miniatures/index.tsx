@@ -27,7 +27,6 @@ export default function ProjectMiniatures(props: ProjectMiniaturesProps) {
     const [width, setWidth] = useState<number>(0);
     const [element, setElement] = useState<Element | null>(null);
     const [showDescription, setShowDescription] = useState<number>();
-    const [content, setContent] = useState<string>();
 
     const itemsSize = images.length * miniatureSize
 
@@ -95,9 +94,6 @@ export default function ProjectMiniatures(props: ProjectMiniaturesProps) {
 
         setElement(element);
         setWidth(gWidth);
-
-        if (itemsSize < width) setContent('center')
-        else setContent('flex-start')
     }, [images]);
 
     return (
@@ -117,7 +113,6 @@ export default function ProjectMiniatures(props: ProjectMiniaturesProps) {
             <div
                 className={styles.scroll}
                 onScroll={e => setScroll(e.currentTarget.scrollLeft)}
-                style={{ justifyContent: content }}
             >
                 <div className={styles.miniatures}>
                     {images.map((it, i) => (
