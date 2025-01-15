@@ -1,59 +1,68 @@
 import { ProjectImageModel } from '@/models/ProjectModel';
-import fs from 'fs';
-import { NextRequest, NextResponse } from 'next/server';
-import path from 'path';
+import { list } from '@vercel/blob';
+import { NextResponse } from 'next/server';
 
 export type Data = {
   images?: ProjectImageModel[];
   error?: string;
 };
 
-export async function GET(req: NextRequest): Promise<NextResponse<Data>> {
+export async function GET(request: Request): Promise<NextResponse<Data>> {
+  const { searchParams } = new URL(request.url);
 
-  const searchParams = req.nextUrl.searchParams;
   const projectId = searchParams.get("projectId");
   const projectVersion = searchParams.get("projectVersion") ?? "v1";
   const mobile = searchParams.get("mobile");
 
-  const defaultImageDir = "/images/default.svg";
+  const dir =
+    projectId && projectVersion
+      ? "projects/images/" + projectId + "/" + projectVersion + "/" + (mobile == "true" ? "mobile/" : "")
+      : "/projects/images/default.svg"
 
-  if (projectId && projectVersion) {
-    const dir = "/images/projects/" + projectId + "/" + projectVersion + "/" + (mobile == "true" ? "mobile/" : "");
-    const directoryPath = path.join(process.cwd(), '/public', dir);
-    console.log('dir: ', dir)
+  try {
+    // ⚠️ The below code is for App Router Route Handlers only
+    let response = await list({ prefix: dir })
+      .then(res => {
+        return res.blobs.length > 0
+          && res.blobs
+            .filter((it) => it.pathname.split('/')[4] != "mobile")
+            .filter((it) => it.size != 0)
+            .map(it => {
+              let url = it.url;
+              let alt = it.pathname
+                .split('/')[4]
+                .split('.')[0]
+                .replace(/[0-9]/g, '')
+                .replaceAll('_', ' ')
+                .replace('-', '')
+                .replace('-', ' - ');
 
-    try {
-      const images = fs.readdirSync(directoryPath); // Lê os arquivos do diretório
+              return {
+                url,
+                alt
+              };
+            });
+      });
 
-      let response = images
-        .filter(it => it != "mobile")
-        .map(it => {
-          let url = dir + it;
-          let alt = it.split('.')[0].replace(/[0-9]/g, '').replaceAll('_', ' ').replace('-', '').replace('-', ' - ');
-
-          return {
-            url,
-            alt
-          };
-        })
-
+    if (response) {
       return NextResponse.json({ images: response });
+    } else {
 
-    } catch (error) {
-      console.error('Error reading directory:', error);
       return NextResponse.json({
         images: [{
-          url: defaultImageDir,
+          url: "/images/default.svg",
           alt: "no-image"
         }]
       });
     }
-  }
 
-  return NextResponse.json({
-    images: [{
-      url: defaultImageDir,
-      alt: "no-image"
-    }]
-  });
+  } catch (error) {
+    console.error('Error reading directory:', error);
+    return NextResponse.json({
+      images: [{
+        url: "/images/default.svg",
+        alt: "no-image"
+      }]
+    });
+  }
 }
