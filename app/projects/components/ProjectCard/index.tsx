@@ -7,6 +7,7 @@ import { ProjectModel } from "@/models/ProjectModel";
 import { useEffect, useState } from "react";
 import { fetchImages } from "../../api";
 import styles from "./index.module.css";
+import Loading from "@/components/Loading";
 
 export type ProjectCardProps = ProjectModel;
 
@@ -16,84 +17,109 @@ export default function ProjectCard(props: Readonly<ProjectCardProps>) {
 
     const [showDetails, setShowDetails] = useState<boolean>(false);
     const [image, setImage] = useState<string>("");
-
-    const type = versions[0].type;
+    const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
         let documentSize = document.body.offsetWidth;
+        let mobile = documentSize <= 640;
 
-        if (documentSize <= 640)
+        if (mobile)
             setShowDetails(true);
 
-
         async function fetchImage() {
-            const data = await fetchImages(id, versions[0].tag);
-            setImage(data?.images ? data?.images[0]?.url : "");
+
+            await fetchImages(id, versions[0].tag, mobile)
+                .then(res => {
+                    res.images?.length && setImage(res.images[0].url)
+                });
         }
 
         fetchImage();
     }, []);
 
+
+    useEffect(() => {
+        image && setLoading(false);
+    }, [image]);
+
+    const type = versions[0].type;
+
     return (
-        <article
-            className={`${styles.card}`}
-            style={{
-                backgroundImage: `url(${image})`,
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "auto 100%"
-            }}
-            onMouseEnter={() => setShowDetails(true)}
-            onMouseLeave={() => setShowDetails(false)}
-        >
-            <div style={{ opacity: showDetails ? .9 : 0 }}>
-
-                <header className={styles.header}>
-                    <h3 className={styles.title}>{name}</h3>
-                </header>
-
-                <div
-                    className={styles.description}
-                    dangerouslySetInnerHTML={{ __html: shortDescription }}
-                />
-
-                <div className={styles.tags}>
-                    <span
-                        className={styles.type}
-                        style={{ backgroundColor: projectTypes.filter(it => it.name == type)[0].color }}
+        <>
+            {(loading || !image)
+                ? (
+                    <article
+                    className={styles.card}
+                        onMouseEnter={() => setShowDetails(true)}
+                        onMouseLeave={() => setShowDetails(false)}
                     >
-                        {type}
-                    </span>
-
-                    <span
-                        className={styles.flag}
-                        style={{ backgroundColor: projectFlags.filter(it => it.name == flag)[0].color }}
+                        <Loading
+                            message="Carregando dados do projeto..."
+                            background="var(--background-secondary-color)"
+                        />
+                    </article>
+                ) : (
+                    <article
+                        className={styles.card}
+                        style={{
+                            backgroundImage: `url(${image})`,
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
+                            backgroundSize: "auto 100%"
+                        }}
+                        onMouseEnter={() => setShowDetails(true)}
+                        onMouseLeave={() => setShowDetails(false)}
                     >
-                        {flag}
-                    </span>
-                </div>
+                        <div style={{ opacity: showDetails ? .9 : 0 }}>
 
-                <footer className={styles.footer}>
+                            <header className={styles.header}>
+                                <h3 className={styles.title}>{name}</h3>
+                            </header>
 
-                    <ButtonLink
-                        label="Detalhes"
-                        url={"/projetos/" + id}
-                        color="secondary"
-                        type="link"
-                        icon="none"
-                        target="_self"
-                    />
-                    <ButtonLink
-                        label="Visitar"
-                        url={versions.findLast(it => it)?.links?.app ?? "www.evelynfranca.com"}
-                        color="primary"
-                        type="link"
-                        icon="default"
-                    />
-                    
-                </footer>
-            </div>
-        </article>
+                            <div
+                                className={styles.description}
+                                dangerouslySetInnerHTML={{ __html: shortDescription }}
+                            />
+
+                            <div className={styles.tags}>
+                                <span
+                                    className={styles.type}
+                                    style={{ backgroundColor: projectTypes.filter(it => it.name == type)[0].color }}
+                                >
+                                    {type}
+                                </span>
+
+                                <span
+                                    className={styles.flag}
+                                    style={{ backgroundColor: projectFlags.filter(it => it.name == flag)[0].color }}
+                                >
+                                    {flag}
+                                </span>
+                            </div>
+
+                            <footer className={styles.footer}>
+
+                                <ButtonLink
+                                    label="Detalhes"
+                                    url={"/projetos/" + id}
+                                    color="secondary"
+                                    type="link"
+                                    icon="none"
+                                    target="_self"
+                                />
+                                <ButtonLink
+                                    label="Visitar"
+                                    url={versions.findLast(it => it)?.links?.app ?? "www.evelynfranca.com"}
+                                    color="primary"
+                                    type="link"
+                                    icon="default"
+                                />
+
+                            </footer>
+                        </div>
+                    </article>
+                )}
+        </>
 
     );
 }

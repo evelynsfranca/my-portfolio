@@ -28,10 +28,7 @@ export default function ProjecGallery(props: ProjecGalleryProps) {
     async function fetchImage() {
 
       await fetchImages(projectId, versionTag, mobile)
-        .then(res => {
-          setImagesArr(res.images);
-          setLoading(false);
-        });
+        .then(res => setImagesArr(res.images));
     }
 
     fetchImage();
