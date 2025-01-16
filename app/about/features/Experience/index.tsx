@@ -22,7 +22,7 @@ export default function AboutExperience() {
         : experiences;
 
     setOrderedList([...list]);
-  }, [sort, orderedList]);
+  }, [sort]);
 
   return (
     <article id="experience" className={styles.content}>
