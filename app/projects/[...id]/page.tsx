@@ -9,6 +9,8 @@ import ProjectDetails from "./features/Details";
 import ProjectGallery from "./features/Gallery";
 import ProjectLinks from "./features/Links";
 import styles from "./page.module.css";
+import ProjectTechnologies from "./features/Technologies";
+import ButtonBack from "@/components/Button/Back";
 
 export default function Project() {
 
@@ -28,16 +30,24 @@ export default function Project() {
       ? router.push(project.id + '#' + selectedVersion)
       : router.push(project.id);
   }, [selectedVersion]);
+  
+  useEffect(() => { document.body.scrollTo({ top: 0, behavior: 'smooth' })}, []);
 
   return (
     <main id={project.name} className={styles.main}>
+
       <section className={styles.section}>
 
+        <ButtonBack url="/projetos" />
+
         <header className={styles.header}>
+
           <h1 className={styles.title}>{project.name}</h1>
+
           <h2 className={styles.subTitle}>
             {project.shortDescription}
           </h2>
+
         </header>
 
         <p>{project.resume}</p>
@@ -74,6 +84,8 @@ export default function Project() {
                     <ProjectDetails projectId={project.id} versionTag={version.tag} />
 
                     <ProjectGallery projectId={project.id} versionTag={version.tag} />
+
+                    <ProjectTechnologies technologies={version.technologies} />
 
                     <footer className={styles.footer}>
                       <ProjectLinks version={version} />

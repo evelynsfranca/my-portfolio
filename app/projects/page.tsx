@@ -1,11 +1,6 @@
 import { projects } from "@/data/projects/projects";
-import { Metadata } from "next";
 import ProjectCard from "./components/ProjectCard";
 import styles from "./page.module.css";
-
-export const metadata: Metadata = {
-  title: "Projetos"
-};
 
 export default function Projects() {  
   return (

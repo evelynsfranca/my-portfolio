@@ -47,21 +47,25 @@ export default function ProjectLinks(props: ProjectLinksProps) {
 
         <div className={styles.content}>
 
-          <ButtonLink
-            label="API"
-            url={links.api ?? fallback}
-            color="secondary"
-            type="link"
-            iconSide="left"
-          />
+          {links.api && (
+            <ButtonLink
+              label="API"
+              url={links.api ?? fallback}
+              color="secondary"
+              type="link"
+              iconSide="left"
+            />
+          )}
 
-          <ButtonLink
-            label="Visitar projeto"
-            url={links.app ?? fallback}
-            color="secondary"
-            type="link"
-            iconSide="left"
-          />
+          {links.app && (
+            <ButtonLink
+              label="Visitar projeto"
+              url={links.app ?? fallback}
+              color="secondary"
+              type="link"
+              iconSide="left"
+            />
+          )}
 
         </div>
       </article>
