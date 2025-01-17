@@ -26,26 +26,39 @@ export const projects: ProjectModel[] = [
           api: ""
         },
         description: process.env.BLOB_HOSTNAME + "/projects/details/dgusto-la-pizza/1.6.0/description.html",
-        images: [
-          {
-            alt: "Home",
-            url: "/images/v1/projects/dgusto-la-pizza/01.png"
-          },
-          {
-            alt: "Contato",
-            url: "/images/v1/projects/dgusto-la-pizza/02.png"
-          },
-          {
-            alt: "Contato",
-            url: "/images/v1/projects/dgusto-la-pizza/03.png"
-          }
-        ],
         type: "Web",
-        technologies: ["Spring", "NextJS", "MySQL"],
+        technologies: ["Spring Boot", "NextJS", "MySQL"],
         createdAt: "07/11/2021",
         updatedAt: "16/11/2021"
       }
     ],
     flag: "Faculdade"
+  },
+  {
+    id: "to-do-list",
+    name: "To-do list",
+    shortDescription: "Site para gerenciamento de listas de tarefas."  ,
+    resume: "Criado como teste para um processo seletivo, o To-do List foi desenvolvido para permitir a criação e gerenciamento de listas personalizadas. O usuário pode adicionar, editar e excluir itens, oferecendo total controle sobre suas tarefas e atividades.",    
+    versions: [
+      {
+        tag: "1.0",
+        repositories: [
+          {
+            name: "GitHub",
+            ref: "App",
+            link: "https://github.com/evelynsfranca/evelynsfranca.github.io"
+          }
+        ],
+        links: {
+          app: "https://evelynsfranca.github.io/"
+        },
+        description: process.env.BLOB_HOSTNAME + "/projects/details/to-do-list/1.0/description.html",
+        type: "Web",
+        technologies: ["HTML5", "CSS3", "JavaScript"],
+        createdAt: "24/07/2020",
+        updatedAt: "04/08/2020"
+      }
+    ],
+    flag: "Hobby"
   }
 ];
