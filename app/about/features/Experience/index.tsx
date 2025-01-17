@@ -5,7 +5,7 @@ import { ExperienceModel } from "@/models/ExperienceModel";
 import { faArrowDownShortWide, faArrowDownWideShort } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
-import ExperienceCard from "./components/Card";
+import ExperienceCard from "./components/ExperienceCard";
 import styles from "./index.module.css";
 
 export default function AboutExperience() {
