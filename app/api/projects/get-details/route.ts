@@ -17,7 +17,7 @@ export async function GET(request: Request): Promise<NextResponse<ProjectDetails
       ? "projects/details/" + projectId + "/" + projectVersion + "/description.html"
       : "projects/details/default.html";
 
-      const defaultURL = process.env.BLOB_HOSTNAME + "/projects/details/default.html"
+  const defaultURL = "https://" + process.env.BLOB_HOSTNAME + "/projects/details/default.html"
 
   try {
     let response = await list({ prefix: dir, mode: 'folded' })
