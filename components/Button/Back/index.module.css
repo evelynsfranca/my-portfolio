@@ -1,0 +1,31 @@
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+
+    min-height: 3vh;
+    width: 100%;
+
+    background: transparent;
+    border: 0;
+    border-radius: 0.2rem;
+    color: var(--secondary-color);
+    font-size: var(--text-button-font-size);
+    font-weight: 700;
+    letter-spacing: 1.25px;
+    outline: 0;
+    padding: 3rem 1rem 1rem;
+    text-transform: uppercase;
+}
+
+.button:hover {
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+@media screen and (max-width: 640px) {
+    .button {
+        padding: 3rem 1rem 1rem;
+    }
+}
