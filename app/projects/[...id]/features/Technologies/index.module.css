@@ -1,0 +1,55 @@
+.technologies {
+    border-radius: 1rem;
+    padding: 4rem 3rem;
+
+    width: 100%;
+}
+
+.title {
+    border-image: linear-gradient(
+            to left,
+            var(--primary-color-variant),
+            var(--secondary-color-variant)
+        )
+        1;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+
+    font-size: var(--title-secondary-font-size);
+    font-weight: normal;
+    justify-self: center;
+    letter-spacing: 0.75px;
+    margin-bottom: 3rem;
+    padding: 0 2rem 1rem;
+
+    width: fit-content;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    padding: 1rem;
+}
+
+.technology {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    font-size: 1.15rem;
+}
+
+.technology img,
+.technology svg {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+@media screen and (max-width: 640px) {
+    .images {
+        padding: 3rem 1rem;
+    }
+}
