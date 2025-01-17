@@ -188,6 +188,12 @@
     }
 }
 
+@media screen and (max-width: 640px) {
+    .header {
+        padding-top: 2rem;
+    }
+}
+
 @media screen and (max-width: 500px) {
     .main {
         margin-top: 7vh;

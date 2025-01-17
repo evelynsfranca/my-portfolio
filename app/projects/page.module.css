@@ -99,6 +99,10 @@
 
 @media screen and (max-width: 640px) {
 
+    .header {
+        padding-top: 7rem;
+    }
+    
     .subTitle {
         font-size: 1.15rem;
     }

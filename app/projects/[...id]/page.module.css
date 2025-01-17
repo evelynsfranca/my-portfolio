@@ -148,6 +148,10 @@
     .main {
         margin-top: 9vh;
     }
+
+    .header {
+        padding-top: 2rem;
+    }
     
     .subTitle {
         font-size: 1.15rem;
