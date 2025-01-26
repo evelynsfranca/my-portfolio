@@ -1,0 +1,46 @@
+.slider {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    width: 100%;
+}
+
+.slide {
+    display: grid;
+    overflow-x: auto;
+
+    height: 100%;
+    width: 100%;
+}
+
+.slide::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+}
+
+.button {
+    display: flex;
+
+    background: none;
+    border: 0;
+    font-size: 2rem;
+    outline: 0;
+    padding: 2rem;
+    z-index: 2;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button:first-child:hover {
+    color: var(--secondary-color);
+}
+
+.button:last-child:hover {
+    color: var(--primary-color);
+}
