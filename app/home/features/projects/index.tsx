@@ -34,7 +34,7 @@ export default function ProjectsSection() {
                 <div className={styles.content}>
                     <ProjectSlider
                         cardClass="projectCard"
-                        totalItems={projects.length + 1}
+                        totalItems={projects.slice(0, 6).length + 1}
                         slideItemsQuantity={slideItems}
                         gridRows={1}
                         gridColumns={slideItems}
