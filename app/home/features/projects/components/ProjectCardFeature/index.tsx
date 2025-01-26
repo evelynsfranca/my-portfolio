@@ -1,10 +1,10 @@
 
 import { fetchImages } from "@/app/projects/api";
 import ButtonLink from "@/components/Button/Link";
+import Loading from "@/components/Loading";
 import { ProjectModel } from "@/models/ProjectModel";
 import { useEffect, useState } from "react";
 import styles from "./index.module.css";
-import Loading from "@/components/Loading";
 
 export interface ProjectCardFeatureProps {
     className: string;
@@ -55,7 +55,7 @@ export default function ProjectCardFeature(props: ProjectCardFeatureProps & Proj
                 ) : (
                     <article
                         className={`${styles.card} ${className}`}
-                        style={{ background: `url(${image}) no-repeat center` }}
+                        style={{ backgroundImage: `url(${image})` }}
                         onMouseEnter={() => setShowDetails(true)}
                         onMouseLeave={() => setShowDetails(false)}
                     >
