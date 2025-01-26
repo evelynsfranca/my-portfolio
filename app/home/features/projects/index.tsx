@@ -34,7 +34,7 @@ export default function ProjectsSection() {
                 <div className={styles.content}>
                     <ProjectSlider
                         cardClass="projectCard"
-                        totalItems={7}
+                        totalItems={projects.length + 1}
                         slideItemsQuantity={slideItems}
                         gridRows={1}
                         gridColumns={slideItems}
@@ -51,7 +51,7 @@ export default function ProjectsSection() {
                             />
                         ))}
 
-                        <div className={styles.verTodos}>
+                        <div className={`${styles.verTodos} projectCard`}>
                             <ButtonLink
                                 label="Ver todos"
                                 url="/projetos"

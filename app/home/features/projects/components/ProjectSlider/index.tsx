@@ -33,10 +33,10 @@ export default function ProjectSlider(props: ProjectSliderProps) {
     const [buttonEndStyle, setButtonEndStyle] = useState<CSSProperties>();
 
     const [cardHeight, setCardHeight] = useState<number>(0);
-    const [cardWidth, setCardWidth] = useState<number>(document?.getElementsByClassName(cardClass)[0]?.clientWidth ?? 0);
+    const [cardWidth, setCardWidth] = useState<number>(0);
     const [slideWidth, setSlideWidth] = useState<number>(0);
 
-    let totalSlides = Math.floor(totalItems / slideItemsQuantity);
+    let totalSlides = Math.ceil(totalItems / slideItemsQuantity);
 
     const handleSlide = useCallback((index: number) => {
         if (index < 0) {
@@ -128,6 +128,10 @@ export default function ProjectSlider(props: ProjectSliderProps) {
         setCardWidth(width);
 
     }, [slideItemsQuantity, cardClass]);
+
+    useEffect(() => {
+        setCardWidth(document.getElementsByClassName(cardClass)[0].clientWidth)
+    }, []);
 
     useEffect(() => {
         setCardWidth(document.getElementsByClassName(cardClass)[0].clientWidth)
