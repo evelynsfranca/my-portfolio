@@ -1,5 +1,5 @@
+import ProjectSlider from "@/app/home/features/projects/components/ProjectSlider";
 import ButtonLink from "@/components/Button/Link";
-import Slider from "@/components/Slider";
 import { projects } from "@/data/projects/projects";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
@@ -9,6 +9,7 @@ import styles from "./index.module.css";
 export default function ProjectsSection() {
 
     const [slideItems, setSlideItems] = useState<number>(0);
+    const [contentLoaded, setContentLoaded] = useState<boolean>(false);
 
     useEffect(() => {
         let documentSize = document.body.offsetWidth;
@@ -19,6 +20,7 @@ export default function ProjectsSection() {
             setSlideItems(2);
         else
             setSlideItems(1);
+
     }, []);
 
     return (
@@ -30,21 +32,21 @@ export default function ProjectsSection() {
                 </header>
 
                 <div className={styles.content}>
-                    <Slider
-                        itemsList={projects.slice(0, 6)}
-                        totalItems={projects.slice(0, 6).length + 1}
+                    <ProjectSlider
+                        cardClass="projectCard"
+                        totalItems={7}
                         slideItemsQuantity={slideItems}
                         gridRows={1}
                         gridColumns={slideItems}
                         gridFlow="column"
-                        gridGap={slideItems > 1 ? 2 : 0}
-                        heightAutoAdjust={true}
-                        cardClass="projectCard"
+                        gridGap={2}
+                        contentLoaded={contentLoaded}
                     >
-                        {projects.slice(0, 6).map(it => (
+                        {projects.slice(0, 6).map((it, i) => (
                             <ProjectCard
-                                key={it.id}
+                                key={i}
                                 className="projectCard"
+                                contentLoaded={(result) => setContentLoaded(result)}
                                 {...it}
                             />
                         ))}
@@ -59,7 +61,7 @@ export default function ProjectsSection() {
                                 icon={faChevronRight}
                             />
                         </div>
-                    </Slider>
+                    </ProjectSlider>
                 </div>
 
             </article>

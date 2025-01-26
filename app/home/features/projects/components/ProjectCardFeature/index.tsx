@@ -8,11 +8,12 @@ import styles from "./index.module.css";
 
 export interface ProjectCardFeatureProps {
     className: string;
+    contentLoaded: (result: boolean) => void;
 }
 
 export default function ProjectCardFeature(props: ProjectCardFeatureProps & ProjectModel) {
 
-    const { id, name, shortDescription, versions, className } = props;
+    const { id, name, shortDescription, versions, className, contentLoaded } = props;
 
     const [showDetails, setShowDetails] = useState<boolean>(false);
     const [image, setImage] = useState<string>("");
@@ -35,7 +36,10 @@ export default function ProjectCardFeature(props: ProjectCardFeatureProps & Proj
 
 
     useEffect(() => {
-        image && setLoading(false);
+        if (image) {
+            setLoading(false);
+            contentLoaded(true);
+        }
     }, [image]);
 
     return (
