@@ -6,6 +6,11 @@ export interface ProjectImageModel {
     url: string;
 }
 
+export interface ProjectTechnologyModel {
+    name: string;
+    version?: string;
+}
+
 export interface ProjectRepositoryModel {
     name: "GitLab" | "GitHub";
     ref: "API" | "App";
@@ -24,7 +29,7 @@ export interface ProjectVersion {
     type: ProjectType;
     createdAt: string;
     updatedAt: string;
-    technologies: string[];
+    technologies: ProjectTechnologyModel[];
 }
 
 export interface ProjectModel {

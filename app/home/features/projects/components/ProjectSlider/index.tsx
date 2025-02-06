@@ -135,7 +135,7 @@ export default function ProjectSlider(props: ProjectSliderProps) {
 
     useEffect(() => {
         setCardWidth(document.getElementsByClassName(cardClass)[0].clientWidth)
-    }, [contentLoaded]);
+    }, [contentLoaded, cardWidth]);
 
     useEffect(() => {
         let gap = gridGap && gridColumns

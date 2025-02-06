@@ -3,9 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import { useEffect } from "react";
 import styles from "./index.module.css";
+import { ProjectTechnologyModel } from "@/models/ProjectModel";
 
 export interface ProjectTechnologiesProps {
-  technologies: string[];
+  technologies: ProjectTechnologyModel[];
 }
 
 export default function ProjectTechnologies(props: ProjectTechnologiesProps) {
@@ -29,7 +30,7 @@ export default function ProjectTechnologies(props: ProjectTechnologiesProps) {
           && technologies
             .map((it) =>
               technologiesList
-                .filter(j => it.includes(j.name))
+                .filter(j => it.name === j.name)
                 .map(k => (
                   <div
                     key={k.name}
@@ -55,7 +56,7 @@ export default function ProjectTechnologies(props: ProjectTechnologiesProps) {
                         />
                       )}
 
-                    <span>{it}</span>
+                    <span>{it.name} {it.version && (<> - {it.version}</>)}</span>
                   </div>
                 ))
             )

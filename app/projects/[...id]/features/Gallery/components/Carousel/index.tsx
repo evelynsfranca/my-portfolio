@@ -4,6 +4,7 @@ import { ProjectImageModel } from "@/models/ProjectModel";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons/faXmark";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 import { useEffect } from "react";
 import styles from "./index.module.css";
 
@@ -93,15 +94,25 @@ export default function ProjectCarousel(props: ProjectCarouselProps) {
                             <div className={styles.images}>
 
                                 {images.map((it, i) => (
-                                    <div
-                                        key={it.url}
-                                        className={`${styles.image} ${imageIndex == i && styles.imageActive}`}
-                                        style={{
-                                            backgroundImage: `url(${it.url})`
-                                        }}
+                                    <figure
+                                        key={i}
+                                        className={`${styles.figure} ${imageIndex == i && styles.active}`}
                                     >
-                                        <span>{it.alt.trim()}</span>
-                                    </div>
+                                        <Image
+                                            className={styles.image}
+                                            src={it.url}
+                                            alt={it.alt}
+                                            height={0}
+                                            width={0}
+                                            sizes="100vw"
+                                        />
+
+                                        <figcaption
+                                            className={styles.description}
+                                        >
+                                            <span>{it.alt}</span>
+                                        </figcaption>
+                                    </figure>
                                 ))}
                             </div>
                         </div>

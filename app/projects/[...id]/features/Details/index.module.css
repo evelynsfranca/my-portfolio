@@ -49,6 +49,7 @@
     letter-spacing: 0.75px;
     margin: 2rem 0 3rem;
     padding: 1rem 2rem;
+    text-align: center;
 
     width: fit-content;
 }
@@ -63,6 +64,7 @@
     justify-self: center;
     letter-spacing: 0.75px;
     padding: 0 2rem 1rem;
+    text-align: center;
 
     width: fit-content;
 }
@@ -83,6 +85,10 @@
     font-size: var(--text-font-size);
     line-height: 1.875rem;
     text-indent: 2rem;
+    hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    word-break: normal;
 }
 
 .content article > ul {

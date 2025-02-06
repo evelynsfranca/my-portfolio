@@ -23,6 +23,9 @@ export default function ProjectCardFeature(props: ProjectCardFeatureProps & Proj
         let documentSize = document.body.offsetWidth;
         let mobile = documentSize < 640;
 
+        if (mobile)
+            setShowDetails(true);
+        
         async function fetchImage() {
 
             await fetchImages(id, versions[0].tag, mobile)

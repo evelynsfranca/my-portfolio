@@ -58,6 +58,10 @@
     font-size: var(--text-font-size);
     line-height: 1.875rem;
     text-indent: 2rem;
+    hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    word-break: normal;
 }
 
 .versions {

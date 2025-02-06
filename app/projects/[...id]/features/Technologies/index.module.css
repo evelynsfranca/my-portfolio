@@ -21,6 +21,7 @@
     letter-spacing: 0.75px;
     margin-bottom: 3rem;
     padding: 0 2rem 1rem;
+    text-align: center;
 
     width: fit-content;
 }
@@ -29,9 +30,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-wrap: wrap;
     gap: 1rem;
+    max-height: 15.75rem;
 
-    padding: 1rem;
+    padding: 1rem 0;
 }
 
 .technology {
@@ -39,7 +42,7 @@
     align-items: center;
     gap: 1rem;
 
-    font-size: 1.15rem;
+    font-size: 1rem;
 }
 
 .technology img,
@@ -49,7 +52,7 @@
 }
 
 @media screen and (max-width: 640px) {
-    .images {
-        padding: 3rem 1rem;
+    .content {
+        flex-wrap: nowrap;
     }
 }

@@ -23,7 +23,9 @@ export default function Loading(props: LoadingProps) {
       iterations: Infinity
     };
 
-    document.querySelector(".fa-spinner")?.animate(spinning, timing);
+    document
+      .querySelectorAll(".fa-spinner")
+      ?.forEach(it => it.animate(spinning, timing));
   }
 
   useEffect(() => {
