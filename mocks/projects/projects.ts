@@ -18,11 +18,11 @@ export const projects: ProjectModel[] = [
           {
             name: "GitHub",
             ref: "API",
-            link: "https://github.com/evelynsfranca/Dgusto_La_Pizza"
+            link: "https://github.com/evelynsfranca/Dgusto_La_Pizza/tree/main/back"
           }
         ],
         links: {
-          app: "https://dgusto-la-pizza.vercel.app/",
+          app: "https://dgusto-la-pizza-coral.vercel.app/",
           api: ""
         },
         description: process.env.BLOB_HOSTNAME + "/projects/details/dgusto-la-pizza/1.6.0/description.html",
